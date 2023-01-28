@@ -9,6 +9,7 @@ import { CompleteOrder } from '../components/dashboard/completeOrder';
 import { TotalProfit } from '../components/dashboard/total-profit';
 import { OrderStatus } from '../components/dashboard/orderStatus';
 import { DashboardLayout } from '../components/dashboard-layout';
+import { Test } from '../components/dashboard/test';
 
 const Page = () => (
   <>
@@ -54,6 +55,15 @@ const Page = () => (
             sm={6}
             xs={12}
           >
+            <Test />
+          </Grid>
+          <Grid
+            item
+            xl={3}
+            lg={3}
+            sm={6}
+            xs={12}
+          >
             <OrderPending />
           </Grid>
           <Grid
@@ -83,7 +93,7 @@ const Page = () => (
           >
             <OrderStatus sx={{ height: '100%' }} />
           </Grid>
-          <Grid
+          {/* <Grid
             item
             lg={12}
             md={18}
@@ -91,7 +101,7 @@ const Page = () => (
             xs={12}
           >
             <LatestProducts sx={{ height: '100%' }} />
-          </Grid>
+          </Grid> */}
         </Grid>
       </Container>
     </Box>
