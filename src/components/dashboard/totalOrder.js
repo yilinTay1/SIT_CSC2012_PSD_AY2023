@@ -39,6 +39,19 @@ export const TotalOrder = (props) => (
             <MoneyIcon />
           </Avatar>
         </Grid>
+        
+        <Grid item>
+          <Avatar
+            sx={{
+              backgroundColor: '#921d2d',
+              height: 56,
+              width: 56
+            }}
+          >
+            <Typography />
+          </Avatar>
+        </Grid>
+
       </Grid>
     </CardContent>
   </Card>
