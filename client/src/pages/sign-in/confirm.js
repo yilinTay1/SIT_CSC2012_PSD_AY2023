@@ -69,7 +69,7 @@ const Page = () => {
 
   useEffect(() => {
     confirm().catch(console.error);
-  }, []);
+  }, [confirm]);
 
   if (isLoading) {
     return (

@@ -12,3 +12,8 @@
 
 - Views are on: `localhost:3000`
 
+## To view customer view
+git checkout xl-customer
+
+## To view admin view
+git checkout yilin-admin

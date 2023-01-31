@@ -1,6 +1,6 @@
 import React, { useRef , useEffect } from 'react'
 
-export default function testserver()
+export default function TestServer()
 {
     const runOnce = useRef(true)
     //--------------------------------------------------------------------------------------------------------------------
@@ -29,7 +29,7 @@ export default function testserver()
                                     } )
                 .catch( err      => console.log( err) )
         }
-    },[])              
+    },[runOnce])              
     //--------------------------------------------------------------------------------------------------------------------
     return(   
             <>

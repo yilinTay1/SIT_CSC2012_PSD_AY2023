@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  frontend:
+    container_name: Frontend
+    build:
+      dockerfile: Dockerfile
+      context: ./client
+    volumes:
+      - ./client:/client
+    ports:
+      - 3000:3000
+    restart: unless-stopped     
+    image: frontend
+  backend:
+    container_name: Backend
+    build:
+      dockerfile: Dockerfile
+      context: ./server
+    volumes:
+      - ./server:/server
+    ports:
+      - 5000:5000
+    restart: unless-stopped
+    image: backend
+# docker compose up
