@@ -1,17 +1,32 @@
-import express from 'express'
-import cors    from 'cors'
+const express    = require('express')
+const cors       = require('cors')
 /*-------------------------------------------------------*/
-const port    = 5000
-const app     = express()
+const port       = 5000
+const app        = express()
 /*-------------------------------------------------------*/
-app.use(cors())
-app.use(express.json())
+app.use( express.json() )
+app.use( cors() )
+/*-------------------------------------------------------*/
 app.listen(port, () => 
 {
     console.log(`Server listening on the port:${port}`);
 });
 /*-------------------------------------------------------*/
-app.post('/login' , async(req,res)=>{
-    const { id , password } = req.body;
-    res.status(200).json({ 'id': id , 'password': password})
+app.get('/' , async(req,res)=>{
+    res.status(200).json({ 'message': `Server listening on the port:${port}`})
 })
+/*-------------------------------------------------------*/
+app.post('/login' , async(req,res)=>{
+    if(req.method == 'POST')
+    {
+        const { id , password } = req.body
+        console.log( '1', id, password )
+        res.status(200).json( {'id' : id , 'password' : password } )
+    }
+    else
+    {
+        res.status(404).json( {'error' : 'invalid request' } )
+    }
+
+})
+/*-------------------------------------------------------*/

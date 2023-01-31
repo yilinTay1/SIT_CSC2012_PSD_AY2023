@@ -17,4 +17,3 @@ git checkout xl-customer
 
 ## To view admin view
 git checkout yilin-admin
-

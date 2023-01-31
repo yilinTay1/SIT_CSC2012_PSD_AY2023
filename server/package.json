@@ -10,10 +10,10 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "test":  "node --version",
+    "test": "node --version",
     "start": "nodemon",
-    "dev":   "nodemon",
-    "prod":  "node server.js"
+    "dev": "nodemon",
+    "prod": "node server.js"
   },
   "author": "",
   "license": "ISC"
