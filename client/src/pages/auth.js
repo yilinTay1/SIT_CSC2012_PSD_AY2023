@@ -19,7 +19,24 @@ export default function Auth()
                                     e.preventDefault()
                                     signInWithEmailAndPassword( auth , email , password )
                                                 .then((result) => {
-                                                                        console.log(result)
+                                                                        const end_point = 'http://localhost:5000/api/authenticate'
+                                                                        const request_headers = {
+                                                                                                    method : 'POST',
+                                                                                                    headers : {
+                                                                                                                'Content-Type' : 'application/json'
+                                                                                                              },
+                                                                                                    body : JSON.stringify(
+                                                                                                                            { 
+                                                                                                                                email    : email , 
+                                                                                                                                password : password,
+                                                                                                                                oAuth    : result, 
+                                                                                                                            }
+                                                                                                                         )
+                                                                                                }
+                                                                        fetch( end_point , request_headers )
+                                                                            .then(  response => response.json()       )
+                                                                            .then(  response => console.log(response) )
+                                                                            .catch( err      => console.log(err)      )
                                                                   })
                                                 .catch((error) => {
                                                                         console.log(error)
