@@ -1,4 +1,3 @@
-import "./firebase/config"
 const express    = require('express')
 const cors       = require('cors')
 /*-------------------------------------------------------*/
@@ -17,17 +16,12 @@ app.get('/' , async(req,res)=>{
     res.status(200).json({ 'message': `Server listening on the port:${port}`})
 })
 /*-------------------------------------------------------*/
-app.post('/login' , async(req,res)=>{
-    if(req.method == 'POST')
+app.post('/api/authenticate' , async(req,res)=>{
+    const { id , password } = req.body
+    if(id != null && password != null)
     {
-        const { id , password } = req.body
-        console.log( '1', id, password )
+        console.log( id, password )
         res.status(200).json( {'id' : id , 'password' : password } )
     }
-    else
-    {
-        res.status(404).json( {'error' : 'invalid request' } )
-    }
-
 })
 /*-------------------------------------------------------*/
