@@ -30,12 +30,20 @@ export default function Auth()
                                                                                                                                 email    : email , 
                                                                                                                                 password : password,
                                                                                                                                 oAuth    : result, 
+                                                                                                                                cookie   : {
+                                                                                                                                              httpOnly : true ,
+                                                                                                                                              authenticated : true,
+                                                                                                                                              session : '123',
+                                                                                                                                           } 
                                                                                                                             }
                                                                                                                          )
                                                                                                 }
                                                                         fetch( end_point , request_headers )
                                                                             .then(  response => response.json()       )
-                                                                            .then(  response => console.log(response) )
+                                                                            .then(  response => {
+                                                                                                    console.log(response);
+                                                                                                    console.log('Success!');
+                                                                                                })
                                                                             .catch( err      => console.log(err)      )
                                                                   })
                                                 .catch((error) => {
