@@ -3,15 +3,12 @@ import NextLink from 'next/link';
 import Router from 'next/router';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { Box, Button, Container, Grid, Link, TextField, Typography } from '@mui/material';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import { Facebook as FacebookIcon } from '../icons/facebook';
-import { Google as GoogleIcon } from '../icons/google';
+import { Box, Button, Container, Link, TextField, Typography } from '@mui/material';
 
 const Login = () => {
   const formik = useFormik({
     initialValues: {
-      email: 'demo@devias.io',
+      email: 'hello@wortheats.com',
       password: 'Password123'
     },
     validationSchema: Yup.object({
@@ -35,7 +32,7 @@ const Login = () => {
   return (
     <>
       <Head>
-        <title>Login | Material Kit</title>
+        <title> Login (Business) | WorthEats</title>
       </Head>
       <Box
         component="main"
@@ -47,84 +44,30 @@ const Login = () => {
         }}
       >
         <Container maxWidth="sm">
-          <NextLink
-            href="/"
-            passHref
-          >
-            <Button
-              component="a"
-              startIcon={<ArrowBackIcon fontSize="small" />}
-            >
-              Dashboard
-            </Button>
-          </NextLink>
+          <img
+            src="/static/Logo.png"
+            alt="logo"
+            width="300"
+            height="300"
+            style={{ display: 'block', margin: 'auto' }}
+          />
           <form onSubmit={formik.handleSubmit}>
             <Box sx={{ my: 3 }}>
               <Typography
                 color="textPrimary"
                 variant="h4"
               >
-                Sign in
+                Business Login
               </Typography>
-              <Typography
-                color="textSecondary"
-                gutterBottom
-                variant="body2"
-              >
-                Sign in on the internal platform
-              </Typography>
-            </Box>
-            <Grid
-              container
-              spacing={3}
-            >
-              <Grid
-                item
-                xs={12}
-                md={6}
-              >
-                <Button
-                  color="info"
-                  fullWidth
-                  startIcon={<FacebookIcon />}
-                  onClick={() => formik.handleSubmit()}
-                  size="large"
-                  variant="contained"
-                >
-                  Login with Facebook
-                </Button>
-              </Grid>
-              <Grid
-                item
-                xs={12}
-                md={6}
-              >
-                <Button
-                  color="error"
-                  fullWidth
-                  onClick={() => formik.handleSubmit()}
-                  size="large"
-                  startIcon={<GoogleIcon />}
-                  variant="contained"
-                >
-                  Login with Google
-                </Button>
-              </Grid>
-            </Grid>
-            <Box
-              sx={{
-                pb: 1,
-                pt: 3
-              }}
-            >
               <Typography
                 align="center"
                 color="textSecondary"
                 variant="body1"
               >
-                or login with email address
+                Login with email address
               </Typography>
             </Box>
+
             <TextField
               error={Boolean(formik.touched.email && formik.errors.email)}
               fullWidth
@@ -153,14 +96,14 @@ const Login = () => {
             />
             <Box sx={{ py: 2 }}>
               <Button
-                color="primary"
+                color="secondary"
                 disabled={formik.isSubmitting}
                 fullWidth
                 size="large"
                 type="submit"
                 variant="contained"
               >
-                Sign In Now
+                Sign In
               </Button>
             </Box>
             <Typography
