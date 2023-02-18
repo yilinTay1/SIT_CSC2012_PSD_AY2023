@@ -75,14 +75,14 @@ const Register = () => {
       >
         <Container maxWidth="sm">
           <NextLink
-            href="/"
+            href="/login"
             passHref
           >
             <Button
               component="a"
-              startIcon={<ArrowBackIcon fontSize="small" />}
+              startIcon={<ArrowBackIcon fontSize="small"/>}
             >
-              Dashboard
+              Login
             </Button>
           </NextLink>
           <form onSubmit={formik.handleSubmit}>

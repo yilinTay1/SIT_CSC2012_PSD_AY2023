@@ -51,7 +51,7 @@ const Login = () => {
   return (
     <>
       <Head>
-        <title>Login | Material Kit</title>
+        <title> Login (Business) | WorthEats</title>
       </Head>
       <Box
         component="main"
@@ -81,7 +81,7 @@ const Login = () => {
                 color="textPrimary"
                 variant="h4"
               >
-                Sign in
+                Business Login
               </Typography>
               <Typography
                 color="textSecondary"
@@ -139,9 +139,10 @@ const Login = () => {
                 color="textSecondary"
                 variant="body1"
               >
-                or login with email address
+                Login with email address
               </Typography>
             </Box>
+
             <TextField
               //error={Boolean(formik.touched.email && formik.errors.email)}
               fullWidth
@@ -181,7 +182,7 @@ const Login = () => {
                 type="submit"
                 variant="contained"
               >
-                Sign In Now
+                Sign In
               </Button>
             </Box>
             <Typography

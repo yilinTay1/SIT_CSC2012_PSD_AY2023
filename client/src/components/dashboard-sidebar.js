@@ -24,12 +24,12 @@ const items = [
     title: 'Dashboard'
   },
   {
-    href: '/customers',
+    href: '/order',
     icon: (<UsersIcon fontSize="medium" />),
     title: 'Order'
   },
   {
-    href: '/products',
+    href: '/history',
     icon: (<FastfoodIcon  fontSize="medium" />),
     title: 'History'
   },
@@ -78,9 +78,9 @@ export const DashboardSidebar = (props) => {
               passHref
             >
                 <img
-                  src="/static/Logo.png" 
+                  src="/static/Logo.png"
                   alt="logo"
-                  width="220" 
+                  width="220"
                   height="220"
                 />
             </NextLink>
@@ -109,9 +109,6 @@ export const DashboardSidebar = (props) => {
                   color="rgb(255,255,255)"
                   variant="h7"
                 >
-                  Your tier
-                  {' '}
-                  :  Premium
                 </Typography>
               </div>
             </Box>

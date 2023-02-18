@@ -12,6 +12,7 @@ import { DashboardLayout } from '../components/dashboard-layout';
 import { Test } from '../components/dashboard/test';
 import { Secured } from '../components/firebase-auth/Secured'
 
+
 const Page = () => (
   <>
     <Head>
@@ -56,15 +57,6 @@ const Page = () => (
             sm={6}
             xs={12}
           >
-            <Test />
-          </Grid>
-          <Grid
-            item
-            xl={3}
-            lg={3}
-            sm={6}
-            xs={12}
-          >
             <OrderPending />
           </Grid>
           <Grid
@@ -94,7 +86,7 @@ const Page = () => (
           >
             <OrderStatus sx={{ height: '100%' }} />
           </Grid>
-          {/* <Grid
+          <Grid
             item
             lg={12}
             md={18}
@@ -102,7 +94,7 @@ const Page = () => (
             xs={12}
           >
             <LatestProducts sx={{ height: '100%' }} />
-          </Grid> */}
+          </Grid>
         </Grid>
       </Container>
     </Box>
