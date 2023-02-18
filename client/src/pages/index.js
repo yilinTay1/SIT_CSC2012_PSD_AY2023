@@ -9,6 +9,9 @@ import { CompleteOrder } from '../components/dashboard/completeOrder';
 import { TotalProfit } from '../components/dashboard/total-profit';
 import { OrderStatus } from '../components/dashboard/orderStatus';
 import { DashboardLayout } from '../components/dashboard-layout';
+import { Test } from '../components/dashboard/test';
+import { Secured } from '../components/firebase-auth/Secured'
+
 
 const Page = () => (
   <>
@@ -100,6 +103,7 @@ const Page = () => (
 
 Page.getLayout = (page) => (
   <DashboardLayout>
+    <Secured />
     {page}
   </DashboardLayout>
 );
