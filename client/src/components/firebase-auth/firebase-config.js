@@ -1,4 +1,5 @@
 import { initializeApp } from "firebase/app";
+import { getAuth , EmailAuthProvider } from 'firebase/auth'
 
 const firebaseConfig = {
   apiKey: "AIzaSyA5ZVpdDSlAEyapUY3dBI36TIsNWd7jGZA",
@@ -10,4 +11,6 @@ const firebaseConfig = {
   measurementId: "G-2KNQ2QB29G"
 };
 
-const app = initializeApp(firebaseConfig);
+export const firebase_app                 = initializeApp(firebaseConfig);
+export const firebase_auth                = getAuth(firebase_app);
+export const firebase_auth_email_provider = new EmailAuthProvider()

@@ -1,36 +1,52 @@
 import Head from 'next/head';
 import NextLink from 'next/link';
 import Router from 'next/router';
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
+//import { useFormik } from 'formik';
+//import * as Yup from 'yup';
 import { Box, Button, Container, Grid, Link, TextField, Typography } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Facebook as FacebookIcon } from '../icons/facebook';
 import { Google as GoogleIcon } from '../icons/google';
 
+import { EmailPassword , Google }  from '../components/firebase-auth/EmailPassword'
+import React, { useRef , useState , useEffect }   from 'react'
+
 const Login = () => {
-  const formik = useFormik({
-    initialValues: {
-      email: 'demo@devias.io',
-      password: 'Password123'
-    },
-    validationSchema: Yup.object({
-      email: Yup
-        .string()
-        .email('Must be a valid email')
-        .max(255)
-        .required('Email is required'),
-      password: Yup
-        .string()
-        .max(255)
-        .required('Password is required')
-    }),
-    onSubmit: () => {
-      Router
-        .push('/')
-        .catch(console.error);
-    }
-  });
+
+  // const formik = useFormik({
+  //   initialValues: {
+  //     email: 'demo@devias.io',
+  //     password: 'Password123'
+  //   },
+  //   validationSchema: Yup.object({
+  //     email: Yup
+  //       .string()
+  //       .email('Must be a valid email')
+  //       .max(255)
+  //       .required('Email is required'),
+  //     password: Yup
+  //       .string()
+  //       .max(255)
+  //       .required('Password is required')
+  //   }),
+  //   onSubmit: () => {
+  //     Router
+  //       .push('/')
+  //       .catch(console.error);
+  //   }
+  // });
+
+  const [email    , setEmail   ] = useState('test@test.com');
+  const [password , setPassword] = useState('123456');
+
+  function signInwithEmail(e) {
+                                  e.preventDefault()
+                                  if(EmailPassword.auth(email,password))
+                                  {
+                                    sessionStorage.setItem("account", email)
+                                    window.location.href = '/';
+                                  }
+                              }
 
   return (
     <>
@@ -58,7 +74,8 @@ const Login = () => {
               Dashboard
             </Button>
           </NextLink>
-          <form onSubmit={formik.handleSubmit}>
+          {/* <form onSubmit={formik.handleSubmit}> */}
+          <form onSubmit={signInwithEmail}>
             <Box sx={{ my: 3 }}>
               <Typography
                 color="textPrimary"
@@ -87,7 +104,7 @@ const Login = () => {
                   color="info"
                   fullWidth
                   startIcon={<FacebookIcon />}
-                  onClick={() => formik.handleSubmit()}
+                  //onClick={() => formik.handleSubmit()}
                   size="large"
                   variant="contained"
                 >
@@ -102,7 +119,7 @@ const Login = () => {
                 <Button
                   color="error"
                   fullWidth
-                  onClick={() => formik.handleSubmit()}
+                  //onClick={() => formik.handleSubmit()}
                   size="large"
                   startIcon={<GoogleIcon />}
                   variant="contained"
@@ -126,35 +143,39 @@ const Login = () => {
               </Typography>
             </Box>
             <TextField
-              error={Boolean(formik.touched.email && formik.errors.email)}
+              //error={Boolean(formik.touched.email && formik.errors.email)}
               fullWidth
-              helperText={formik.touched.email && formik.errors.email}
+              //helperText={formik.touched.email && formik.errors.email}
               label="Email Address"
               margin="normal"
               name="email"
-              onBlur={formik.handleBlur}
-              onChange={formik.handleChange}
+              //onBlur={formik.handleBlur}
+              //onChange={formik.handleChange}
+              onChange={ (e) => setEmail(e.target.value) }
               type="email"
-              value={formik.values.email}
+              value={email}
+              //value={formik.values.email}
               variant="outlined"
             />
             <TextField
-              error={Boolean(formik.touched.password && formik.errors.password)}
+              //error={Boolean(formik.touched.password && formik.errors.password)}
               fullWidth
-              helperText={formik.touched.password && formik.errors.password}
+              //helperText={formik.touched.password && formik.errors.password}
               label="Password"
               margin="normal"
               name="password"
-              onBlur={formik.handleBlur}
-              onChange={formik.handleChange}
+              //onBlur={formik.handleBlur}
+              //onChange={formik.handleChange}
+              onChange={ (e) => setPassword(e.target.value) }
               type="password"
-              value={formik.values.password}
+              value={password}
+              //value={formik.values.password}
               variant="outlined"
             />
             <Box sx={{ py: 2 }}>
               <Button
                 color="primary"
-                disabled={formik.isSubmitting}
+                //disabled={formik.isSubmitting}
                 fullWidth
                 size="large"
                 type="submit"

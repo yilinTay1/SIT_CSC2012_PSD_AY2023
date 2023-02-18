@@ -7,6 +7,7 @@ import { customers } from '../__mocks__/customers';
 import { TotalOrder } from '../components/dashboard/totalOrder';
 import { CompleteOrder } from '../components/dashboard/completeOrder';
 import { OrderPending } from '../components/dashboard/orderPending';
+import { Secured } from '../components/firebase-auth/Secured'
 
 const Page = () => (
   <>
@@ -34,6 +35,7 @@ const Page = () => (
 
 Page.getLayout = (page) => (
   <DashboardLayout>
+    <Secured />
     {page}
   </DashboardLayout>
 );

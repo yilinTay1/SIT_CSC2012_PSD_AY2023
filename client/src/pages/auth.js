@@ -1,7 +1,6 @@
-import '../config/firebase-config';
-import { getAuth , EmailAuthProvider , signInWithEmailAndPassword } from 'firebase/auth'
-import React, { useRef , useState , useEffect }   from 'react'
+import { EmailPassword , Google }  from '../components/firebase-auth/EmailPassword'
 
+import React, { useRef , useState , useEffect }   from 'react'
 import Head from 'next/head';
 import NextLink from 'next/link';
 import { Box, Button, Container, Grid, Link, TextField, Typography } from '@mui/material';
@@ -12,44 +11,20 @@ export default function Auth()
     const [email    , setEmail   ] = useState('test@test.com');
     const [password , setPassword] = useState('123456');
 
-    const provider = new EmailAuthProvider()
-    const auth     = getAuth();
-
     function signInwithEmail(e) {
                                     e.preventDefault()
-                                    signInWithEmailAndPassword( auth , email , password )
-                                                .then((result) => {
-                                                                        const end_point = 'http://localhost:5000/api/authenticate'
-                                                                        const request_headers = {
-                                                                                                    method : 'POST',
-                                                                                                    headers : {
-                                                                                                                'Content-Type' : 'application/json'
-                                                                                                              },
-                                                                                                    body : JSON.stringify(
-                                                                                                                            { 
-                                                                                                                                email    : email , 
-                                                                                                                                password : password,
-                                                                                                                                oAuth    : result, 
-                                                                                                                                cookie   : {
-                                                                                                                                              httpOnly : true ,
-                                                                                                                                              authenticated : true,
-                                                                                                                                              session : '123',
-                                                                                                                                           } 
-                                                                                                                            }
-                                                                                                                         )
-                                                                                                }
-                                                                        fetch( end_point , request_headers )
-                                                                            .then(  response => response.json()       )
-                                                                            .then(  response => {
-                                                                                                    console.log(response);
-                                                                                                    console.log('Success!');
-                                                                                                })
-                                                                            .catch( err      => console.log(err)      )
-                                                                  })
-                                                .catch((error) => {
-                                                                        console.log(error)
-                                                                  })
-                               }
+
+                                    EmailPassword.auth(email,password)
+                                    Google.auth(password)
+
+                                                  sessionStorage.clear()
+                                    let account = sessionStorage.getItem("account")
+                                    console.log("Account",account)
+                                                  sessionStorage.setItem("account","user 1")
+                                        account = sessionStorage.getItem("account")
+                                                  
+                                    console.log("Account",account)
+                                }
     return(   
             <>
                 <Head>
