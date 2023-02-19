@@ -15,7 +15,7 @@ import {
 } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
-import { EmailPassword , Google }  from '../components/firebase-auth/EmailPassword'
+import { EmailPassword , Google }  from '../components/firebase/EmailPassword'
 import React, { useRef , useState , useEffect }   from 'react'
 
 const Register = () => {
