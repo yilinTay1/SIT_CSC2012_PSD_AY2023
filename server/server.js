@@ -31,33 +31,16 @@ app.listen(port, () =>
     console.log(`Server listening on the port:${port}`);
 });
 /*-------------------------------------------------------*/
-app.get('/' , async(req,res)=>{
+app.get('/' , (req,res)=>{
     res.status(200).json({ 'message': `Server listening on the port:${port}`})
 })
 /*-------------------------------------------------------*/
-app.post('/api/login' , async(req,res)=>{
-    console.log("/api/login")
-    if(req.session)
-    {
+app.post('/api/test' , (req,res)=>{
 
-    }
-    else
-    {
-
-    }
-    res.status(200)
+    console.log(req.sessionID)
+    console.log(req.params)
+    console.log(req.params.data)
+    console.log(req.params.id)
+    console.log(req.params.password)
+    res.json( { msg: "/api/test" } )
 })
-/*-------------------------------------------------------*/
-app.post('/login' , async(req,res)=>{
-    console.log("/login")
-    if(req.session)
-    {
-
-    }
-    else
-    {
-        
-    }
-    res.status(200)
-})
-/*-------------------------------------------------------*/
