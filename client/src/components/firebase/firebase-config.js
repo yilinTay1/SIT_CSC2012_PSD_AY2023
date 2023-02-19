@@ -1,5 +1,7 @@
-import { initializeApp } from "firebase/app";
+import { initializeApp }               from "firebase/app";
 import { getAuth , EmailAuthProvider } from 'firebase/auth'
+import { getDatabase }                 from 'firebase/database'
+import   Database                      from "./Database"
 
 const firebaseConfig = {
   apiKey: "AIzaSyA5ZVpdDSlAEyapUY3dBI36TIsNWd7jGZA",
@@ -13,4 +15,6 @@ const firebaseConfig = {
 
 export const firebase_app                 = initializeApp(firebaseConfig);
 export const firebase_auth                = getAuth(firebase_app);
+export const firebase_db                  = getDatabase(firebase_app);
 export const firebase_auth_email_provider = new EmailAuthProvider()
+

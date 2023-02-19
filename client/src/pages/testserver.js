@@ -1,3 +1,4 @@
+import Database from '../components/firebase/Database'
 import React, { useRef , useEffect } from 'react'
 import axios from 'axios'
 
@@ -6,6 +7,10 @@ export default function TestServer()
     const runOnce = useRef(true)
     const getData = async() => 
     {
+        const result = await Database.get()
+        console.log( "Result1 : " , result )
+
+
         const data = {
                             id       : "test_id"  ,
                             password : "passworrd"
