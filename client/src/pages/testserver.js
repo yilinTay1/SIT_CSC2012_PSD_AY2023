@@ -1,33 +1,32 @@
 import React, { useRef , useEffect } from 'react'
+import axios from 'axios'
 
 export default function TestServer()
 {
     const runOnce = useRef(true)
+    const getData = async() => 
+    {
+        const data = {
+                            id       : "test_id"  ,
+                            password : "passworrd"
+                     }
+                     
+        axios.post( 'http://localhost:5000/api/test', data )
+            .then( response => {
+                                    return response.data
+                               })
+            .then( response => {
+                                    console.log(response)
+                               })
+            .catch( err => console.log(err) )
+    }
     //--------------------------------------------------------------------------------------------------------------------
     useEffect(  () =>
     {
         if( runOnce.current )
         {
             runOnce.current = false
-            const endpoint    = '/login'
-            const credentials =     {
-                                        'id'       : 'test_id',
-                                        'password' : 'test_password'
-                                    }
-            const request_headers = {
-                                        method     : 'POST',
-                                        headers:{
-                                                    'Content-Type' : 'application/json',
-                                                },
-                                        body       : JSON.stringify(credentials) 
-                                    }
-            fetch( endpoint , request_headers )
-                .then(  response => response.json() )
-                .then(  response => {
-                                        const { id , password } = response
-                                        console.log( response, id , password )
-                                    } )
-                .catch( err      => console.log( err) )
+            getData()
         }
     },[runOnce])              
     //--------------------------------------------------------------------------------------------------------------------
