@@ -1,8 +1,8 @@
 import Head from 'next/head';
 import NextLink from 'next/link';
 import Router from 'next/router';
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
+// import { useFormik } from 'formik';
+// import * as Yup from 'yup';
 import {
   Box,
   Button,
@@ -15,47 +15,74 @@ import {
 } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
+import { EmailPassword , Google }  from '../components/firebase-auth/EmailPassword'
+import React, { useRef , useState , useEffect }   from 'react'
+
 const Register = () => {
-  const formik = useFormik({
-    initialValues: {
-      email: '',
-      firstName: '',
-      lastName: '',
-      password: '',
-      policy: false
-    },
-    validationSchema: Yup.object({
-      email: Yup
-        .string()
-        .email('Must be a valid email')
-        .max(255)
-        .required(
-          'Email is required'),
-      firstName: Yup
-        .string()
-        .max(255)
-        .required('First name is required'),
-      lastName: Yup
-        .string()
-        .max(255)
-        .required('Last name is required'),
-      password: Yup
-        .string()
-        .max(255)
-        .required('Password is required'),
-      policy: Yup
-        .boolean()
-        .oneOf(
-          [true],
-          'This field must be checked'
-        )
-    }),
-    onSubmit: () => {
-      Router
-        .push('/')
-        .catch(console.error);
-    }
-  });
+  
+  // const formik = useFormik({
+  //   initialValues: {
+  //     email: '',
+  //     firstName: '',
+  //     lastName: '',
+  //     password: '',
+  //     policy: false
+  //   },
+  //   validationSchema: Yup.object({
+  //     email: Yup
+  //       .string()
+  //       .email('Must be a valid email')
+  //       .max(255)
+  //       .required(
+  //         'Email is required'),
+  //     firstName: Yup
+  //       .string()
+  //       .max(255)
+  //       .required('First name is required'),
+  //     lastName: Yup
+  //       .string()
+  //       .max(255)
+  //       .required('Last name is required'),
+  //     password: Yup
+  //       .string()
+  //       .max(255)
+  //       .required('Password is required'),
+  //     policy: Yup
+  //       .boolean()
+  //       .oneOf(
+  //         [true],
+  //         'This field must be checked'
+  //       )
+  //   }),
+  //   onSubmit: () => {
+  //     Router
+  //       .push('/')
+  //       .catch(console.error);
+  //   }
+  // });
+
+  const [email    , setEmail   ] = useState('');
+  const [password , setPassword] = useState('');
+  const runOnce                  = useRef(true)
+  useEffect(() => {
+                      if( runOnce.current )
+                      {
+                        runOnce.current = false
+                      }
+                  }, [runOnce])
+
+  async function registerWithEmail(e) {
+                                    e.preventDefault()
+                                    const result = await EmailPassword.register(email,password)
+                                    if( result )
+                                    {
+                                      console.log("Valid registration!",result)
+                                    }
+                                    else
+                                    {
+                                      console.log("Invalid registration!",result)
+                                    }
+                                }
 
   return (
     <>
@@ -85,7 +112,8 @@ const Register = () => {
               Login
             </Button>
           </NextLink>
-          <form onSubmit={formik.handleSubmit}>
+          {/* <form onSubmit={formik.handleSubmit}> */}
+          <form onSubmit={registerWithEmail}>
             <Box sx={{ my: 3 }}>
               <Typography
                 color="textPrimary"
@@ -102,53 +130,57 @@ const Register = () => {
               </Typography>
             </Box>
             <TextField
-              error={Boolean(formik.touched.firstName && formik.errors.firstName)}
+              //error={Boolean(formik.touched.firstName && formik.errors.firstName)}
               fullWidth
-              helperText={formik.touched.firstName && formik.errors.firstName}
+              //helperText={formik.touched.firstName && formik.errors.firstName}
               label="First Name"
               margin="normal"
               name="firstName"
-              onBlur={formik.handleBlur}
-              onChange={formik.handleChange}
-              value={formik.values.firstName}
+              //onBlur={formik.handleBlur}
+              //onChange={formik.handleChange}
+              //value={formik.values.firstName}
               variant="outlined"
             />
             <TextField
-              error={Boolean(formik.touched.lastName && formik.errors.lastName)}
+              //error={Boolean(formik.touched.lastName && formik.errors.lastName)}
               fullWidth
-              helperText={formik.touched.lastName && formik.errors.lastName}
+              //helperText={formik.touched.lastName && formik.errors.lastName}
               label="Last Name"
               margin="normal"
               name="lastName"
-              onBlur={formik.handleBlur}
-              onChange={formik.handleChange}
-              value={formik.values.lastName}
+              //onBlur={formik.handleBlur}
+              //onChange={formik.handleChange}
+              //value={formik.values.lastName}
               variant="outlined"
             />
             <TextField
-              error={Boolean(formik.touched.email && formik.errors.email)}
+              //error={Boolean(formik.touched.email && formik.errors.email)}
               fullWidth
-              helperText={formik.touched.email && formik.errors.email}
+              //helperText={formik.touched.email && formik.errors.email}
               label="Email Address"
               margin="normal"
               name="email"
-              onBlur={formik.handleBlur}
-              onChange={formik.handleChange}
+              //onBlur={formik.handleBlur}
+              //onChange={formik.handleChange}
+              onChange={ (e) => setEmail(e.target.value) }
               type="email"
-              value={formik.values.email}
+              value={email}
+              //value={formik.values.email}
               variant="outlined"
             />
             <TextField
-              error={Boolean(formik.touched.password && formik.errors.password)}
+              //error={Boolean(formik.touched.password && formik.errors.password)}
               fullWidth
-              helperText={formik.touched.password && formik.errors.password}
+              //helperText={formik.touched.password && formik.errors.password}
               label="Password"
               margin="normal"
               name="password"
-              onBlur={formik.handleBlur}
-              onChange={formik.handleChange}
+              //onBlur={formik.handleBlur}
+              //onChange={formik.handleChange}
+              onChange={ (e) => setPassword(e.target.value) }
               type="password"
-              value={formik.values.password}
+              value={password}
+              //value={formik.values.password}
               variant="outlined"
             />
             <Box
@@ -159,9 +191,9 @@ const Register = () => {
               }}
             >
               <Checkbox
-                checked={formik.values.policy}
+                //checked={formik.values.policy}
                 name="policy"
-                onChange={formik.handleChange}
+                //onChange={formik.handleChange}
               />
               <Typography
                 color="textSecondary"
@@ -183,15 +215,15 @@ const Register = () => {
                 </NextLink>
               </Typography>
             </Box>
-            {Boolean(formik.touched.policy && formik.errors.policy) && (
+            {/* {Boolean(formik.touched.policy && formik.errors.policy) && (
               <FormHelperText error>
                 {formik.errors.policy}
               </FormHelperText>
-            )}
+            )} */}
             <Box sx={{ py: 2 }}>
               <Button
                 color="primary"
-                disabled={formik.isSubmitting}
+                //disabled={formik.isSubmitting}
                 fullWidth
                 size="large"
                 type="submit"

@@ -11,7 +11,7 @@ export const AccountPopover = (props) => {
 
   const handleSignOut = async () => {
     onClose?.();
-
+      sessionStorage.clear()
       // Redirect to sign-in page
       Router
         .push('/login')

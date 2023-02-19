@@ -15,6 +15,7 @@ export const Secured = ( { Component, pageProps } ) =>
                               console.log("I am not authenticated!")
                               window.location.href = '/login';
                           }
+
                       }, [])
     }
   </>

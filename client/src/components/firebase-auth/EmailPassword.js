@@ -1,20 +1,36 @@
 import { firebase_app , firebase_auth , firebase_auth_email_provider } from './firebase-config';
-import { signInWithEmailAndPassword }                                  from 'firebase/auth'
+import { signInWithEmailAndPassword , createUserWithEmailAndPassword } from 'firebase/auth'
 
 module.exports = 
 {
     EmailPassword:
     {
-        auth: function( email, password )
+        auth: async function( email, password )
         {
-            return signInWithEmailAndPassword( firebase_auth , email , password )
+            if(email == "" || password == "") return false
+            return await signInWithEmailAndPassword( firebase_auth , email , password )
                         .then((result) => {
-                                                
                                                 return true
                                           })
                         .catch((error) => {
                                                 return false
                                           })
+        },
+        register: async function( email, password )
+        {
+            console.log("(First)")
+            if(email == "" || password == "") return false
+            console.log("(Second)")
+            return await createUserWithEmailAndPassword( firebase_auth , email , password )
+                        .then((result) => {
+                            
+                                                console.log("(Third)result = ",result)
+                                                return true
+                                          })
+                        .catch((error) => {
+                                                console.log("(Third)error = ",error)
+                                                return false
+                                          });
         }
     }, 
 

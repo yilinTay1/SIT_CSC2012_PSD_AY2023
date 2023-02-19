@@ -38,10 +38,27 @@ const Login = () => {
 
   const [email    , setEmail   ] = useState('test@test.com');
   const [password , setPassword] = useState('123456');
+  const runOnce                  = useRef(true)
+  useEffect(() => {
+                      if( runOnce.current )
+                      {
+                        runOnce.current = false
+                        const token = sessionStorage.getItem('account');
+                        if (token) {
+                            console.log("I am authenticated!")
+                        }
+                        else
+                        {
+                            console.log("I am not authenticated!")
+                        }
+                      }
+                  }, [runOnce])
 
-  function signInwithEmail(e) {
+
+  async function signInwithEmail(e) {
                                   e.preventDefault()
-                                  if(EmailPassword.auth(email,password))
+                                  const result = await EmailPassword.auth(email,password)
+                                  if( result )
                                   {
                                     sessionStorage.setItem("account", email)
                                     window.location.href = '/';
