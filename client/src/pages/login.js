@@ -8,7 +8,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Facebook as FacebookIcon } from '../icons/facebook';
 import { Google as GoogleIcon } from '../icons/google';
 
-import { EmailPassword , Google }  from '../components/firebase-auth/EmailPassword'
+import { EmailPassword , Google }  from '../components/firebase/EmailPassword'
 import React, { useRef , useState , useEffect }   from 'react'
 
 const Login = () => {
