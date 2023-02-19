@@ -4,6 +4,7 @@ import { HistoryListResults } from '../components/history/history-list-results';
 import { HistoryListToolbar } from '../components/history/history-list-toolbar';
 import { DashboardLayout } from '../components/dashboard-layout';
 import { customers } from '../__mocks__/profitDaily';
+import { Secured } from '../components/firebase-auth/Secured'
 
 const Page = () => (
   <>
@@ -31,6 +32,7 @@ const Page = () => (
 
 Page.getLayout = (page) => (
   <DashboardLayout>
+    <Secured/>
     {page}
   </DashboardLayout>
 );

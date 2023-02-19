@@ -35,28 +35,29 @@ app.get('/' , async(req,res)=>{
     res.status(200).json({ 'message': `Server listening on the port:${port}`})
 })
 /*-------------------------------------------------------*/
-app.post('/api/authenticate' , async(req,res)=>{
-    if(req.session.authenticated)
+app.post('/api/login' , async(req,res)=>{
+    console.log("/api/login")
+    if(req.session)
     {
-        console.log( 'User already authenticated' )
-        res.json( req.session )
+
     }
     else
     {
-        const { email , password , oAuth } = req.body
-        const clientSession = req.session
-        console.log('clientSession' , clientSession)
-        if( email && password && oAuth )
-        {
-            console.log(  'New user logged in' )
-            req.session.authenticated = true
-            res.json( clientSession )
-        }
-        else
-        {
-            console.log(  'Invalid user' )
-            res.status(401).json( { 'err' : 'Invalid user' } )
-        }
+
     }
+    res.status(200)
+})
+/*-------------------------------------------------------*/
+app.post('/login' , async(req,res)=>{
+    console.log("/login")
+    if(req.session)
+    {
+
+    }
+    else
+    {
+        
+    }
+    res.status(200)
 })
 /*-------------------------------------------------------*/

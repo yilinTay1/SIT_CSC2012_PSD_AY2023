@@ -9,7 +9,7 @@ export default function TestServer()
         if( runOnce.current )
         {
             runOnce.current = false
-            const endpoint    = 'http://localhost:5000/login'
+            const endpoint    = '/login'
             const credentials =     {
                                         'id'       : 'test_id',
                                         'password' : 'test_password'
@@ -25,7 +25,7 @@ export default function TestServer()
                 .then(  response => response.json() )
                 .then(  response => {
                                         const { id , password } = response
-                                        console.log( id , password )
+                                        console.log( response, id , password )
                                     } )
                 .catch( err      => console.log( err) )
         }
