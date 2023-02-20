@@ -17,7 +17,7 @@ export default function TestServer()
     return(   
             <>
                 <center>
-                    <h2>This page is to test the server connection..</h2>
+                    <h2>This page is to test the firebase database</h2>
                     <Transactions />
                 </center>
             </>

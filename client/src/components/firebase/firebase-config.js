@@ -14,6 +14,6 @@ const firebaseConfig = {
 
 export const firebase_app                 = initializeApp( firebaseConfig );
 export const firebase_auth                = getAuth(       firebase_app   );
-export const firebase_db                  = getFirestore(  firebase_app   );
+export const firebase_fs                  = getFirestore(  firebase_app   );
 export const firebase_auth_email_provider = new EmailAuthProvider()
 
