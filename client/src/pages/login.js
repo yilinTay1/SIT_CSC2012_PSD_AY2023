@@ -8,8 +8,8 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Facebook as FacebookIcon } from '../icons/facebook';
 import { Google as GoogleIcon } from '../icons/google';
 
-import { EmailPassword , Google }  from '../components/firebase/EmailPassword'
-import React, { useRef , useState , useEffect }   from 'react'
+import { EmailPassword , Google }               from '../components/firebase/EmailPassword'
+import React, { useRef , useState , useEffect } from 'react'
 
 const Login = () => {
 
@@ -56,14 +56,16 @@ const Login = () => {
 
 
   async function signInwithEmail(e) {
-                                  e.preventDefault()
-                                  const result = await EmailPassword.auth(email,password)
-                                  if( result )
-                                  {
-                                    sessionStorage.setItem("account", email)
-                                    window.location.href = '/';
-                                  }
-                              }
+                                        e.preventDefault()
+                                        const result = await EmailPassword.auth(email,password)
+                                        if( result )
+                                        {
+                                          sessionStorage.setItem("account", email)
+                                          console.log("Redirecting...")
+                                          window.location.href = '/';
+                                        }
+                                        console.log("Unable to authenticate")
+                                    }
 
   return (
     <>

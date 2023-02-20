@@ -10,9 +10,11 @@ module.exports =
             if(email == "" || password == "") return false
             return await signInWithEmailAndPassword( firebase_auth , email , password )
                         .then((result) => {
+                                                console.log("Authentication successful")
                                                 return true
                                           })
                         .catch((error) => {
+                                                console.log("Authentication failed",error)
                                                 return false
                                           })
         },
