@@ -60,9 +60,9 @@ const Login = () => {
                                         const result = await EmailPassword.auth(email,password)
                                         if( result )
                                         {
-                                          sessionStorage.setItem("account", email)
                                           console.log("Redirecting...")
                                           window.location.href = '/';
+                                          return
                                         }
                                         console.log("Unable to authenticate")
                                     }

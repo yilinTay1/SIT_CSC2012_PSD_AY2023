@@ -10,6 +10,9 @@ module.exports =
             if(email == "" || password == "") return false
             return await signInWithEmailAndPassword( firebase_auth , email , password )
                         .then((result) => {
+                                                sessionStorage.setItem("account", result.user.email)
+                                                sessionStorage.setItem("uid"    , result.user.uid  )
+                                                console.log(result)
                                                 console.log("Authentication successful")
                                                 return true
                                           })
