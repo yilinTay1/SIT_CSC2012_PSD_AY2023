@@ -1,4 +1,4 @@
-import { formatDistanceToNow, subHours } from 'date-fns';
+import { subHours } from 'date-fns';
 import { v4 as uuid } from 'uuid';
 import {
   Box,
@@ -20,32 +20,32 @@ const products = [
     id: uuid(),
     name: 'Wonton Noodles, No Vegetables',
     imageUrl: '/static/images/products/product_1.jpg',
-    updatedAt: subHours(Date.now(), 2),
+    uploadTime: subHours(Date.now(), 2),
     qty: 8
   },
   {
     id: uuid(),
     name: 'Bubble Tea, No Bubble',
     imageUrl: '/static/images/products/product_2.jpg',
-    updatedAt: subHours(Date.now(), 2),
+    uploadTime: subHours(Date.now(), 2),
     qty: 2
   },
   {
     id: uuid(),
     name: 'Double Cheeseburger, No Cheese',
     imageUrl: '/static/images/products/product_3.jpg',
-    updatedAt: subHours(Date.now(), 3),
+    uploadTime: subHours(Date.now(), 3),
     qty: 5
-  },
+  }
 ];
 
-export const LatestProducts = (props) => (
+export const LatestListings = (props) => (
   <Card {...props}>
     <CardHeader
       subtitle={`${products.length} in total`}
       title="Latest Listings"
     />
-    <Divider />
+    <Divider/>
     <List>
       {products.map((product, i) => (
         <ListItem
@@ -71,12 +71,12 @@ export const LatestProducts = (props) => (
             edge="end"
             size="small"
           >
-            <UnfoldMoreIcon />
+            <UnfoldMoreIcon/>
           </IconButton>
         </ListItem>
       ))}
     </List>
-    <Divider />
+    <Divider/>
     <Box
       sx={{
         display: 'flex',
@@ -86,7 +86,7 @@ export const LatestProducts = (props) => (
     >
       <Button
         color="secondary"
-        endIcon={<ArrowRightIcon />}
+        endIcon={<ArrowRightIcon/>}
         size="small"
         variant="text"
       >

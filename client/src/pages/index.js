@@ -1,12 +1,12 @@
 import Head from 'next/head';
 import { Box, Container, Grid } from '@mui/material';
 import { TotalOrder } from '../components/dashboard/totalOrder';
-import { LatestOrders } from '../components/dashboard/latest-orders';
-import { LatestProducts } from '../components/dashboard/latest-products';
-import { Sales } from '../components/dashboard/sales';
+import { LatestOrders } from '../components/dashboard/latestOrders';
+import { LatestListings } from '../components/dashboard/latestListings';
+import { LatestSales } from '../components/dashboard/latestSales';
 import { OrderPending } from '../components/dashboard/orderPending';
-import { CompleteOrder } from '../components/dashboard/completeOrder';
-import { TotalProfit } from '../components/dashboard/total-profit';
+import { OrderCompleted } from '../components/dashboard/orderCompleted';
+import { TotalProfit } from '../components/dashboard/totalProfit';
 import { OrderStatus } from '../components/dashboard/orderStatus';
 import { DashboardLayout } from '../components/dashboard-layout';
 import { Test } from '../components/dashboard/test';
@@ -60,7 +60,7 @@ const Page = () => {
                 sm={6}
                 xs={12}
               >
-                <CompleteOrder />
+                <OrderCompleted />
               </Grid>
               <Grid
                 item
@@ -87,7 +87,7 @@ const Page = () => {
                 xl={9}
                 xs={12}
               >
-                <Sales />
+                <LatestSales />
               </Grid>
               <Grid
                 item
@@ -105,7 +105,7 @@ const Page = () => {
                 xl={18}
                 xs={12}
               >
-                <LatestProducts sx={{ height: '100%' }} />
+                <LatestListings sx={{ height: '100%' }} />
               </Grid>
             </Grid>
           </Container>

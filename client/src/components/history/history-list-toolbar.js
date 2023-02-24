@@ -11,9 +11,9 @@ import { Search as SearchIcon } from '../../icons/search';
 import { Upload as UploadIcon } from '../../icons/upload';
 import { Download as DownloadIcon } from '../../icons/download';
 import { TotalOrder } from '../dashboard/totalOrder';
-import { CompleteOrder } from '../dashboard/completeOrder';
+import { OrderCompleted } from '../dashboard/orderCompleted';
 import { OrderPending } from '../dashboard/orderPending';
-import { TotalProfit } from '../dashboard/total-profit';
+import { TotalProfit } from '../dashboard/totalProfit';
 
 export const HistoryListToolbar = (props) => (
   <Box {...props}>

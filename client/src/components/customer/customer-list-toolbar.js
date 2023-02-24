@@ -11,7 +11,7 @@ import { Search as SearchIcon } from '../../icons/search';
 import { Upload as UploadIcon } from '../../icons/upload';
 import { Download as DownloadIcon } from '../../icons/download';
 import { TotalOrder } from '../dashboard/totalOrder';
-import { CompleteOrder } from '../dashboard/completeOrder';
+import { OrderCompleted } from '../dashboard/orderCompleted';
 import { OrderPending } from '../dashboard/orderPending';
 
 export const CustomerListToolbar = (props) => (
@@ -52,7 +52,7 @@ export const CustomerListToolbar = (props) => (
           sm={6}
           xs={12}
         >
-          <CompleteOrder/>
+          <OrderCompleted/>
         </Grid>
         <Grid
           item

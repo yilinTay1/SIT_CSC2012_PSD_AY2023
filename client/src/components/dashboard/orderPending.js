@@ -1,4 +1,4 @@
-import { Avatar, Box, Card, CardContent, Grid, LinearProgress, Typography } from '@mui/material';
+import { Avatar, Card, CardContent, Grid, Typography } from '@mui/material';
 import InsertChartIcon from '@mui/icons-material/AddShoppingCartOutlined';
 import React, { useRef , useState , useEffect }         from 'react'
 import { firebase_app , firebase_fs }                   from '../firebase/firebase-config';
@@ -70,7 +70,7 @@ export const OrderPending = (props) => {
               width: 56
             }}
           >
-            <InsertChartIcon />
+            <InsertChartIcon/>
           </Avatar>
         </Grid>
       </Grid>
