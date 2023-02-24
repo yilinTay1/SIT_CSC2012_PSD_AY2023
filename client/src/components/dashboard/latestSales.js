@@ -3,7 +3,7 @@ import { Box, Button, Card, CardContent, CardHeader, Divider, useTheme } from '@
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 
-export const Sales = (props) => {
+export const LatestSales = (props) => {
   const theme = useTheme();
 
   const data = {
@@ -15,21 +15,11 @@ export const Sales = (props) => {
         borderRadius: 4,
         categoryPercentage: 0.5,
         data: [18, 5, 19, 27, 29, 19, 20],
-        label: 'This year',
+        label: 'Monthly Profit ($)',
         maxBarThickness: 10
       },
-      {
-        backgroundColor: '#EEEEEE',
-        barPercentage: 0.5,
-        barThickness: 12,
-        borderRadius: 4,
-        categoryPercentage: 0.5,
-        data: [11, 20, 12, 29, 30, 25, 13],
-        label: 'Last year',
-        maxBarThickness: 10
-      }
     ],
-    labels: ['1 Aug', '2 Aug', '3 Aug', '4 Aug', '5 Aug', '6 Aug', '7 aug']
+    labels: [ "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
   };
 
   const options = {
@@ -86,7 +76,7 @@ export const Sales = (props) => {
       <CardHeader
         action={(
           <Button
-            endIcon={<ArrowDropDownIcon fontSize="small" />}
+            endIcon={<ArrowDropDownIcon fontSize="small"/>}
             size="small"
             color="secondary"
           >
@@ -96,7 +86,7 @@ export const Sales = (props) => {
         title="Latest Sales"
 
       />
-      <Divider />
+      <Divider/>
       <CardContent>
         <Box
           sx={{
@@ -110,7 +100,7 @@ export const Sales = (props) => {
           />
         </Box>
       </CardContent>
-      <Divider />
+      <Divider/>
       <Box
         sx={{
           display: 'flex',
@@ -120,7 +110,7 @@ export const Sales = (props) => {
       >
         <Button
           color="secondary"
-          endIcon={<ArrowRightIcon fontSize="small" />}
+          endIcon={<ArrowRightIcon fontSize="small"/>}
           size="small"
         >
           Overview

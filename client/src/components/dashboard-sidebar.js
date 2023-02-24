@@ -16,12 +16,18 @@ import { XCircle as XCircleIcon } from '../icons/x-circle';
 import { Logo } from './logo';
 import { NavItem } from './nav-item';
 import FastfoodIcon from '@mui/icons-material/Fastfood';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 
 const items = [
   {
     href: '/',
     icon: (<ChartBarIcon fontSize="medium" />),
     title: 'Dashboard'
+  },
+  {
+    href: '/addListing',
+    icon: (<AddCircleIcon fontSize="medium" />),
+    title: 'Add Listing'
   },
   {
     href: '/order',

@@ -1,7 +1,6 @@
 import { Doughnut } from 'react-chartjs-2';
 import { Box, Card, CardContent, CardHeader, Divider, Typography, useTheme } from '@mui/material';
 import LaptopMacIcon from '@mui/icons-material/Pending';
-import PhoneIcon from '@mui/icons-material/Phone';
 import TabletIcon from '@mui/icons-material/CheckCircle';
 
 export const OrderStatus = (props) => {
@@ -59,8 +58,8 @@ export const OrderStatus = (props) => {
 
   return (
     <Card {...props}>
-      <CardHeader title="Order Status" />
-      <Divider />
+      <CardHeader title="Order Status"/>
+      <Divider/>
       <CardContent>
         <Box
           sx={{
@@ -93,7 +92,7 @@ export const OrderStatus = (props) => {
                 textAlign: 'center'
               }}
             >
-              <Icon color="action" />
+              <Icon color="action"/>
               <Typography
                 color="textPrimary"
                 variant="body1"

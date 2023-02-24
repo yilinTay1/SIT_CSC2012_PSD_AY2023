@@ -1,5 +1,4 @@
-import { Avatar, Box, Card, CardContent, Grid, Typography } from '@mui/material';
-import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import { Avatar, Card, CardContent, Grid, Typography } from '@mui/material';
 import MoneyIcon from '@mui/icons-material/Money';
 
 export const TotalOrder = (props) => (
@@ -36,7 +35,7 @@ export const TotalOrder = (props) => (
               width: 56
             }}
           >
-            <MoneyIcon />
+            <MoneyIcon/>
           </Avatar>
         </Grid>
       </Grid>
