@@ -19,7 +19,7 @@ import { EmailPassword , Google }  from '../components/firebase/EmailPassword'
 import React, { useRef , useState , useEffect }   from 'react'
 
 const Register = () => {
-  
+
   // const formik = useFormik({
   //   initialValues: {
   //     email: '',
@@ -102,7 +102,7 @@ const Register = () => {
       >
         <Container maxWidth="sm">
           <NextLink
-            href="/login"
+            href="/business/login"
             passHref
           >
             <Button
@@ -239,7 +239,7 @@ const Register = () => {
               Have an account?
               {' '}
               <NextLink
-                href="/login"
+                href="/business/login"
                 passHref
               >
                 <Link

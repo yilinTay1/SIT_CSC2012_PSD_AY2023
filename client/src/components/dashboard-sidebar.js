@@ -20,27 +20,27 @@ import AddCircleIcon from '@mui/icons-material/AddCircle';
 
 const items = [
   {
-    href: '/',
+    href: '/business/dashboard',
     icon: (<ChartBarIcon fontSize="medium" />),
     title: 'Dashboard'
   },
   {
-    href: '/addListing',
+    href: '/business/addListing',
     icon: (<AddCircleIcon fontSize="medium" />),
     title: 'Add Listing'
   },
   {
-    href: '/order',
+    href: '/business/order',
     icon: (<UsersIcon fontSize="medium" />),
     title: 'Order'
   },
   {
-    href: '/history',
+    href: '/business/history',
     icon: (<FastfoodIcon  fontSize="medium" />),
     title: 'History'
   },
   {
-    href: '/settings',
+    href: '/business/settings',
     icon: (<CogIcon fontSize="medium" />),
     title: 'Settings'
   },

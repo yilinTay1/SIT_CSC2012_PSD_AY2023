@@ -5,10 +5,10 @@ import Router from 'next/router';
 //import * as Yup from 'yup';
 import { Box, Button, Container, Grid, Link, TextField, Typography } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import { Facebook as FacebookIcon } from '../icons/facebook';
-import { Google as GoogleIcon } from '../icons/google';
+import { Facebook as FacebookIcon } from '../../icons/facebook';
+import { Google as GoogleIcon } from '../../icons/google';
 
-import { EmailPassword , Google }               from '../components/firebase/EmailPassword'
+import { EmailPassword , Google }               from '../../components/firebase/EmailPassword'
 import React, { useRef , useState , useEffect } from 'react'
 
 const Login = () => {
@@ -61,7 +61,7 @@ const Login = () => {
                                         if( result )
                                         {
                                           console.log("Redirecting...")
-                                          window.location.href = '/';
+                                          window.location.href = '/business/dashboard';
                                           return
                                         }
                                         console.log("Unable to authenticate")
@@ -211,10 +211,10 @@ const Login = () => {
               Don&apos;t have an account?
               {' '}
               <NextLink
-                href="/register"
+                href="/business/register"
               >
                 <Link
-                  to="/register"
+                  to="/business/register"
                   variant="subtitle2"
                   underline="hover"
                   sx={{
