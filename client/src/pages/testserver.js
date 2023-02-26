@@ -1,6 +1,10 @@
 import React, { useRef , useEffect } from 'react'
 import axios from 'axios'
-import { Transactions } from '../components/firebase/Transactions'
+import { firebase_app , firebase_fs }       from '../components/firebase/firebase-config';
+import { Transactions }                     from '../components/firebase/Transactions'
+import { collection , getDocs , doc , setDoc , addDoc } from 'firebase/firestore'
+import { v4 as uuid } from 'uuid';
+
 
 export default function TestServer()
 {
@@ -10,7 +14,18 @@ export default function TestServer()
     {
         if( runOnce.current )
         {
-            runOnce.current = false           
+            runOnce.current = false 
+            try
+            {
+                const uid = sessionStorage.getItem('uid')
+                console.log(uid)
+                //const customer =  doc(firebase_fs , 'profitDaily', uid)
+                //setDoc( customer , customers )
+            }
+            catch(err)
+            {
+                console.log('Firebase error : ', err)
+            }
         }
     },[runOnce])              
     //--------------------------------------------------------------------------------------------------------------------

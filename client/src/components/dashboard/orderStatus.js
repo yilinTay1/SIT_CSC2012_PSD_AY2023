@@ -1,16 +1,50 @@
 import { Doughnut } from 'react-chartjs-2';
 import { Box, Card, CardContent, CardHeader, Divider, Typography, useTheme } from '@mui/material';
 import LaptopMacIcon from '@mui/icons-material/Pending';
-import PhoneIcon from '@mui/icons-material/Phone';
 import TabletIcon from '@mui/icons-material/CheckCircle';
+import React, { useRef , useState , useEffect }         from 'react'
+import { firebase_app , firebase_fs }                   from '../firebase/firebase-config';
+import { collection , getDocs , doc , setDoc , addDoc, getDoc } from 'firebase/firestore'
 
 export const OrderStatus = (props) => {
   const theme = useTheme();
 
+  const [ ordersPending , setOrdersPending ] = useState(0)
+  const [ ordersCompleted , setOrdersCompleted ] = useState(0)
+  const runOnce = useRef(true)
+  //--------------------------------------------------------------------------------------------------------------------
+  useEffect( () =>
+  {
+      if( runOnce.current )
+      {
+          runOnce.current = false 
+          try
+          {
+              const uid = sessionStorage.getItem('uid')
+              if(uid)
+              {
+                const customer =  doc(firebase_fs , 'orders', uid)
+                getDoc(customer).then( response => response.data() )
+                                .then( response =>{
+                                  const { orderCompleted , orderPending , totalOrder } = response
+                                  setOrdersCompleted(orderCompleted)
+                                  setOrdersPending(orderPending)
+                                })
+                                .catch( err =>  {}  )
+              }
+          }
+          catch(err)
+          {
+              console.log('Firebase error : ', err)
+          }
+      }
+  },[runOnce])              
+  //--------------------------------------------------------------------------------------------------------------------
+
   const data = {
     datasets: [
       {
-        data: [8, 2],
+        data: [ordersCompleted, ordersPending],    // [8, 2]
         backgroundColor: ['#020202', '#e40b16'],
         borderWidth: 8,
         borderColor: '#FFFFFF',
@@ -19,6 +53,8 @@ export const OrderStatus = (props) => {
     ],
     labels: ['Completed', 'Pending']
   };
+
+  
 
   const options = {
     animation: false,
@@ -45,13 +81,13 @@ export const OrderStatus = (props) => {
   const devices = [
     {
       title: 'Completed',
-      value: 8,
+      value: ordersCompleted,  // 8
       icon: LaptopMacIcon,
       color: '#020202'
     },
     {
       title: 'Pending',
-      value: 2,
+      value: ordersPending,  // 2
       icon: TabletIcon,
       color: '#E53935'
     }
@@ -59,8 +95,8 @@ export const OrderStatus = (props) => {
 
   return (
     <Card {...props}>
-      <CardHeader title="Order Status" />
-      <Divider />
+      <CardHeader title="Order Status"/>
+      <Divider/>
       <CardContent>
         <Box
           sx={{
@@ -93,7 +129,7 @@ export const OrderStatus = (props) => {
                 textAlign: 'center'
               }}
             >
-              <Icon color="action" />
+              <Icon color="action"/>
               <Typography
                 color="textPrimary"
                 variant="body1"

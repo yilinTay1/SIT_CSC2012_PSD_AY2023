@@ -1,9 +1,43 @@
-import { Avatar, Box, Card, CardContent, Grid, Typography } from '@mui/material';
-import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import { Avatar, Card, CardContent, Grid, Typography } from '@mui/material';
 import MoneyIcon from '@mui/icons-material/Money';
+import React, { useRef , useState , useEffect }         from 'react'
+import { firebase_app , firebase_fs }                   from '../firebase/firebase-config';
+import { collection , getDocs , doc , setDoc , addDoc, getDoc } from 'firebase/firestore'
 
-export const TotalOrder = (props) => (
-  <Card
+export const TotalOrder = (props) => {
+
+  const [ totalProfit , setTotalProfit ] = useState(0)
+  const runOnce = useRef(true)
+  //--------------------------------------------------------------------------------------------------------------------
+  useEffect( () =>
+  {
+      if( runOnce.current )
+      {
+          runOnce.current = false 
+          try
+          {
+              const uid = sessionStorage.getItem('uid')
+              if(uid)
+              {
+                const customer =  doc(firebase_fs , 'orders', uid)
+                getDoc(customer).then( response => response.data() )
+                                .then( response =>{
+                                  const { orderCompleted , orderPending , totalOrder } = response
+                                  setTotalProfit(totalOrder)
+                                })
+                                .catch( err => {} )
+              }
+          }
+          catch(err)
+          {
+              console.log('Firebase error : ', err)
+          }
+      }
+  },[runOnce])              
+  //--------------------------------------------------------------------------------------------------------------------
+
+  return(
+    <Card
     sx={{ height: '100%' }}
     {...props}
   >
@@ -25,7 +59,7 @@ export const TotalOrder = (props) => (
             color="textPrimary"
             variant="h1"
           >
-            10
+            {totalProfit}
           </Typography>
         </Grid>
         <Grid item>
@@ -36,10 +70,11 @@ export const TotalOrder = (props) => (
               width: 56
             }}
           >
-            <MoneyIcon />
+            <MoneyIcon/>
           </Avatar>
         </Grid>
       </Grid>
     </CardContent>
   </Card>
-);
+  )
+};

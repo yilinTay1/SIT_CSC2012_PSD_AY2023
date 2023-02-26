@@ -1,10 +1,10 @@
 import Head from 'next/head';
 import { Box, Container } from '@mui/material';
-import { HistoryListResults } from '../components/history/history-list-results';
-import { HistoryListToolbar } from '../components/history/history-list-toolbar';
-import { DashboardLayout } from '../components/dashboard-layout';
-import { customers } from '../__mocks__/profitDaily';
-import { Secured } from '../components/firebase/Secured'
+import { CustomerListResults } from '../../components/customer/customer-list-results';
+import { CustomerListToolbar } from '../../components/customer/customer-list-toolbar';
+import { DashboardLayout } from '../../components/dashboard-layout';
+import { customers } from '../../__mocks__/customers';
+import { Secured } from '../../components/firebase/Secured'
 import React, { useRef , useEffect } from 'react'
 
 const Page = () => {
@@ -15,7 +15,7 @@ const Page = () => {
       if( runOnce.current )
       {
           runOnce.current = false
-          console.log("/history")
+          console.log("/order")
       }
   },[runOnce])
 
@@ -23,7 +23,7 @@ const Page = () => {
           <>
             <Head>
               <title>
-                History | WorthEats
+                Order | WorthEats
               </title>
             </Head>
             <Box
@@ -34,9 +34,9 @@ const Page = () => {
               }}
             >
               <Container maxWidth={false}>
-                <HistoryListToolbar/>
+                <CustomerListToolbar/>
                 <Box sx={{ mt: 3 }}>
-                  <HistoryListResults customers={customers}/>
+                  <CustomerListResults customers={customers}/>
                 </Box>
               </Container>
             </Box>
@@ -46,7 +46,7 @@ const Page = () => {
 
 Page.getLayout = (page) => (
   <DashboardLayout>
-    <Secured/>
+    <Secured />
     {page}
   </DashboardLayout>
 );

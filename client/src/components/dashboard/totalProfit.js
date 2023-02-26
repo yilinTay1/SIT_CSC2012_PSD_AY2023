@@ -1,8 +1,7 @@
-import { Avatar, Box, Card, CardContent, Grid, Typography } from '@mui/material';
-import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
-import PeopleIcon from '@mui/icons-material/ShoppingCartCheckoutOutlined';
+import { Avatar, Card, CardContent, Grid, Typography } from '@mui/material';
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 
-export const CompleteOrder = (props) => (
+export const TotalProfit = (props) => (
   <Card {...props}>
     <CardContent>
       <Grid
@@ -16,13 +15,13 @@ export const CompleteOrder = (props) => (
             gutterBottom
             variant="overline"
           >
-            ORDERS COMPLETED
+            TOTAL PROFIT
           </Typography>
           <Typography
             color="textPrimary"
             variant="h1"
           >
-            8
+            $23k
           </Typography>
         </Grid>
         <Grid item>
@@ -33,18 +32,10 @@ export const CompleteOrder = (props) => (
               width: 56
             }}
           >
-            <PeopleIcon />
+            <AttachMoneyIcon/>
           </Avatar>
         </Grid>
       </Grid>
-      <Box
-        sx={{
-          alignItems: 'center',
-          display: 'flex',
-          pt: 2
-        }}
-      >
-      </Box>
     </CardContent>
   </Card>
 );

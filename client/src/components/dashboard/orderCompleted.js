@@ -1,12 +1,12 @@
-import { Avatar, Card, CardContent, Grid, Typography } from '@mui/material';
-import InsertChartIcon from '@mui/icons-material/AddShoppingCartOutlined';
+import { Avatar, Box, Card, CardContent, Grid, Typography } from '@mui/material';
+import PeopleIcon from '@mui/icons-material/ShoppingCartCheckoutOutlined';
 import React, { useRef , useState , useEffect }         from 'react'
 import { firebase_app , firebase_fs }                   from '../firebase/firebase-config';
 import { collection , getDocs , doc , setDoc , addDoc, getDoc } from 'firebase/firestore'
 
-export const OrderPending = (props) => {
+export const OrderCompleted = (props) => {
   
-  const [ ordersPending , setOrdersPending ] = useState(0)
+  const [ ordersCompleted , setOrdersCompleted ] = useState(0)
   const runOnce = useRef(true)
   //--------------------------------------------------------------------------------------------------------------------
   useEffect( () =>
@@ -23,7 +23,7 @@ export const OrderPending = (props) => {
                 getDoc(customer).then( response => response.data() )
                                 .then( response =>{
                                   const { orderCompleted , orderPending , totalOrder } = response
-                                  setOrdersPending(orderPending)
+                                  setOrdersCompleted(orderCompleted)
                                 })
                                 .catch( err =>  {} )
               }
@@ -37,10 +37,7 @@ export const OrderPending = (props) => {
   //--------------------------------------------------------------------------------------------------------------------
 
   return(
-    <Card
-    sx={{ height: '100%' }}
-    {...props}
-  >
+    <Card {...props}>
     <CardContent>
       <Grid
         container
@@ -53,27 +50,35 @@ export const OrderPending = (props) => {
             gutterBottom
             variant="overline"
           >
-            ORDERS PENDING
+            ORDERS COMPLETED
           </Typography>
           <Typography
             color="textPrimary"
             variant="h1"
           >
-            {ordersPending}
+            {ordersCompleted}
           </Typography>
         </Grid>
         <Grid item>
           <Avatar
             sx={{
-              backgroundColor: '#564d4d',
+              backgroundColor: 'primary.main',
               height: 56,
               width: 56
             }}
           >
-            <InsertChartIcon/>
+            <PeopleIcon/>
           </Avatar>
         </Grid>
       </Grid>
+      <Box
+        sx={{
+          alignItems: 'center',
+          display: 'flex',
+          pt: 2
+        }}
+      >
+      </Box>
     </CardContent>
   </Card>
   )

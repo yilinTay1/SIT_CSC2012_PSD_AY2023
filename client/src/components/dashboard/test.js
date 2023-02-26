@@ -1,6 +1,4 @@
-import { Avatar, Box, Card, CardContent, Grid, Typography } from '@mui/material';
-import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
-import MoneyIcon from '@mui/icons-material/Money';
+import { Avatar, Card, CardContent, Grid, Typography } from '@mui/material';
 import PeopleIcon from '@mui/icons-material/ShoppingCartCheckoutOutlined';
 
 export const Test = (props) => (
@@ -37,7 +35,7 @@ export const Test = (props) => (
               width: 56
             }}
           >
-            <PeopleIcon />
+            <PeopleIcon/>
           </Avatar>
         </Grid>
       </Grid>
