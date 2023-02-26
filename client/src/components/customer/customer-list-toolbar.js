@@ -10,9 +10,9 @@ import {
 import { Search as SearchIcon } from '../../icons/search';
 import { Upload as UploadIcon } from '../../icons/upload';
 import { Download as DownloadIcon } from '../../icons/download';
-import { TotalOrder } from '../dashboard/totalOrder';
-import { OrderCompleted } from '../dashboard/orderCompleted';
-import { OrderPending } from '../dashboard/orderPending';
+import { TotalOrder } from '../business/dashboard/totalOrder';
+import { OrderCompleted } from '../business/dashboard/orderCompleted';
+import { OrderPending } from '../business/dashboard/orderPending';
 
 export const CustomerListToolbar = (props) => (
   <Box {...props}>

@@ -1,19 +1,19 @@
 import { Avatar, Card, CardContent, Grid, Typography } from '@mui/material';
-import MoneyIcon from '@mui/icons-material/Money';
+import InsertChartIcon from '@mui/icons-material/AddShoppingCartOutlined';
 import React, { useRef , useState , useEffect }         from 'react'
-import { firebase_app , firebase_fs }                   from '../firebase/firebase-config';
+import { firebase_app , firebase_fs }                   from '../../firebase/firebase-config';
 import { collection , getDocs , doc , setDoc , addDoc, getDoc } from 'firebase/firestore'
 
-export const TotalOrder = (props) => {
+export const OrderPending = (props) => {
 
-  const [ totalProfit , setTotalProfit ] = useState(0)
+  const [ ordersPending , setOrdersPending ] = useState(0)
   const runOnce = useRef(true)
   //--------------------------------------------------------------------------------------------------------------------
   useEffect( () =>
   {
       if( runOnce.current )
       {
-          runOnce.current = false 
+          runOnce.current = false
           try
           {
               const uid = sessionStorage.getItem('uid')
@@ -23,9 +23,9 @@ export const TotalOrder = (props) => {
                 getDoc(customer).then( response => response.data() )
                                 .then( response =>{
                                   const { orderCompleted , orderPending , totalOrder } = response
-                                  setTotalProfit(totalOrder)
+                                  setOrdersPending(orderPending)
                                 })
-                                .catch( err => {} )
+                                .catch( err =>  {} )
               }
           }
           catch(err)
@@ -33,7 +33,7 @@ export const TotalOrder = (props) => {
               console.log('Firebase error : ', err)
           }
       }
-  },[runOnce])              
+  },[runOnce])
   //--------------------------------------------------------------------------------------------------------------------
 
   return(
@@ -53,13 +53,13 @@ export const TotalOrder = (props) => {
             gutterBottom
             variant="overline"
           >
-            TOTAL ORDER
+            ORDERS PENDING
           </Typography>
           <Typography
             color="textPrimary"
             variant="h1"
           >
-            {totalProfit}
+            {ordersPending}
           </Typography>
         </Grid>
         <Grid item>
@@ -70,7 +70,7 @@ export const TotalOrder = (props) => {
               width: 56
             }}
           >
-            <MoneyIcon/>
+            <InsertChartIcon/>
           </Avatar>
         </Grid>
       </Grid>

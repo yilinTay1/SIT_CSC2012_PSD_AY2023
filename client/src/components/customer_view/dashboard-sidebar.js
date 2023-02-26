@@ -13,7 +13,7 @@ import { User as UserIcon } from '../../icons/user';
 import { UserAdd as UserAddIcon } from '../../icons/user-add';
 import { Users as UsersIcon } from '../../icons/users';
 import { XCircle as XCircleIcon } from '../../icons/x-circle';
-import { Logo } from '../logo';
+import { Logo } from '../business/logo';
 import { NavItem } from '../nav-item';
 import FastfoodIcon from '@mui/icons-material/Fastfood';
 

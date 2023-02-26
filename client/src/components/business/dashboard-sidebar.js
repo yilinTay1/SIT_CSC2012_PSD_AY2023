@@ -2,48 +2,40 @@ import { useEffect } from 'react';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
-import { Box, Button, Divider, Drawer, Typography, useMediaQuery } from '@mui/material';
-import OpenInNewIcon from '@mui/icons-material/OpenInNew';
-import { ChartBar as ChartBarIcon } from '../icons/chart-bar';
-import { Cog as CogIcon } from '../icons/cog';
-import { Lock as LockIcon } from '../icons/lock';
-import { Selector as SelectorIcon } from '../icons/selector';
-import { ShoppingBag as ShoppingBagIcon } from '../icons/shopping-bag';
-import { User as UserIcon } from '../icons/user';
-import { UserAdd as UserAddIcon } from '../icons/user-add';
-import { Users as UsersIcon } from '../icons/users';
-import { XCircle as XCircleIcon } from '../icons/x-circle';
-import { Logo } from './logo';
-import { NavItem } from './nav-item';
+import { Box, Divider, Drawer, Typography, useMediaQuery } from '@mui/material';
+import { ChartBar as ChartBarIcon } from '../../icons/chart-bar';
+import { Cog as CogIcon } from '../../icons/cog';
+import { Users as UsersIcon } from '../../icons/users';
+import { NavItem } from '../nav-item';
 import FastfoodIcon from '@mui/icons-material/Fastfood';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 
 const items = [
   {
     href: '/business/dashboard',
-    icon: (<ChartBarIcon fontSize="medium" />),
+    icon: (<ChartBarIcon fontSize="medium"/>),
     title: 'Dashboard'
   },
   {
     href: '/business/addListing',
-    icon: (<AddCircleIcon fontSize="medium" />),
+    icon: (<AddCircleIcon fontSize="medium"/>),
     title: 'Add Listing'
   },
   {
     href: '/business/order',
-    icon: (<UsersIcon fontSize="medium" />),
+    icon: (<UsersIcon fontSize="medium"/>),
     title: 'Order'
   },
   {
     href: '/business/history',
-    icon: (<FastfoodIcon  fontSize="medium" />),
+    icon: (<FastfoodIcon fontSize="medium"/>),
     title: 'History'
   },
   {
     href: '/business/settings',
-    icon: (<CogIcon fontSize="medium" />),
+    icon: (<CogIcon fontSize="medium"/>),
     title: 'Settings'
-  },
+  }
 ];
 
 export const DashboardSidebar = (props) => {
@@ -80,15 +72,15 @@ export const DashboardSidebar = (props) => {
         <div>
           <Box sx={{ p: 3 }}>
             <NextLink
-              href="/"
+              href="./dashboard"
               passHref
             >
-                <img
-                  src="/static/Logo.png"
-                  alt="logo"
-                  width="220"
-                  height="220"
-                />
+              <img
+                src='/static/Logo.png'
+                alt="logo"
+                width="220"
+                height="220"
+              />
             </NextLink>
           </Box>
           <Box sx={{ px: 2 }}>
@@ -126,7 +118,7 @@ export const DashboardSidebar = (props) => {
             my: 3
           }}
         />
-        <Box sx={{ flexGrow: 1}}>
+        <Box sx={{ flexGrow: 1 }}>
           {items.map((item) => (
             <NavItem
               key={item.title}

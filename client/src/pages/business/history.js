@@ -1,8 +1,8 @@
 import Head from 'next/head';
 import { Box, Container } from '@mui/material';
-import { HistoryListResults } from '../../components/history/history-list-results';
-import { HistoryListToolbar } from '../../components/history/history-list-toolbar';
-import { DashboardLayout } from '../../components/dashboard-layout';
+import { HistoryListResults } from '../../components/business/history/history-list-results';
+import { HistoryListToolbar } from '../../components/business/history/history-list-toolbar';
+import { DashboardLayout } from '../../components/business/dashboard-layout';
 import { customers } from '../../__mocks__/profitDaily';
 import { Secured } from '../../components/firebase/Secured'
 import React, { useRef , useEffect } from 'react'

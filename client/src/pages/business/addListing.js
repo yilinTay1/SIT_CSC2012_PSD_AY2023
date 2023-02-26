@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { Box, Container, Typography } from '@mui/material';
-import { DashboardLayout } from '../../components/dashboard-layout';
-import { SettingsPassword } from '../../components/addListing/settings-password';
+import { DashboardLayout } from '../../components/business/dashboard-layout';
+import { SettingsPassword } from '../../components/business/addListing/settings-password';
 import { Secured } from '../../components/firebase/Secured'
 import React, { useRef , useEffect } from 'react'
 
