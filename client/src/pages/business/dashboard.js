@@ -1,15 +1,15 @@
 import Head from 'next/head';
 import { Box, Container, Grid } from '@mui/material';
-import { TotalOrder } from '../../components/dashboard/totalOrder';
-import { LatestOrders } from '../../components/dashboard/latestOrders';
-import { LatestListings } from '../../components/dashboard/latestListings';
-import { LatestSales } from '../../components/dashboard/latestSales';
-import { OrderPending } from '../../components/dashboard/orderPending';
-import { OrderCompleted } from '../../components/dashboard/orderCompleted';
-import { TotalProfit } from '../../components/dashboard/totalProfit';
-import { OrderStatus } from '../../components/dashboard/orderStatus';
-import { DashboardLayout } from '../../components/dashboard-layout';
-import { Test } from '../../components/dashboard/test';
+import { TotalOrder } from '../../components/business/dashboard/totalOrder';
+import { LatestOrders } from '../../components/business/dashboard/latestOrders';
+import { LatestListings } from '../../components/business/dashboard/latestListings';
+import { LatestSales } from '../../components/business/dashboard/latestSales';
+import { OrderPending } from '../../components/business/dashboard/orderPending';
+import { OrderCompleted } from '../../components/business/dashboard/orderCompleted';
+import { TotalProfit } from '../../components/business/dashboard/totalProfit';
+import { OrderStatus } from '../../components/business/dashboard/orderStatus';
+import { DashboardLayout } from '../../components/business/dashboard-layout';
+import { Test } from '../../components/business/dashboard/test';
 import { Secured } from '../../components/firebase/Secured'
 import React, { useRef , useEffect } from 'react'
 

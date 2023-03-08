@@ -1,11 +1,11 @@
 import { Avatar, Box, Card, CardContent, Grid, Typography } from '@mui/material';
 import PeopleIcon from '@mui/icons-material/ShoppingCartCheckoutOutlined';
 import React, { useRef , useState , useEffect }         from 'react'
-import { firebase_app , firebase_fs }                   from '../firebase/firebase-config';
+import { firebase_app , firebase_fs }                   from '../../firebase/firebase-config';
 import { collection , getDocs , doc , setDoc , addDoc, getDoc } from 'firebase/firestore'
 
 export const OrderCompleted = (props) => {
-  
+
   const [ ordersCompleted , setOrdersCompleted ] = useState(0)
   const runOnce = useRef(true)
   //--------------------------------------------------------------------------------------------------------------------
@@ -13,7 +13,7 @@ export const OrderCompleted = (props) => {
   {
       if( runOnce.current )
       {
-          runOnce.current = false 
+          runOnce.current = false
           try
           {
               const uid = sessionStorage.getItem('uid')
@@ -33,7 +33,7 @@ export const OrderCompleted = (props) => {
               console.log('Firebase error : ', err)
           }
       }
-  },[runOnce])              
+  },[runOnce])
   //--------------------------------------------------------------------------------------------------------------------
 
   return(

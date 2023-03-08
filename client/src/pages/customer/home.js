@@ -30,7 +30,6 @@ const data = [
   // "Rio de Janeiro",
   // "Dublin",
 ];
-
 const Home = () => {
   const runOnce = useRef(true);
   useEffect(() => {

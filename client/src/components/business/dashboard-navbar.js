@@ -4,10 +4,10 @@ import styled from '@emotion/styled';
 import { AppBar, Avatar, Badge, Box, IconButton, Toolbar, Tooltip } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
-import { Bell as BellIcon } from '../icons/bell';
-import { UserCircle as UserCircleIcon } from '../icons/user-circle';
-import { Users as UsersIcon } from '../icons/users';
-import { AccountPopover } from './account-popover';
+import { Bell as BellIcon } from '../../icons/bell';
+import { UserCircle as UserCircleIcon } from '../../icons/user-circle';
+import { Users as UsersIcon } from '../../icons/users';
+import { AccountPopover } from '../account-popover';
 
 const DashboardNavbarRoot = styled(AppBar)(({ theme }) => ({
   backgroundColor: theme.palette.background.paper,

@@ -40,13 +40,6 @@ http://localhost:3000/customer/page_name
 1. There is a navigation folder for top bar navigation
     a. FYI: Login and Main page top bar navigation will look different
 
-localhost: 3000 will show users customer/home
--> top nav bar suppose to look like customer/login but not sure how to make it such that by default, user no need login
-
-UI flow
-will see customer/home page (top nav will not have account logout)
-after customer login (top nav will have account logout and settings shown)
-
 ## FRONTEND NEED HELP FROM BACKEND
 Parts need help will be commented ( //NEED HELP: )
 ### Customer View

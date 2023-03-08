@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import Router from 'next/router';
 import NextLink from 'next/link';
 import { Box, CircularProgress, Typography } from '@mui/material';
-import { Logo } from '../../components/logo';
+import { Logo } from '../../components/business/logo';
 import { useAuthContext } from '../../contexts/auth-context';
 import { auth, ENABLE_AUTH } from '../../lib/auth';
 

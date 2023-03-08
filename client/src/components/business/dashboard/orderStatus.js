@@ -3,7 +3,7 @@ import { Box, Card, CardContent, CardHeader, Divider, Typography, useTheme } fro
 import LaptopMacIcon from '@mui/icons-material/Pending';
 import TabletIcon from '@mui/icons-material/CheckCircle';
 import React, { useRef , useState , useEffect }         from 'react'
-import { firebase_app , firebase_fs }                   from '../firebase/firebase-config';
+import { firebase_app , firebase_fs }                   from '../../firebase/firebase-config';
 import { collection , getDocs , doc , setDoc , addDoc, getDoc } from 'firebase/firestore'
 
 export const OrderStatus = (props) => {
@@ -17,7 +17,7 @@ export const OrderStatus = (props) => {
   {
       if( runOnce.current )
       {
-          runOnce.current = false 
+          runOnce.current = false
           try
           {
               const uid = sessionStorage.getItem('uid')
@@ -38,7 +38,7 @@ export const OrderStatus = (props) => {
               console.log('Firebase error : ', err)
           }
       }
-  },[runOnce])              
+  },[runOnce])
   //--------------------------------------------------------------------------------------------------------------------
 
   const data = {
@@ -54,7 +54,7 @@ export const OrderStatus = (props) => {
     labels: ['Completed', 'Pending']
   };
 
-  
+
 
   const options = {
     animation: false,

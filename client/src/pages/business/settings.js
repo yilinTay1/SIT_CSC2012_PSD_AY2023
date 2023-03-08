@@ -1,8 +1,8 @@
 import Head from 'next/head';
 import { Box, Container, Typography } from '@mui/material';
-import { DashboardLayout } from '../../components/dashboard-layout';
-import { SettingsNotifications } from '../../components/settings/settings-notifications';
-import { SettingsPassword } from '../../components/settings/settings-password';
+import { DashboardLayout } from '../../components/business/dashboard-layout';
+import { SettingsNotifications } from '../../components/business/settings/settings-notifications';
+import { SettingsPassword } from '../../components/business/settings/settings-password';
 import { Secured } from '../../components/firebase/Secured'
 import React, { useRef , useEffect } from 'react'
 
