@@ -20,8 +20,7 @@ import { EmailPassword, Google } from "../../components/firebase/EmailPassword";
 import React, { useRef, useState, useEffect } from "react";
 
 // Import other components
-import CustNavbar from "../../components/customer_view/navigation/navbar";
-import { DashboardLayout } from '../../components/customer_view/dashboard-layout';
+import LoginNav from "../../components/customer_view/navigation/loginNav";
 
 // Customer Login Page
 
@@ -62,7 +61,7 @@ const Login = () => {
       </Head>
 
       {/* Navbar */}
-      <CustNavbar />
+      <LoginNav />
 
       {/* Login Component */}
       <Box
@@ -245,12 +244,5 @@ const Login = () => {
     </>
   );
 };
-
-Login.getLayout = (page) => (
-  <DashboardLayout>
-    {/* <Secured /> */}
-    {page}
-  </DashboardLayout>
-);
 
 export default Login;

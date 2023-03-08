@@ -14,19 +14,15 @@ import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import NextLink from "next/link";
 
-// Nav bar resource: https://mui.com/material-ui/react-app-bar/
+const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
-// const pages = ['Products', 'Pricing', 'Blog'];
-// const settings = ["Profile", "Account", "Dashboard", "Logout"];
-
-function CustomerNavBar() {
+function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
-
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
@@ -108,4 +104,4 @@ function CustomerNavBar() {
     </AppBar>
   );
 }
-export default CustomerNavBar;
+export default ResponsiveAppBar;
