@@ -13,6 +13,11 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import NextLink from "next/link";
+import { useState } from 'react';
+import { UserCircle as UserCircleIcon } from '../../../icons/user-circle';
+import { Badge, Paper } from '@mui/material';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+
 
 // Nav bar resource: https://mui.com/material-ui/react-app-bar/
 
@@ -20,6 +25,33 @@ import NextLink from "next/link";
 // const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function CustomerNavBar() {
+  // Cart Things
+  const [cartItems, setCartItems] = useState([]);
+  const [showCart, setShowCart] = useState(false);
+
+  const handleAddToCart = (item) => {
+    setCartItems((prevCartItems) => [...prevCartItems, item]);
+  };
+
+  const handleRemoveFromCart = (item) => {
+    setCartItems((prevCartItems) =>
+      prevCartItems.filter((cartItem) => cartItem.id !== item.id)
+    );
+  };
+
+  const handleCartBlur = (event) => {
+    if (!event.currentTarget.contains(event.relatedTarget)) {
+      setShowCart(false);
+    }
+  };
+
+  const handleCheckout = () => {
+    // Handle checkout logic here
+    console.log('Checkout confirmed');
+  };
+
+// Cart Things
+
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -102,6 +134,61 @@ function CustomerNavBar() {
                 <Typography textAlign="center">Logout</Typography>
               </MenuItem>
             </Menu>
+
+            {/* Start Dropdown Cart. */}
+            <div style={{ position: 'relative' }}>
+              <IconButton
+                color="inherit"
+                aria-label="Open cart"
+                onClick={() => setShowCart(!showCart)}
+              >
+                <Badge badgeContent={cartItems.length} color="error">
+                  <ShoppingCartIcon />
+                </Badge>
+              </IconButton>
+              {showCart && (
+                <Paper
+                  onBlur={() => setShowCart(false)}
+                  style={{
+                    position: 'absolute',
+                    top: '40px',
+                    right: '10px',
+                    width: '200px',
+                    maxHeight: '400px',
+                    overflow: 'auto',
+                    zIndex: 9999,
+                    backgroundColor: '#fff',
+                    padding: '10px',
+                  }}
+                >
+                  <Typography variant="h6" sx={{ borderBottom: '1px solid #ccc', pb: 1 }}>
+                    Order Summary
+                  </Typography>
+                  {cartItems.length > 0 ? (
+                    cartItems.map((item) => (
+                      <div key={item.id}>
+                        <p>{item.name}</p>
+                        <button onClick={() => handleRemoveFromCart(item)}>Remove</button>
+                      </div>
+                    ))
+                  ) : (
+                    <Typography
+                      variant="body1"
+                      align="center"
+                      sx={{ my: 4, color: '#888' }}
+                    >
+                      Nothing in the Cart
+                    </Typography>
+                  )}
+                  {cartItems.length > 0 && (
+                    <Button variant="contained" onClick={handleCheckout}>
+                      Confirm Checkout
+                    </Button>
+                  )}
+                </Paper>
+              )}
+            </div>
+            {/* End of Dropdown cart. */}
           </Box>
         </Toolbar>
       </Container>
