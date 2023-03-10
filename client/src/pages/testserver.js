@@ -18,9 +18,7 @@ export default function TestServer()
             try
             {
                 const uid = sessionStorage.getItem('uid')
-                console.log(uid)
-                //const customer =  doc(firebase_fs , 'profitDaily', uid)
-                //setDoc( customer , customers )
+                console.log('uid : ',uid)
             }
             catch(err)
             {

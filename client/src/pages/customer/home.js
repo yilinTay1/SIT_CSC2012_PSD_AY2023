@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { Box, Container, Grid, Typography } from "@mui/material";
 import React, { useRef, useEffect, useState } from "react";
-
+import { SecuredBuy } from '../../components/firebase/SecuredBuy'
 // Import other components
 import CustomerNavBar from "../../components/customer_view/navigation/navbar";
 import { SearchBar } from "../../components/customer_view/searchbar";
@@ -159,11 +159,11 @@ const Home = () => {
   );
 };
 
-// Home.getLayout = (home) => (
-//   <DashboardLayout>
-//     {/* <Secured /> */}
-//     {home}
-//   </DashboardLayout>
-// );
+Home.getLayout = (home) => (
+<>
+<SecuredBuy />
+{home}
+</>
+);
 
 export default Home;

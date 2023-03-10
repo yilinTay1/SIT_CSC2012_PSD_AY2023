@@ -4,7 +4,7 @@ import { CustomerListResults } from '../../components/customer/customer-list-res
 import { CustomerListToolbar } from '../../components/customer/customer-list-toolbar';
 import { DashboardLayout } from '../../components/business/dashboard-layout';
 import { customers } from '../../__mocks__/customers';
-import { Secured } from '../../components/firebase/Secured'
+import { SecuredBiz } from '../../components/firebase/SecuredBiz'
 import React, { useRef , useEffect } from 'react'
 
 const Page = () => {
@@ -46,7 +46,7 @@ const Page = () => {
 
 Page.getLayout = (page) => (
   <DashboardLayout>
-    <Secured />
+    <SecuredBiz />
     {page}
   </DashboardLayout>
 );

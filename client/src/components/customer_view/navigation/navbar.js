@@ -80,8 +80,14 @@ function CustomerNavBar() {
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <NextLink href="/customer/home" passHref>
-            <img src="/static/Logo.png" alt="logo" width="170" height="170" />
+          <NextLink 
+          href="/customer/home" 
+          passHref>
+            <img 
+            src="/static/Logo.png" 
+            alt="logo" 
+            width="170" 
+            height="170" />
           </NextLink>
 
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
@@ -95,8 +101,12 @@ function CustomerNavBar() {
               </Button>
             ))} */}
             <Button style={{ marginLeft: 30 }}>
-              <NextLink href="/customer/home" passHref>
-                <Typography color="white" variant="h5">
+              <NextLink 
+              href="/customer/home" 
+              passHref>
+                <Typography 
+                color="white" 
+                variant="h5">
                   Restaurant
                 </Typography>
               </NextLink>
@@ -105,8 +115,12 @@ function CustomerNavBar() {
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+              <IconButton 
+              onClick={handleOpenUserMenu} 
+              sx={{ p: 0 }}>
+                <Avatar 
+                alt="Remy Sharp" 
+                src="/static/images/avatar/2.jpg" />
               </IconButton>
             </Tooltip>
             <Menu
@@ -142,7 +156,9 @@ function CustomerNavBar() {
                 aria-label="Open cart"
                 onClick={() => setShowCart(!showCart)}
               >
-                <Badge badgeContent={cartItems.length} color="error">
+                <Badge 
+                badgeContent={cartItems.length} 
+                color="error">
                   <ShoppingCartIcon />
                 </Badge>
               </IconButton>
@@ -161,7 +177,9 @@ function CustomerNavBar() {
                     padding: '10px',
                   }}
                 >
-                  <Typography variant="h6" sx={{ borderBottom: '1px solid #ccc', pb: 1 }}>
+                  <Typography 
+                  variant="h6" 
+                  sx={{ borderBottom: '1px solid #ccc', pb: 1 }}>
                     Order Summary
                   </Typography>
                   {cartItems.length > 0 ? (
@@ -181,7 +199,9 @@ function CustomerNavBar() {
                     </Typography>
                   )}
                   {cartItems.length > 0 && (
-                    <Button variant="contained" onClick={handleCheckout}>
+                    <Button 
+                    variant="contained" 
+                    onClick={handleCheckout}>
                       Confirm Checkout
                     </Button>
                   )}
