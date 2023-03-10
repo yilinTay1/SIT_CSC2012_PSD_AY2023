@@ -11,10 +11,13 @@ export const AccountPopover = (props) => {
 
   const handleSignOut = async () => {
     onClose?.();
+      let          _reloginPage = "/customer/login"  // default login page
+      if(business) _reloginPage = "/business/login"  // unless previously logged in as business
+     
       sessionStorage.clear()
       // Redirect to sign-in page
       Router
-        .push('/login')
+        .push(_reloginPage)
         .catch(console.error);
       return;
   };

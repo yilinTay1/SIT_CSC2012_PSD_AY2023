@@ -4,7 +4,7 @@ import { HistoryListResults } from '../../components/business/history/history-li
 import { HistoryListToolbar } from '../../components/business/history/history-list-toolbar';
 import { DashboardLayout } from '../../components/business/dashboard-layout';
 import { customers } from '../../__mocks__/profitDaily';
-import { Secured } from '../../components/firebase/Secured'
+import { SecuredBiz } from '../../components/firebase/SecuredBiz'
 import React, { useRef , useEffect } from 'react'
 
 const Page = () => {
@@ -46,7 +46,7 @@ const Page = () => {
 
 Page.getLayout = (page) => (
   <DashboardLayout>
-    <Secured/>
+    <SecuredBiz />
     {page}
   </DashboardLayout>
 );

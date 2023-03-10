@@ -26,13 +26,21 @@ export const BestSellers = () => {
             title="croissant"
           />
           <CardContent sx={{ width: 550 }}>
-            <Typography gutterBottom variant="h5" component="div">
+            <Typography 
+                        gutterBottom 
+                        variant="h5" 
+                        component="div">
               Crazy Croissant
             </Typography>
-            <Typography variant="body2" color="text.secondary">
+            <Typography 
+                        variant="body2" 
+                        color="text.secondary">
               10 min away
             </Typography>
-            <Typography variant="h6" color="text.secondary" style={{ float: "right" }}>
+            <Typography 
+                        variant="h6" 
+                        color="text.secondary" 
+                        style={{ float: "right" }}>
               <StarRateIcon fontSize="medium" /> 4.5
             </Typography>
           </CardContent>
@@ -47,13 +55,21 @@ export const BestSellers = () => {
             title="burger"
           />
           <CardContent sx={{ width: 550 }}>
-            <Typography gutterBottom variant="h5" component="div">
+            <Typography 
+                        gutterBottom 
+                        variant="h5" 
+                        component="div">
               Mcdonalds
             </Typography>
-            <Typography variant="body2" color="text.secondary">
+            <Typography 
+                        variant="body2" 
+                        color="text.secondary">
               15 min away
             </Typography>
-            <Typography variant="h6" color="text.secondary" style={{ float: "right" }}>
+            <Typography 
+                        variant="h6" 
+                        color="text.secondary" 
+                        style={{ float: "right" }}>
               <StarRateIcon fontSize="medium" /> 4.3
             </Typography>
           </CardContent>
@@ -68,14 +84,22 @@ export const BestSellers = () => {
             title="sushi"
           />
           <CardContent sx={{ width: 550 }}>
-            <Typography gutterBottom variant="h5" component="div">
+            <Typography 
+                        gutterBottom 
+                        variant="h5" 
+                        component="div">
               Sushi Express
             </Typography>
-            <Typography variant="body2" color="text.secondary">
+            <Typography 
+                        variant="body2" 
+                        color="text.secondary">
               20 min away
             </Typography>
 
-            <Typography variant="h6" color="text.secondary" style={{ float: "right" }}>
+            <Typography 
+                        variant="h6" 
+                        color="text.secondary" 
+                        style={{ float: "right" }}>
               <StarRateIcon fontSize="medium" /> 4.0
             </Typography>
           </CardContent>

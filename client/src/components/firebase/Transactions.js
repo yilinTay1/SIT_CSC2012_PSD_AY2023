@@ -15,8 +15,11 @@ export const Transactions = ()=>
             const txnsCollection = collection( firebase_fs , 'txns' )
             getDocs( txnsCollection )
                 .then( response =>{
+                                    let counter = 0
                                     const rows = response.docs.map( row => {
-                                            return row.data()
+                                            let _data = row.data()
+                                                _data["key"] = ++counter
+                                            return _data
                                         })
                                         updateRecords( rows )
                                         console.log("There are records" , rows )
@@ -29,22 +32,26 @@ export const Transactions = ()=>
                 <div>
                     <h4>Transactions</h4>
                     <table style={{ borderColor: '#04AA6D' , borderStyle:'solid' , borderRadius:'10px' , padding:'10px' , margin:'10px' }}>
-                    <tr>
-                        <th style={{background:'yellow'}}>Product</th>
-                        <th style={{background:'cyan'}}>Seller</th>
-                        <th style={{background:'pink'}}>Buyer</th>
-                    </tr>
+                    <thead>
+                        <tr key='0'>
+                            <th style={{background:'yellow'}}>Product</th>
+                            <th style={{background:'cyan'}}>Seller</th>
+                            <th style={{background:'pink'}}>Buyer</th>
+                        </tr>
+                    </thead>
+                    <tbody>
                     {
                         records.map( record => {
                                                     return(
-                                                            <tr>
-                                                            <td style={{background:'yellow', paddingLeft:'10px', paddingRight:'10px'}}><div>{record.product}</div></td>
-                                                            <td style={{background:'cyan'  , paddingLeft:'10px', paddingRight:'10px'}}><div>{record.seller}</div></td>
-                                                            <td style={{background:'pink'  , paddingLeft:'10px', paddingRight:'10px'}}><div>{record.buyer}</div></td>
+                                                            <tr key={record.key} >
+                                                                <td style={{background:'yellow', paddingLeft:'10px', paddingRight:'10px'}}><div>{record.product}</div></td>
+                                                                <td style={{background:'cyan'  , paddingLeft:'10px', paddingRight:'10px'}}><div>{record.seller}</div></td>
+                                                                <td style={{background:'pink'  , paddingLeft:'10px', paddingRight:'10px'}}><div>{record.buyer}</div></td>
                                                             </tr>
                                                           )
                                                })
                     }
+                    </tbody>
                     </table>
                 </div>
             </>

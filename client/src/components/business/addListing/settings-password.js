@@ -51,7 +51,8 @@ export const SettingsPassword = (props) => {
         />
         <Divider />
         <CardContent>
-          <input type='file' onChange={onSelectFile} />
+          <input type='file' 
+          onChange={onSelectFile} />
           {selectedFile &&  <img src={preview} /> }
           <TextField
             fullWidth
