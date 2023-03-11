@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Box, MenuItem, MenuList, Popover, Typography } from '@mui/material';
 import { AuthContext } from '../contexts/auth-context';
 import { auth, ENABLE_AUTH } from '../lib/auth';
+import { EmailPassword } from '../components/firebase/EmailPassword'
 
 export const AccountPopover = (props) => {
   const { anchorEl, onClose, open, ...other } = props;
@@ -11,9 +12,15 @@ export const AccountPopover = (props) => {
 
   const handleSignOut = async () => {
     onClose?.();
-      let          _reloginPage = "/customer/login"  // default login page
-      if(business) _reloginPage = "/business/login"  // unless previously logged in as business
+      
+      const biz   = sessionStorage.getItem('business');
+      let         _reloginPage = "/customer/login"  // default login page
+      if(biz)     _reloginPage = "/business/login"  // unless previously logged in as business
      
+      if(EmailPassword.logOut)
+      {
+        console.log("User is successfully logged out!")
+      }
       sessionStorage.clear()
       // Redirect to sign-in page
       Router
