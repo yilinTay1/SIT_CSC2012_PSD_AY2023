@@ -63,9 +63,30 @@ function CustomerNavBar() {
               </Button>
             ))} */}
             <Button style={{ marginLeft: 30 }}>
-              <NextLink href="/customer/home" passHref>
+              <NextLink href="#" passHref>
                 <Typography color="white" variant="h5">
                   Restaurant
+                </Typography>
+              </NextLink>
+            </Button>
+            {/* <Button style={{ marginLeft: 30 }}>
+              <NextLink href="#" passHref>
+                <Typography color="white" variant="h5">
+                  Orders
+                </Typography>
+              </NextLink>
+            </Button> */}
+            <Button style={{ marginLeft: 30 }}>
+              <NextLink href="#" passHref>
+                <Typography color="white" variant="h5">
+                  History
+                </Typography>
+              </NextLink>
+            </Button>
+            <Button style={{ marginLeft: 30 }}>
+              <NextLink href="#" passHref>
+                <Typography color="white" variant="h5">
+                  Account
                 </Typography>
               </NextLink>
             </Button>

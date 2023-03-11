@@ -43,7 +43,7 @@ export const RestCategory = () => {
           <IconButton aria-label="all-restaurant">
             <StorefrontIcon fontSize="large" />
           </IconButton>
-          <Typography variant="h5">All</Typography>
+          <Typography variant="h5">Featured</Typography>
         </Stack>
       </Button>
       {/* </Grid> */}

@@ -63,7 +63,7 @@ function LoginNavBar() {
               </Button>
             ))} */}
             <Button style={{ marginLeft: 30 }}>
-              <NextLink href="/customer/home" passHref>
+              <NextLink href="#" passHref>
                 <Typography color="white" variant="h5">
                   Restaurant
                 </Typography>
