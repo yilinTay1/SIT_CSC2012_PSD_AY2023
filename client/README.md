@@ -54,3 +54,13 @@ Parts need help will be commented ( //NEED HELP: )
 client > src > pages > customer > reset_pwd.js
 - need help to authenticate email to reset password
 - update new password
+
+## New update for customer side as of 11 March 2023
+1. Change password
+Got the Ui up under customer / change_pwd
+Would require backend to modify the handleCloseUserMenu = () function that handles logout the functionality
+For this feature, it will only appear after the user has logged in succesfully. It will appear in the same menu popup as Logout
+
+2. Reset password
+Decided to leave reset password UI the same as if we were to do it similar to Google, more components/pages need to be created.
+However, if the Google UI is easier, do let me know, I will make the necessary changes.
