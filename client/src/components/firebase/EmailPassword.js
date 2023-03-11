@@ -13,6 +13,7 @@ module.exports =
                                                 sessionStorage.clear()
                                                 sessionStorage.setItem("account", result.user.email)
                                                 sessionStorage.setItem("uid"    , result.user.uid  )
+                                                sessionStorage.setItem("email"  , firebase_auth.currentUser.email  )
                                                 console.log(result)
                                                 console.log("Authentication successful")
                                                 return true
@@ -49,32 +50,40 @@ module.exports =
         },
         forgotPassword: async function( email )
         {
-            return await sendPasswordResetEmail( firebase_auth , email )
-                            .then( (result)=>{
-                                                console.log("Reset password email sent to " , email )
-                                                return true
-                                             } )
-                            .catch((error)=> {  
-                                                console.log("Logout failed",error)
-                                                return false
-                                             } )
+            if( email && email != "" )
+            {
+                return await sendPasswordResetEmail( firebase_auth , email )
+                                .then( (result)=>{
+                                                    console.log("An email was sent to " , email ," with a link to reset password")
+                                                    return true
+                                                } )
+                                .catch((error)=> {  
+                                                    console.log("Logout failed",error)
+                                                    return false
+                                                } )
+            }
+            else
+            {
+                return false
+            }
         },
-        resetPassword: async function( email, password )
+        changePassword: async function( email, new_password )
         {
             const _user = firebase_auth.currentUser
             if( _user )
             {
                 if( _user.email == email)
                 {
-                    return await updatePassword( _user, password )
+                    return await updatePassword( _user, new_password )
                                     .then( (result)=>{
-                                                        console.log("Password reset successful")
+                                                        console.log("Password change successful")
                                                         return true
                                                     } )
                                     .catch((error)=> {  
-                                                        console.log("Password reset failed" , error)
+                                                        console.log("Password change failed" , error)
                                                         return false
                                                     } )
+                    return true
                 }
                 else
                 {

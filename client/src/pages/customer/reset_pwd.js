@@ -29,9 +29,7 @@ import CustNavbar from "../../components/customer_view/navigation/navbar";
 
 // Reset Password Functionalities (NEED HELP: Authenticate email, Update new password)
 const ResetPwd = () => {
-  const [email, setEmail] = useState("test@test.com");
-  const [password1, setPassword1] = useState("123456");
-  const [password2, setPassword2] = useState("123456");
+  const [email, setEmail] = useState("");
   const runOnce = useRef(true);
   useEffect(() => {
     if (runOnce.current) {
@@ -47,17 +45,21 @@ const ResetPwd = () => {
 
   // NEED HELP: need to change to authenticate email
   async function passwordReset(e) {
-                                    e.preventDefault();
-                                    if( password1 == password2 )
-                                    {
-                                      const result = EmailPassword.forgotPassword( email );
-                                      if ( result ) 
+                                      e.preventDefault();
+                                      if( email != "" )
                                       {
-                                         console.log("Password reset");
-                                         return
+                                        const result = EmailPassword.forgotPassword( email );
+                                        if ( result ) 
+                                        {
+                                           alert("An email was sent to " + email + " with a link to reset password")
+                                           return
+                                        }
+                                        console.log("Unable to reset password");
                                       }
-                                    }
-                                    console.log("Unable to reset password");
+                                      else
+                                      {
+                                        console.log("Email cannot be empty");
+                                      }
                                   }
 
   // NEED HELP: Update and change password function
@@ -122,40 +124,6 @@ const ResetPwd = () => {
               variant="outlined"
             />
 
-            {/* Password Text Field */}
-            <TextField
-              //error={Boolean(formik.touched.password && formik.errors.password)}
-              fullWidth
-              //helperText={formik.touched.password && formik.errors.password}
-              label="Password"
-              margin="normal"
-              name="password"
-              //onBlur={formik.handleBlur}
-              //onChange={formik.handleChange}
-              onChange={(e) => setPassword1(e.target.value)}
-              type="password"
-              value={password1}
-              //value={formik.values.password}
-              variant="outlined"
-            />
-
-            {/* Retype Password Text Field */}
-            <TextField
-              //error={Boolean(formik.touched.password && formik.errors.password)}
-              fullWidth
-              //helperText={formik.touched.password && formik.errors.password}
-              label="Retype Password"
-              margin="normal"
-              name="password"
-              //onBlur={formik.handleBlur}
-              //onChange={formik.handleChange}
-              onChange={(e) => setPassword2(e.target.value)}
-              type="password"
-              value={password2}
-              //value={formik.values.password}
-              variant="outlined"
-            />
-
             {/* Reset Password Button Component */}
             <Box sx={{ py: 2 }}>
               <Button
@@ -168,7 +136,11 @@ const ResetPwd = () => {
               >
                 Reset Password
               </Button>
+              <Typography color="textSecondary" gutterBottom variant="body3">
+                By clicking on the above button, an email will be sent to the above email address with a link to reset your password.
+              </Typography>
             </Box>
+
           </form>
           {/* End of Login Form */}
         </Container>
