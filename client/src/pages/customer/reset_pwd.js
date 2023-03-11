@@ -30,7 +30,8 @@ import CustNavbar from "../../components/customer_view/navigation/navbar";
 // Reset Password Functionalities (NEED HELP: Authenticate email, Update new password)
 const ResetPwd = () => {
   const [email, setEmail] = useState("test@test.com");
-  const [password, setPassword] = useState("123456");
+  const [password1, setPassword1] = useState("123456");
+  const [password2, setPassword2] = useState("123456");
   const runOnce = useRef(true);
   useEffect(() => {
     if (runOnce.current) {
@@ -45,16 +46,19 @@ const ResetPwd = () => {
   }, [runOnce]);
 
   // NEED HELP: need to change to authenticate email
-  async function signInwithEmail(e) {
-    e.preventDefault();
-    const result = await EmailPassword.auth(email, password);
-    if (result) {
-      sessionStorage.setItem("account", email);
-      console.log("Redirecting...");
-      window.location.href = "/";
-    }
-    console.log("Unable to authenticate");
-  }
+  async function passwordReset(e) {
+                                    e.preventDefault();
+                                    if( password1 == password2 )
+                                    {
+                                      const result = EmailPassword.forgotPassword( email );
+                                      if ( result ) 
+                                      {
+                                         console.log("Password reset");
+                                         return
+                                      }
+                                    }
+                                    console.log("Unable to reset password");
+                                  }
 
   // NEED HELP: Update and change password function
 
@@ -88,7 +92,7 @@ const ResetPwd = () => {
         >
           {/* Login Form */}
           {/* <form onSubmit={formik.handleSubmit}> */}
-          <form onSubmit={signInwithEmail}>
+          <form onSubmit={passwordReset}>
             {/* Welcome Text Component (Form Title) */}
             <Box sx={{ my: 3 }}>
               <Typography color="textPrimary" variant="h2">
@@ -128,9 +132,9 @@ const ResetPwd = () => {
               name="password"
               //onBlur={formik.handleBlur}
               //onChange={formik.handleChange}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => setPassword1(e.target.value)}
               type="password"
-              value={password}
+              value={password1}
               //value={formik.values.password}
               variant="outlined"
             />
@@ -145,9 +149,9 @@ const ResetPwd = () => {
               name="password"
               //onBlur={formik.handleBlur}
               //onChange={formik.handleChange}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => setPassword2(e.target.value)}
               type="password"
-              value={password}
+              value={password2}
               //value={formik.values.password}
               variant="outlined"
             />
