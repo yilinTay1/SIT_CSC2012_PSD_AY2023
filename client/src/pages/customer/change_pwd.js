@@ -29,15 +29,21 @@ import CustNavbar from "../../components/customer_view/navigation/navbar";
 
 // Reset Password Functionalities (NEED HELP: Authenticate email, Update new password)
 const ChangePwd = () => {
-  const [email, setEmail] = useState("test@test.com");
-  const [password, setPassword] = useState("123456");
+  const [email    , setEmail    ] = useState("");
+  const [password1, setPassword1] = useState("");
+  const [password2, setPassword2] = useState("");
+  const [password3, setPassword3] = useState("");
+  const [isAuth   , setIsAuth   ] = useState(false);
   const runOnce = useRef(true);
   useEffect(() => {
     if (runOnce.current) {
       runOnce.current = false;
       const token = sessionStorage.getItem("account");
+      const email = sessionStorage.getItem("email");
       if (token) {
         console.log("I am authenticated!");
+        setIsAuth(true)
+        if(email) setEmail(email);
       } else {
         console.log("I am not authenticated!");
       }
@@ -45,15 +51,49 @@ const ChangePwd = () => {
   }, [runOnce]);
 
   // NEED HELP: need to change to authenticate email
-  async function signInwithEmail(e) {
+  async function changePassword(e) 
+  {
     e.preventDefault();
-    const result = await EmailPassword.auth(email, password);
-    if (result) {
-      sessionStorage.setItem("account", email);
-      console.log("Redirecting...");
-      window.location.href = "/";
+    if( (email != "") && (password2 == password3) )
+    {
+        const token = sessionStorage.getItem("account");
+        if( token )
+        {
+            const result = await EmailPassword.changePassword(email, password2);
+            if (result) 
+            {
+              Router
+                .push("/customer/home")
+                .catch(console.error)
+              return
+            }
+            console.log("Unable to authenticate");
+        }
+        else
+        {
+          const result = await EmailPassword.auth(email, password1);
+          if(result)
+          {
+            sessionStorage.setItem( "buyer" , sessionStorage.getItem("uid")  )
+            const result2 = await EmailPassword.changePassword(email, password2);
+            if (result2) 
+            {
+              Router
+                .push("/customer/home")
+                .catch(console.error)
+                return
+            }
+            else
+            {
+              console.log("Password change failed")
+            }
+          }
+          else
+          {
+            console.log("Unable to authenticate");
+          }
+        }
     }
-    console.log("Unable to authenticate");
   }
 
   // NEED HELP: Update and change password function
@@ -88,7 +128,7 @@ const ChangePwd = () => {
         >
           {/* Login Form */}
           {/* <form onSubmit={formik.handleSubmit}> */}
-          <form onSubmit={signInwithEmail}>
+          <form onSubmit={changePassword}>
             {/* Welcome Text Component (Form Title) */}
             <Box sx={{ my: 3 }}>
               <Typography color="textPrimary" variant="h2">
@@ -119,21 +159,25 @@ const ChangePwd = () => {
             />
 
             {/* Old Password Text Field */}
-            <TextField
-              //error={Boolean(formik.touched.password && formik.errors.password)}
-              fullWidth
-              //helperText={formik.touched.password && formik.errors.password}
-              label="Old Password"
-              margin="normal"
-              name="password"
-              //onBlur={formik.handleBlur}
-              //onChange={formik.handleChange}
-              onChange={(e) => setPassword(e.target.value)}
-              type="password"
-              value={password}
-              //value={formik.values.password}
-              variant="outlined"
-            />
+            {
+              !isAuth &&
+                      <TextField
+                      //error={Boolean(formik.touched.password && formik.errors.password)}
+                      fullWidth
+                      //helperText={formik.touched.password && formik.errors.password}
+                      label="Old Password"
+                      margin="normal"
+                      name="password"
+                      //onBlur={formik.handleBlur}
+                      //onChange={formik.handleChange}
+                      onChange={(e) => setPassword1(e.target.value)}
+                      type="password"
+                      value={password1}
+                      //value={formik.values.password}
+                      variant="outlined"
+                    />
+            }
+
 
             {/* New Password Text Field */}
             <TextField
@@ -145,9 +189,9 @@ const ChangePwd = () => {
               name="password"
               //onBlur={formik.handleBlur}
               //onChange={formik.handleChange}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => setPassword2(e.target.value)}
               type="password"
-              value={password}
+              value={password2}
               //value={formik.values.password}
               variant="outlined"
             />
@@ -162,9 +206,9 @@ const ChangePwd = () => {
               name="password"
               //onBlur={formik.handleBlur}
               //onChange={formik.handleChange}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => setPassword3(e.target.value)}
               type="password"
-              value={password}
+              value={password3}
               //value={formik.values.password}
               variant="outlined"
             />
