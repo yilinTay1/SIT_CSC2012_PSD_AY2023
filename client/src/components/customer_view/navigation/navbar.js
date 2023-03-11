@@ -17,7 +17,8 @@ import { useState } from 'react';
 import { UserCircle as UserCircleIcon } from '../../../icons/user-circle';
 import { Badge, Paper } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-
+import { EmailPassword } from '../../firebase/EmailPassword'
+import Router from 'next/router';
 
 // Nav bar resource: https://mui.com/material-ui/react-app-bar/
 
@@ -68,7 +69,19 @@ function CustomerNavBar() {
   };
 
   const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
+
+    const biz   = sessionStorage.getItem('business');
+    let         _reloginPage = "/customer/login"  // default login page
+    if(biz)     _reloginPage = "/business/login"  // unless previously logged in as business
+
+    if( EmailPassword.logOut() )
+    {
+      Router
+        .push(_reloginPage)
+        .catch(console.error);
+        setAnchorElUser(null);
+    }
+
   };
 
   return (

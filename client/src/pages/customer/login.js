@@ -47,7 +47,9 @@ const Login = () => {
     if (result) {
       sessionStorage.setItem( "buyer" , sessionStorage.getItem("uid")  )
       console.log("Redirecting...");
-      window.location.href = "/customer/home";
+      Router
+          .push("/customer/home")
+          .catch(console.error)
     }
     console.log("Unable to authenticate");
   }

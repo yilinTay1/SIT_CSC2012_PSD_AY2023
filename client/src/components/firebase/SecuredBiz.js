@@ -1,4 +1,5 @@
 import React, { useRef , useEffect }   from 'react'
+import Router from 'next/router'
 
 export const SecuredBiz = ( { Component, pageProps } ) => 
 {
@@ -15,14 +16,14 @@ export const SecuredBiz = ( { Component, pageProps } ) =>
                             else
                             {
                                 console.log("I am not authenticated!")
+                                var _redirect =  '/business/login'
                                 if( sessionStorage.getItem('buyer') )
                                 {
-                                    window.location.href = '/customer/home';
+                                    _redirect  = '/customer/home'
                                 }
-                                else
-                                {
-                                    window.location.href = '/business/login';
-                                }
+                                Router
+                                    .push(_redirect)
+                                    .catch(console.error)
                             }
                         }
                     }, [runOnce])
