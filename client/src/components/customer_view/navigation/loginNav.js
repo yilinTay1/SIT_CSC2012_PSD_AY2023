@@ -48,8 +48,14 @@ function LoginNavBar() {
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <NextLink href="/customer/home" passHref>
-            <img src="/static/Logo.png" alt="logo" width="170" height="170" />
+          <NextLink 
+          href="/customer/home" 
+          passHref>
+            <img 
+            src="/static/Logo.png" 
+            alt="logo" 
+            width="170" 
+            height="170" />
           </NextLink>
 
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
@@ -63,8 +69,17 @@ function LoginNavBar() {
               </Button>
             ))} */}
             <Button style={{ marginLeft: 30 }}>
+<<<<<<< HEAD
               <NextLink href="#" passHref>
                 <Typography color="white" variant="h5">
+=======
+              <NextLink 
+              href="/customer/home" 
+              passHref>
+                <Typography 
+                color="white" 
+                variant="h5">
+>>>>>>> d5886659f018628bf9f90a670a747fc89cb7b652
                   Restaurant
                 </Typography>
               </NextLink>

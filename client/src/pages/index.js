@@ -10,7 +10,6 @@ import { TotalProfit } from '../components/business/dashboard/totalProfit';
 import { OrderStatus } from '../components/business/dashboard/orderStatus';
 import { DashboardLayout } from '../components/business/dashboard-layout';
 import { Test } from '../components/business/dashboard/test';
-import { Secured } from '../components/firebase/Secured'
 import React, { useRef , useEffect } from 'react'
 
 const Page = () => {

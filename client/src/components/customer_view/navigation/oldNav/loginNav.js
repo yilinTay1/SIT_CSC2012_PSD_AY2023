@@ -29,12 +29,20 @@ import { AccountPopover } from "../../../account-popover";
 function CustLoginNav() {
   // HTML Frontend
   return (
-    <Navbar bg="black" variant="dark">
+    <Navbar 
+    bg="black" 
+    variant="dark">
       <Container>
         {/* Brand Icon */}
         <Navbar.Brand>
-          <NextLink href="/customer/home" passHref>
-            <img src="/static/Logo.png" alt="logo" width="150" height="150" />
+          <NextLink 
+          href="/customer/home" 
+          passHref>
+            <img 
+            src="/static/Logo.png" 
+            alt="logo" 
+            width="150" 
+            height="150" />
           </NextLink>
         </Navbar.Brand>
         <Nav className="me-auto">
@@ -45,7 +53,9 @@ function CustLoginNav() {
               padding: 20,
             }}
           >
-            <Typography color="inherit" variant="h5">
+            <Typography 
+            color="inherit" 
+            variant="h5">
               Restaurant
             </Typography>
           </Nav.Link>
@@ -56,7 +66,9 @@ function CustLoginNav() {
               padding: 20,
             }}
           >
-            <Typography color="inherit" variant="h5">
+            <Typography 
+            color="inherit" 
+            variant="h5">
               Orders
             </Typography>
           </Nav.Link>
@@ -67,7 +79,9 @@ function CustLoginNav() {
               padding: 20,
             }}
           >
-            <Typography color="inherit" variant="h5">
+            <Typography 
+            color="inherit" 
+            variant="h5">
               History
             </Typography>
           </Nav.Link>
@@ -78,7 +92,9 @@ function CustLoginNav() {
               padding: 20,
             }}
           >
-            <Typography color="inherit" variant="h5">
+            <Typography 
+            color="inherit" 
+            variant="h5">
               Account
             </Typography>
           </Nav.Link>

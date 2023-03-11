@@ -60,8 +60,11 @@ const Login = () => {
                                         const result = await EmailPassword.auth(email,password)
                                         if( result )
                                         {
+                                          sessionStorage.setItem( "business" , sessionStorage.getItem("uid")  )
                                           console.log("Redirecting...")
-                                          window.location.href = '/business/dashboard';
+                                          Router
+                                            .push('/business/dashboard')
+                                            .catch(console.error)
                                           return
                                         }
                                         console.log("Unable to authenticate")

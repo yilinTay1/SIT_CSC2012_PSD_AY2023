@@ -45,9 +45,11 @@ const Login = () => {
     e.preventDefault();
     const result = await EmailPassword.auth(email, password);
     if (result) {
-      sessionStorage.setItem("account", email);
+      sessionStorage.setItem( "buyer" , sessionStorage.getItem("uid")  )
       console.log("Redirecting...");
-      window.location.href = "/";
+      Router
+          .push("/customer/home")
+          .catch(console.error)
     }
     console.log("Unable to authenticate");
   }

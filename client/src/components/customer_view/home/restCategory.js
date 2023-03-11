@@ -38,7 +38,10 @@ export const RestCategory = () => {
     // </ButtonGroup>
     <>
       {/* <Grid item lg={3} sm={6} xl={3} xs={12}> */}
-      <Button variant="contained" size="large" style={{ padding: 25, width: 140, marginRight: 50 }}>
+      <Button 
+      variant="contained" 
+      size="large" 
+      style={{ padding: 25, width: 140, marginRight: 50 }}>
         <Stack spacing={1}>
           <IconButton aria-label="all-restaurant">
             <StorefrontIcon fontSize="large" />
@@ -55,7 +58,9 @@ export const RestCategory = () => {
         style={{ padding: 25, width: 140, marginRight: 50, backgroundColor: "black" }}
       >
         <Stack spacing={1}>
-          <IconButton aria-label="chinese" style={{ color: "white" }}>
+          <IconButton 
+          aria-label="chinese" 
+          style={{ color: "white" }}>
             <RiceBowlIcon fontSize="large" />
           </IconButton>
           <Typography variant="h5">Chinese</Typography>
@@ -63,7 +68,10 @@ export const RestCategory = () => {
       </Button>
       {/* </Grid> */}
 
-      <Button variant="contained" size="large" style={{ padding: 25, width: 140, marginRight: 50 }}>
+      <Button 
+      variant="contained" 
+      size="large" 
+      style={{ padding: 25, width: 140, marginRight: 50 }}>
         <Stack spacing={1}>
           <IconButton aria-label="cafe">
             <LocalCafeIcon fontSize="large" />
@@ -78,14 +86,19 @@ export const RestCategory = () => {
         style={{ padding: 25, width: 140, marginRight: 50, backgroundColor: "black" }}
       >
         <Stack spacing={1}>
-          <IconButton aria-label="western" style={{ color: "white" }}>
+          <IconButton 
+          aria-label="western" 
+          style={{ color: "white" }}>
             <LunchDiningIcon fontSize="large" />
           </IconButton>
           <Typography variant="h5">Western</Typography>
         </Stack>
       </Button>
 
-      <Button variant="contained" size="large" style={{ padding: 25, width: 140, marginRight: 50 }}>
+      <Button 
+      variant="contained" 
+      size="large" 
+      style={{ padding: 25, width: 140, marginRight: 50 }}>
         <Stack spacing={1}>
           <IconButton aria-label="japanese">
             <RamenDiningIcon fontSize="large" />
@@ -100,7 +113,9 @@ export const RestCategory = () => {
         style={{ padding: 25, width: 140, marginRight: 50, backgroundColor: "black" }}
       >
         <Stack spacing={1}>
-          <IconButton aria-label="pastry" style={{ color: "white" }}>
+          <IconButton 
+          aria-label="pastry" 
+          style={{ color: "white" }}>
             <BakeryDiningIcon fontSize="large" />
           </IconButton>
           <Typography variant="h5">Pastry</Typography>

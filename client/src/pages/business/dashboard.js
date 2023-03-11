@@ -10,7 +10,7 @@ import { TotalProfit } from '../../components/business/dashboard/totalProfit';
 import { OrderStatus } from '../../components/business/dashboard/orderStatus';
 import { DashboardLayout } from '../../components/business/dashboard-layout';
 import { Test } from '../../components/business/dashboard/test';
-import { Secured } from '../../components/firebase/Secured'
+import { SecuredBiz } from '../../components/firebase/SecuredBiz'
 import React, { useRef , useEffect } from 'react'
 
 const Page = () => {
@@ -116,7 +116,7 @@ const Page = () => {
 
 Page.getLayout = (page) => (
   <DashboardLayout>
-    <Secured />
+    <SecuredBiz />
     {page}
   </DashboardLayout>
 );

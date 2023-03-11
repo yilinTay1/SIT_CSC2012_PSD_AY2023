@@ -3,7 +3,7 @@ import { Box, Container, Typography } from '@mui/material';
 import { DashboardLayout } from '../../components/business/dashboard-layout';
 import { SettingsNotifications } from '../../components/business/settings/settings-notifications';
 import { SettingsPassword } from '../../components/business/settings/settings-password';
-import { Secured } from '../../components/firebase/Secured'
+import { SecuredBiz } from '../../components/firebase/SecuredBiz'
 import React, { useRef , useEffect } from 'react'
 
 
@@ -52,7 +52,7 @@ const Page = () => {
 
 Page.getLayout = (page) => (
   <DashboardLayout>
-    <Secured />
+    <SecuredBiz />
     {page}
   </DashboardLayout>
 );
