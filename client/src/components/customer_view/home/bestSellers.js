@@ -51,7 +51,6 @@ export const BestSellers = () => {
 
       <Grid item>
         <Card sx={{ maxWidth: 550 }}>
-<<<<<<< HEAD
           <NextLink href="/customer/order">
             <Link
               to="/customer/order"
@@ -80,32 +79,6 @@ export const BestSellers = () => {
               </CardContent>
             </Link>
           </NextLink>
-=======
-          <CardMedia
-            sx={{ height: 180 }}
-            image="/static/images/customer_view/restaurant/mcd.jpg"
-            title="burger"
-          />
-          <CardContent sx={{ width: 550 }}>
-            <Typography 
-                        gutterBottom 
-                        variant="h5" 
-                        component="div">
-              Mcdonalds
-            </Typography>
-            <Typography 
-                        variant="body2" 
-                        color="text.secondary">
-              15 min away
-            </Typography>
-            <Typography 
-                        variant="h6" 
-                        color="text.secondary" 
-                        style={{ float: "right" }}>
-              <StarRateIcon fontSize="medium" /> 4.3
-            </Typography>
-          </CardContent>
->>>>>>> d5886659f018628bf9f90a670a747fc89cb7b652
         </Card>
       </Grid>
 
