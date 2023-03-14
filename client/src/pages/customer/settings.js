@@ -1,8 +1,9 @@
 import Head from "next/head";
-import { Box, Button, Container, Typography } from "@mui/material";
+import { Box, Button, Container, Grid, Typography } from "@mui/material";
 import CustomerNavBar from "../../components/customer_view/navigation/navbar";
 import { Notifications } from "../../components/customer_view/settings/notification";
 import React, { useRef, useEffect, useState } from "react";
+import NextLink from "next/link";
 
 const Settings = () => {
   const runOnce = useRef(true);
@@ -16,12 +17,12 @@ const Settings = () => {
     }
   }, [runOnce]);
 
-//   useEffect(() => {
-//     if (runOnce.current) {
-//       runOnce.current = false;
-//       console.log("Settings");
-//     }
-//   }, [runOnce]);
+  //   useEffect(() => {
+  //     if (runOnce.current) {
+  //       runOnce.current = false;
+  //       console.log("Settings");
+  //     }
+  //   }, [runOnce]);
 
   return (
     <>
@@ -41,12 +42,27 @@ const Settings = () => {
           }}
         >
           <Container maxWidth="lg">
-            <Notifications />
             <Box sx={{ pt: 3 }}>
-              <Button color="primary" variant="contained">
-                Save
-              </Button>
+              <Grid container spacing={2}>
+                <Typography color="textPrimary" variant="h3" style={{ paddingRight: 20 }}>
+                  First Name
+                </Typography>
+                <Typography color="textPrimary" variant="h3">
+                  Last Name
+                </Typography>
+              </Grid>
+              <br></br>
+              <Typography color="textPrimary" variant="h5">
+                Email Address
+              </Typography>
+              <br></br>
+              <NextLink href="/customer/change_pwd" passHref>
+                <Button color="primary" variant="contained">
+                  Change Password
+                </Button>
+              </NextLink>
             </Box>
+            <Notifications />
           </Container>
         </Box>
       )}
