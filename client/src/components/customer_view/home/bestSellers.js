@@ -51,9 +51,9 @@ export const BestSellers = () => {
 
       <Grid item>
         <Card sx={{ maxWidth: 550 }}>
-          <NextLink href="/customer/order">
+          <NextLink href="/customer/order/mcd">
             <Link
-              to="/customer/order"
+              to="/customer/order/mcd"
               // variant="subtitle2"
               underline="hover"
               sx={{
