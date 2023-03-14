@@ -131,13 +131,13 @@ function CustomerNavBar() {
                 </Typography>
               </NextLink>
             </Button>
-            <Button style={{ marginLeft: 30 }}>
+            {/* <Button style={{ marginLeft: 30 }}>
               <NextLink href="#" passHref>
                 <Typography color="white" variant="h5">
                   Account
                 </Typography>
               </NextLink>
-            </Button>
+            </Button> */}
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
