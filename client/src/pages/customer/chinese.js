@@ -149,7 +149,7 @@ const Chinese = () => {
 
                     {/* Best Sellers Component */}
                     <Typography color="textPrimary" variant="h2">
-                      Chinese Resturants
+                      Chinese Restaurants
                     </Typography>
 
                     <br></br>
