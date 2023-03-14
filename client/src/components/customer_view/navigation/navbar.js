@@ -24,15 +24,18 @@ import Router from "next/router";
 
 // const pages = ['Products', 'Pricing', 'Blog'];
 // const settings = ["Profile", "Account", "Dashboard", "Logout"];
+export const handleAddToCart = (item) => {
+  setCartItems((cartItems) => [...cartItems, item]);
+}
 
 function CustomerNavBar() {
   // Cart Things
   const [cartItems, setCartItems] = useState([]);
   const [showCart, setShowCart] = useState(false);
 
-  const handleAddToCart = (item) => {
-    setCartItems((prevCartItems) => [...prevCartItems, item]);
-  };
+  // const handleAddToCart = (item) => {
+  //   setCartItems((prevCartItems) => [...prevCartItems, item]);
+  // };
 
   const handleRemoveFromCart = (item) => {
     setCartItems((prevCartItems) => prevCartItems.filter((cartItem) => cartItem.id !== item.id));
@@ -131,13 +134,13 @@ function CustomerNavBar() {
                 </Typography>
               </NextLink>
             </Button>
-            {/* <Button style={{ marginLeft: 30 }}>
-              <NextLink href="#" passHref>
+            <Button style={{ marginLeft: 30 }}>
+              <NextLink href="/customer/settings" passHref>
                 <Typography color="white" variant="h5">
-                  Account
+                  Settings
                 </Typography>
               </NextLink>
-            </Button> */}
+            </Button>
           </Box>
 
           {/* Start Dropdown Cart. */}

@@ -145,8 +145,6 @@ const Home = () => {
                     </Grid>
                     {/* End of Restaurants Category Component */}
                     <br></br>
-                    <br></br>
-
                     {/* Best Sellers Component */}
                     <Typography color="textPrimary" variant="h2">
                       Best Sellers

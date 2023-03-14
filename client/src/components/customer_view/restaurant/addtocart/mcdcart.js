@@ -30,8 +30,11 @@ export const McdCart = () => {
             title="burger no cheese"
           />
           <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              Cheeseburger ($5)
+            <Typography gutterBottom variant="h5" id="productName" component="div">
+              Cheeseburger
+            </Typography>
+            <Typography variant="h5" id="productPrice">
+              $5
             </Typography>
             <Typography variant="body2" color="text.secondary">
               The same favourite cheeseburger but without cheese.
@@ -50,8 +53,11 @@ export const McdCart = () => {
             title="chicken salad no chicken"
           />
           <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              Chicken Salad ($7)
+            <Typography gutterBottom variant="h5" id="productName" component="div">
+              Chicken Salad
+            </Typography>
+            <Typography variant="h5" id="productPrice">
+              $7
             </Typography>
             <Typography variant="body2" color="text.secondary">
               The same favourite chicken salad without chicken
@@ -70,16 +76,17 @@ export const McdCart = () => {
             title="pancake no sausage"
           />
           <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              Pancake Sausage ($6)
+            <Typography gutterBottom variant="h5" id="productName" component="div">
+              Pancake Sausage
+            </Typography>
+            <Typography variant="h5" id="productPrice">
+              $6
             </Typography>
             <Typography variant="body2" color="text.secondary">
               The same favourite combo of pancake with sausage without sausage
             </Typography>
           </CardContent>
-          <CardActions>
-            <Button variant="contained">Add to cart</Button>
-          </CardActions>
+          <CardActions>{/* <Button variant="contained">Add to cart</Button> */}</CardActions>
         </Card>
       </Grid>
     </>

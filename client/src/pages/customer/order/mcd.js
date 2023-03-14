@@ -1,16 +1,17 @@
 import Head from "next/head";
-import { Box, Container, Grid, Typography } from "@mui/material";
+import { Box, Button, Container, Grid, Typography } from "@mui/material";
 import React, { useRef, useEffect, useState } from "react";
 import { SecuredBuy } from '../../../components/firebase/SecuredBuy'
 
 // Import other components
-import CustomerNavBar from "../../../components/customer_view/navigation/navbar";
+import CustomerNavBar, { handleAddToCart } from "../../../components/customer_view/navigation/navbar";
 import { Mcd } from "../../../components/customer_view/restaurant/mcd";
 import { McdCart } from "../../../components/customer_view/restaurant/addtocart/mcdcart";
 
 const McdOrder = () => {
   const runOnce = useRef(true);
   const [ buyer , setBuyer ] = useState(false)
+  const [pancake, setPancake] = useState(false)
   useEffect(() => {
     if (runOnce.current) {
       runOnce.current = false;
@@ -20,7 +21,10 @@ const McdOrder = () => {
     }
   }, [runOnce]);
 
-
+function addToCartPancake() {
+  handleAddToCart({id: 'MCDP3', name: 'Pancake'})
+  setPancake(true)
+}
   return (
     <>
       {
@@ -62,6 +66,7 @@ const McdOrder = () => {
                   {/* Best Sellers */}
                   <Grid container spacing={2}>
                     <McdCart />
+                    <Button variant="contained" onClick={addToCartPancake}>Add to cart</Button>
                     {/* <Grid item> */}
                     {/* <BestSellers /> */}
                     {/* </Grid> */}
