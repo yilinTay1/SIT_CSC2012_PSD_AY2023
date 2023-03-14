@@ -33,10 +33,6 @@ function CustomerNavBar() {
   const [cartItems, setCartItems] = useState([]);
   const [showCart, setShowCart] = useState(false);
 
-  // const handleAddToCart = (item) => {
-  //   setCartItems((prevCartItems) => [...prevCartItems, item]);
-  // };
-
   const handleRemoveFromCart = (item) => {
     setCartItems((prevCartItems) => prevCartItems.filter((cartItem) => cartItem.id !== item.id));
   };
@@ -74,7 +70,7 @@ function CustomerNavBar() {
   };
 
   const handleChangePassword = () => {
-      let _redirectPage = "/customer/change_pwd"; 
+      let _redirectPage = "/customer/change_pwd";
       Router.push(_redirectPage).catch(console.error);
       setAnchorElUser(null);
   };
@@ -83,7 +79,7 @@ function CustomerNavBar() {
     const biz = sessionStorage.getItem("business");
     let      _redirectPage = "/customer/login"; // default login page
     if (biz) _redirectPage = "/business/login"; // unless previously logged in as business
-    if ( EmailPassword.logOut() ) 
+    if ( EmailPassword.logOut() )
     {
       Router.push(_redirectPage).catch(console.error);
       setAnchorElUser(null);
@@ -128,7 +124,7 @@ function CustomerNavBar() {
               </NextLink>
             </Button> */}
             <Button style={{ marginLeft: 30 }}>
-              <NextLink href="#" passHref>
+              <NextLink href="/customer/history" passHref>
                 <Typography color="white" variant="h5">
                   History
                 </Typography>
