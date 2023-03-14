@@ -59,8 +59,6 @@ const McdOrder = () => {
                   {/* End of Restaurants Category Component */}
                   <br></br>
 
-                  {/* Best Sellers Component */}
-
                   {/* Best Sellers */}
                   <Grid container spacing={2}>
                     <McdCart />
