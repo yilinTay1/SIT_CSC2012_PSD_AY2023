@@ -71,7 +71,7 @@ export const McdCart = () => {
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
-              CPancake Sausage ($6)
+              Pancake Sausage ($6)
             </Typography>
             <Typography variant="body2" color="text.secondary">
               The same favourite combo of pancake with sausage without sausage
