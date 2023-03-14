@@ -21,7 +21,7 @@ import React, { useRef, useState, useEffect } from "react";
 export const Mcd = () => {
   return (
     <>
-      <Card sx={{ display: "flex" }}>
+      <Card sx={{ display: "flex", padding: 10 }}>
         <Box>
           <CardContent sx={{ flex: "1 0 auto" }}>
             <Typography component="div" variant="h5">
@@ -34,7 +34,7 @@ export const Mcd = () => {
         </Box>
         <CardMedia
           component="img"
-          sx={{ width: 151 }}
+          sx={{ height: 190, width: 260, float: "right" }}
           image="/static/images/customer_view/restaurant/mcd.jpg"
           alt="Live from space album cover"
         />
