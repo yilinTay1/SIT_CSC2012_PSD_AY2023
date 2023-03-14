@@ -58,21 +58,31 @@ function CustomerNavBar() {
     setAnchorElNav(event.currentTarget);
   };
 
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = () => {
-    const biz = sessionStorage.getItem("business");
-    let _reloginPage = "/customer/login"; // default login page
-    if (biz) _reloginPage = "/business/login"; // unless previously logged in as business
+  const handleOpenUserMenu = (event) => {
+    setAnchorElUser(event.currentTarget);
+  };
 
-    if (EmailPassword.logOut()) {
-      Router.push(_reloginPage).catch(console.error);
+  const handleCloseUserMenu= (event) => {
+    setAnchorElUser(null);
+  };
+
+  const handleChangePassword = () => {
+      let _redirectPage = "/customer/change_pwd"; 
+      Router.push(_redirectPage).catch(console.error);
+      setAnchorElUser(null);
+  };
+
+  const handleLogoutMenu = () => {
+    const biz = sessionStorage.getItem("business");
+    let      _redirectPage = "/customer/login"; // default login page
+    if (biz) _redirectPage = "/business/login"; // unless previously logged in as business
+    if ( EmailPassword.logOut() ) 
+    {
+      Router.push(_redirectPage).catch(console.error);
       setAnchorElUser(null);
     }
   };
@@ -157,12 +167,12 @@ function CustomerNavBar() {
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))} */}
-              <MenuItem onClick={handleCloseUserMenu}>
+              <MenuItem onClick={handleChangePassword}>
                 <NextLink href="/customer/change_pwd" passHref>
                   <Typography textAlign="center">Change Password</Typography>
                 </NextLink>
               </MenuItem>
-              <MenuItem onClick={handleCloseUserMenu}>
+              <MenuItem onClick={handleLogoutMenu}>
                 <Typography textAlign="center">Logout</Typography>
               </MenuItem>
             </Menu>

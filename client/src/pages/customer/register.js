@@ -80,6 +80,9 @@ const Register = () => {
     const result = await EmailPassword.register(email, password);
     if (result) {
       console.log("Valid registration!", result);
+      Router
+          .push("/customer/login")
+          .catch(console.error)
     } else {
       console.log("Invalid registration!", result);
     }
