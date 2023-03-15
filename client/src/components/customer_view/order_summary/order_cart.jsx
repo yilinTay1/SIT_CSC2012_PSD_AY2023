@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import React from "react";
+
 
 function CartItem({ item, updateItemQuantity, removeItem }) {
   const [quantity, setQuantity] = useState(item.quantity);
@@ -8,7 +10,7 @@ function CartItem({ item, updateItemQuantity, removeItem }) {
     setQuantity(value);
     updateItemQuantity(item.id, value);
   };
-
+ 
   return (
     <tr>
       <td>{item.name}</td>
