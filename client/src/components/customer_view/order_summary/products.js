@@ -5,7 +5,7 @@ import product4 from "client/public/static/images/customer_view/cartlist/sushi/c
 import product5 from "client/public/static/images/customer_view/cartlist/sushi/handroll.jpg"
 import product6 from "client/public/static/images/customer_view/cartlist/sushi/maki.jpg"
 
-export const Products =[
+export const PRODUCTS =[
 {
     id:1,
     productName:"CheeseBurger",
