@@ -64,3 +64,13 @@ For this feature, it will only appear after the user has logged in succesfully. 
 2. Reset password
 Decided to leave reset password UI the same as if we were to do it similar to Google, more components/pages need to be created.
 However, if the Google UI is easier, do let me know, I will make the necessary changes.
+
+## New update for customer side as of 15 March 2023
+Search is ok for order pages
+Problem:
+- add to cart
+- remove from cart
+- display in order summary
+
+Currently working on:
+search feature for restaurants (will have some major clean ups)
