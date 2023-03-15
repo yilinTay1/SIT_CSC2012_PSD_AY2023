@@ -17,12 +17,40 @@ import { SecuredBuy } from "../../../components/firebase/SecuredBuy";
 import CustomerNavBar from "../../../components/customer_view/navigation/navbar";
 import { Dtf } from "../../../components/customer_view/restaurant/dtf";
 import { SearchBar } from "../../../components/customer_view/searchbar";
-// import { McdCart } from "../../../components/customer_view/restaurant/addtocart/mcdcart";
+
+const dtf = [
+  {
+    id: 1,
+    name: "Fried Rice",
+    image: "/static/images/customer_view/cartlist/dtf/friedrice.jpg",
+    description: "Our signature chicken fried rice loved by all, but without the chicken.",
+    restaurant: "Din Tai Fung",
+    price: 4.5,
+  },
+  {
+    id: 2,
+    name: "Spicy Lamian",
+    image: "/static/images/customer_view/cartlist/dtf/lamian.jpg",
+    description:
+      "All time favourite spicy lamian but without the dumplings.",
+    restaurant: "Din Tai Fung",
+    price: 4.0,
+  },
+  {
+    id: 3,
+    name: "Xiao Long Bao",
+    image: "/static/images/customer_view/cartlist/dtf/xlb.jpg",
+    description:
+      "Restuarant's most famous xiao long bao but replaced with chicken meat and stock",
+    restaurant: "Din Tai Fung",
+    price: 6.5,
+  },
+];
 
 const DtfOrder = () => {
   const runOnce = useRef(true);
   const [buyer, setBuyer] = useState(false);
-  // const [pancake, setPancake] = useState(false)
+
   useEffect(() => {
     if (runOnce.current) {
       runOnce.current = false;
@@ -31,39 +59,8 @@ const DtfOrder = () => {
       console.log("/");
     }
   }, [runOnce]);
-
-  // function addToCartPancake() {
-  //   handleAddToCart({id: 'MCDP3', name: 'Pancake'})
-  //   setPancake(true)
-  // }
-  const dtf = [
-    {
-      id: 1,
-      name: "Fried Rice",
-      image: "/static/images/customer_view/cartlist/dtf/friedrice.jpg",
-      description: "Our signature chicken fried rice loved by all, but without the chicken.",
-      restaurant: "Din Tai Fung",
-      price: 4.5,
-    },
-    {
-      id: 2,
-      name: "Spicy Lamian",
-      image: "/static/images/customer_view/cartlist/dtf/lamian.jpg",
-      description:
-        "All time favourite spicy lamian but without the dumplings.",
-      restaurant: "Din Tai Fung",
-      price: 4.0,
-    },
-    {
-      id: 3,
-      name: "Xiao Long Bao",
-      image: "/static/images/customer_view/cartlist/dtf/xlb.jpg",
-      description:
-        "Restuarant's most famous xiao long bao but replaced with chicken meat and stock",
-      restaurant: "Din Tai Fung",
-      price: 6.5,
-    },
-  ];
+  
+  // Search functionality
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredDtf, setFilteredDtf] = useState(dtf);
 
@@ -74,6 +71,7 @@ const DtfOrder = () => {
     setFilteredDtf(filteredData);
   }, [searchQuery, dtf]);
 
+  // Cart functionality
   const handleAddToCart = (item) => {
     // add item to cart logic here
   };

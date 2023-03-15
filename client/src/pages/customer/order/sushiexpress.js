@@ -17,12 +17,37 @@ import { SecuredBuy } from "../../../components/firebase/SecuredBuy";
 import CustomerNavBar from "../../../components/customer_view/navigation/navbar";
 import { Sushi } from "../../../components/customer_view/restaurant/sushi";
 import { SearchBar } from "../../../components/customer_view/searchbar";
-// import { McdCart } from "../../../components/customer_view/restaurant/addtocart/mcdcart";
+
+const sushi = [
+  {
+    id: 1,
+    name: "California Roll",
+    image: "/static/images/customer_view/cartlist/sushi/cali.jpg",
+    description: "All time favourite california roll without crabstick",
+    restaurant: "Sushi Express",
+    price: 7.8,
+  },
+  {
+    id: 2,
+    name: "Handroll Sushi",
+    image: "/static/images/customer_view/cartlist/sushi/handroll.jpg",
+    description: "Our signature handroll sushi without tuna",
+    restaurant: "Sushi Express",
+    price: 6.5,
+  },
+  {
+    id: 3,
+    name: "Maki Sushi",
+    image: "/static/images/customer_view/cartlist/sushi/maki.jpg",
+    description: "Maki maki! One of our most popular sushi but without avocado",
+    restaurant: "Sushi Express",
+    price: 6.9,
+  },
+];
 
 const SushiOrder = () => {
   const runOnce = useRef(true);
   const [buyer, setBuyer] = useState(false);
-  // const [pancake, setPancake] = useState(false)
   useEffect(() => {
     if (runOnce.current) {
       runOnce.current = false;
@@ -32,36 +57,7 @@ const SushiOrder = () => {
     }
   }, [runOnce]);
 
-  // function addToCartPancake() {
-  //   handleAddToCart({id: 'MCDP3', name: 'Pancake'})
-  //   setPancake(true)
-  // }
-  const sushi = [
-    {
-      id: 1,
-      name: "California Roll",
-      image: "/static/images/customer_view/cartlist/sushi/cali.jpg",
-      description: "All time favourite california roll without crabstick",
-      restaurant: "Sushi Express",
-      price: 7.8,
-    },
-    {
-      id: 2,
-      name: "Handroll Sushi",
-      image: "/static/images/customer_view/cartlist/sushi/handroll.jpg",
-      description: "Our signature handroll sushi without tuna",
-      restaurant: "Sushi Express",
-      price: 6.5,
-    },
-    {
-      id: 3,
-      name: "Maki Sushi",
-      image: "/static/images/customer_view/cartlist/sushi/maki.jpg",
-      description: "Maki maki! One of our most popular sushi but without avocado",
-      restaurant: "Sushi Express",
-      price: 6.9,
-    },
-  ];
+// Search functionality
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredSushi, setFilteredSushi] = useState(sushi);
 
@@ -72,6 +68,7 @@ const SushiOrder = () => {
     setFilteredSushi(filteredData);
   }, [searchQuery, sushi]);
 
+  // Cart functionality
   const handleAddToCart = (item) => {
     // add item to cart logic here
   };

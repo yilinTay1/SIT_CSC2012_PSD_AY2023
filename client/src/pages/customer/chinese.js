@@ -1,178 +1,162 @@
 import Head from "next/head";
-import { Box, Container, Grid, Typography } from "@mui/material";
+import {
+  Box,
+  Card,
+  CardContent,
+  CardMedia,
+  Container,
+  Grid,
+  Link,
+  Typography,
+} from "@mui/material";
 import React, { useRef, useEffect, useState } from "react";
-import { SecuredBuy } from '../../components/firebase/SecuredBuy'
+import { SecuredBuy } from "../../components/firebase/SecuredBuy";
+import NextLink from "next/link";
+import StarRateIcon from "@mui/icons-material/StarRate";
 // Import other components
 import CustomerNavBar from "../../components/customer_view/navigation/navbar";
 import { SearchBar } from "../../components/customer_view/searchbar";
 import { RestCategory } from "../../components/customer_view/home/restCategory";
-import { ChineseRest } from "../../components/customer_view/home/chineseRest";
 
 // Search bar resource: https://dev.to/mar1anna/create-a-search-bar-with-react-and-material-ui-4he
 
-const filterData = (query, data) => {
-  if (!query) {
-    return data;
-  } else {
-    return data.filter((d) => d.includes(query));
-  }
-};
-
-const data = [
-  // "Paris",
-  // "London",
-  // "New York",
-  // "Tokyo",
-  // "Berlin",
-  // "Buenos Aires",
-  // "Cairo",
-  // "Canberra",
-  // "Rio de Janeiro",
-  // "Dublin",
+const chinese = [
+  {
+    id: 1,
+    name: "Jia Jia Wanton",
+    image: "/static/images/customer_view/restaurant/wanton.jpg",
+    timeaway: "25 min away",
+    rating: 4.5,
+    link: "/customer/order/jiajiawanton",
+  },
+  {
+    id: 2,
+    name: "Din Tai Fung",
+    image: "/static/images/customer_view/restaurant/dintaifung.jpg",
+    timeaway: "20 min away",
+    rating: 3.9,
+    link: "/customer/order/dintaifung",
+  },
 ];
+
 const Chinese = () => {
   const runOnce = useRef(true);
-  const [ buyer , setBuyer ] = useState(false)
+  const [buyer, setBuyer] = useState(false);
   useEffect(() => {
-                    if (runOnce.current) {
-                      runOnce.current = false;
-                      const isbuyer = sessionStorage.getItem("buyer")
-                      if(isbuyer) setBuyer(true)
-                      console.log("/");
-                    }
-                  }, [runOnce]);
+    if (runOnce.current) {
+      runOnce.current = false;
+      const isbuyer = sessionStorage.getItem("buyer");
+      if (isbuyer) setBuyer(true);
+      console.log("/");
+    }
+  }, [runOnce]);
+
+  // Search functionality
   const [searchQuery, setSearchQuery] = useState("");
-  const dataFiltered = filterData(searchQuery, data);
+  const [filteredChinese, setFilteredChinese] = useState(chinese);
+
+  useEffect(() => {
+    const filteredData = chinese.filter((d) =>
+      d.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    setFilteredChinese(filteredData);
+  }, [searchQuery, chinese]);
 
   return (
-          <>
-            {
-              buyer &&
-                <Head>
-                  <title>Home | WorthEats</title>
-                </Head>
-            }
-                {/* Navbar */}
-            {
-              buyer &&
-                  <CustomerNavBar />
-            }
-            {
-              buyer &&
-                <Box
-                  component="main"
-                  sx={{
-                    flexGrow: 1,
-                    py: 8,
-                  }}
-                >
-                  <Container maxWidth={false} style={{paddingLeft: 70, paddingRight: 70}}>
-                    {/* <Typography color="textPrimary" variant="h2">
-                      Welcome to customer page!
-                    </Typography> */}
-                    {/* Searchbar Component */}
-                    {/* <div
-                      style={{
-                        display: "flex",
-                        alignSelf: "center",
-                        justifyContent: "center",
-                        //flexDirection: "column",
-                        padding: 20,
-                      }}
-                    >
-                      <SearchBar />
-                      <div style={{ padding: 3, width: 1000 }}>
-                        <div
-                          className="text"
-                          style={{
-                            padding: 5,
-                            justifyContent: "normal",
-                            fontSize: 20,
-                            color: "blue",
-                            margin: 1,
-                            width: "100%",
-                            BorderColor: "green",
-                            borderWidth: "100%",
-                          }}
-                        ></div>
-                      </div>
-                    </div> */}
-                    <div
-                      style={{
-                        display: "flex",
-                        alignSelf: "center",
-                        justifyContent: "center",
-                        flexDirection: "column",
-                        padding: 20,
-                      }}
-                    >
-                      <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-                      <div style={{ padding: 3 }}>
-                        {dataFiltered.map((d) => (
-                          <div
-                            className="text"
-                            style={{
-                              padding: 5,
-                              justifyContent: "normal",
-                              fontSize: 20,
-                              color: "blue",
-                              margin: 1,
-                              width: "250px",
-                              BorderColor: "green",
-                              borderWidth: "10px",
-                            }}
-                            key={d.id}
+    <>
+      {buyer && (
+        <Head>
+          <title>Chinese | WorthEats</title>
+        </Head>
+      )}
+      {/* Navbar */}
+      {buyer && <CustomerNavBar />}
+      {buyer && (
+        <Box
+          component="main"
+          sx={{
+            flexGrow: 1,
+            py: 8,
+          }}
+        >
+          <Container maxWidth={false} style={{ paddingLeft: 70, paddingRight: 70 }}>
+            <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+            <br></br>
+
+            {/* Restaurants Category Component */}
+            <Typography color="textPrimary" variant="h2">
+              Restaurants
+            </Typography>
+
+            {/* Category */}
+            <Grid container spacing={10}>
+              <Grid item lg={10} sm={6} xl={10} xs={12}>
+                <br></br>
+                <RestCategory />
+              </Grid>
+            </Grid>
+            {/* End of Restaurants Category Component */}
+            <br></br>
+            <br></br>
+
+            {/* Chinese Component */}
+            <Typography color="textPrimary" variant="h2">
+              Chinese Restaurants
+            </Typography>
+
+            <br></br>
+
+            {/* Chinese Restaurants */}
+            <Grid container spacing={2}>
+              {filteredChinese.map((item) => (
+                <Grid item>
+                  <Card sx={{ maxWidth: 550 }}>
+                    <NextLink href={item.link}>
+                      <Link
+                        to={item.link}
+                        // variant="subtitle2"
+                        underline="hover"
+                        sx={{
+                          cursor: "pointer",
+                          color: "black",
+                        }}
+                      >
+                        <CardMedia sx={{ height: 180 }} image={item.image} title={item.name} />
+                        <CardContent sx={{ width: 550 }}>
+                          <Typography gutterBottom variant="h5" component="div">
+                            {item.name}
+                          </Typography>
+                          <Typography variant="body2" color="text.secondary">
+                            {item.timeaway}
+                          </Typography>
+
+                          <Typography
+                            variant="h6"
+                            color="text.secondary"
+                            style={{ float: "right" }}
                           >
-                            {d}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                    {/* End of Searchbar Component */}
-                    <br></br>
-
-                    {/* Restaurants Category Component */}
-                    <Typography color="textPrimary" variant="h2">
-                      Restaurants
-                    </Typography>
-
-                    {/* Category */}
-                    <Grid container spacing={10}>
-                      <Grid item lg={10} sm={6} xl={10} xs={12}>
-                        <br></br>
-                        <RestCategory />
-                      </Grid>
-                    </Grid>
-                    {/* End of Restaurants Category Component */}
-                    <br></br>
-                    <br></br>
-
-                    {/* Best Sellers Component */}
-                    <Typography color="textPrimary" variant="h2">
-                      Chinese Restaurants
-                    </Typography>
-
-                    <br></br>
-
-                    {/* Best Sellers */}
-                    <Grid container spacing={2}>
-                      {/* <Grid item> */}
-                        <ChineseRest />
-                      {/* </Grid> */}
-                    </Grid>
-                    {/* End of Best Sellers Component */}
-                  </Container>
-                </Box>
-            }
-          </>
-  )
-}
+                            <StarRateIcon fontSize="medium" /> {item.rating.toFixed(1)}
+                          </Typography>
+                        </CardContent>
+                      </Link>
+                    </NextLink>
+                  </Card>
+                </Grid>
+              ))}
+            </Grid>
+            {/* End of Chinese Component */}
+          </Container>
+        </Box>
+      )}
+    </>
+  );
+};
 
 Chinese.getLayout = (chinese) => (
-<>
-  <SecuredBuy />
-  {chinese}
-</>
+  <>
+    <SecuredBuy />
+    {chinese}
+  </>
 );
 
 export default Chinese;

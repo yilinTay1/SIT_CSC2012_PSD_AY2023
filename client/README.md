@@ -66,11 +66,21 @@ Decided to leave reset password UI the same as if we were to do it similar to Go
 However, if the Google UI is easier, do let me know, I will make the necessary changes.
 
 ## New update for customer side as of 15 March 2023
-Search is ok for order pages
+Search is ok for order and restaurant pages
 Problem:
+1. Cart
 - add to cart
 - remove from cart
 - display in order summary
+- after checkout send to database (need work with backend)
 
-Currently working on:
-search feature for restaurants (will have some major clean ups)
+2. History (backend, UI is up)
+- after checkout, submits a new order id and display in order history
+
+3. Search bar UI
+
+4. ML rating
+- should be decided or done as soon as possible as population of data need to do for many pages
+
+5. Customer account settings (backend)
+- display first name, last name, email address
