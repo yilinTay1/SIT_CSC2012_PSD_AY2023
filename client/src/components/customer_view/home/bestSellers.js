@@ -22,22 +22,34 @@ export const BestSellers = () => {
     <>
       <Grid item>
         <Card sx={{ maxWidth: 550 }}>
-          <CardMedia
-            sx={{ height: 180 }}
-            image="/static/images/customer_view/restaurant/crazycross.jpg"
-            title="croissant"
-          />
-          <CardContent sx={{ width: 550 }}>
-            <Typography gutterBottom variant="h5" component="div">
-              Crazy Croissant
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              10 min away
-            </Typography>
-            <Typography variant="h6" color="text.secondary" style={{ float: "right" }}>
-              <StarRateIcon fontSize="medium" /> 4.5
-            </Typography>
-          </CardContent>
+          <NextLink href="/customer/order/croissant">
+            <Link
+              to="/customer/order/croissant"
+              // variant="subtitle2"
+              underline="hover"
+              sx={{
+                cursor: "pointer",
+                color: "black",
+              }}
+            >
+              <CardMedia
+                sx={{ height: 180 }}
+                image="/static/images/customer_view/restaurant/crazycross.jpg"
+                title="croissant"
+              />
+              <CardContent sx={{ width: 550 }}>
+                <Typography gutterBottom variant="h5" component="div">
+                  Crazy Croissant
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  10 min away
+                </Typography>
+                <Typography variant="h6" color="text.secondary" style={{ float: "right" }}>
+                  <StarRateIcon fontSize="medium" /> 4.5
+                </Typography>
+              </CardContent>
+            </Link>
+          </NextLink>
         </Card>
       </Grid>
 
