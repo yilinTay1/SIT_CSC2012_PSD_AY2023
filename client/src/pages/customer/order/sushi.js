@@ -96,6 +96,7 @@ const SushiOrder = () => {
         >
           <Container maxWidth={false} style={{ paddingLeft: 70, paddingRight: 70 }}>
             <Sushi />
+            <br></br>
             <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
 
             {/* Category */}

@@ -98,6 +98,7 @@ const McdOrder = () => {
         >
           <Container maxWidth={false} style={{ paddingLeft: 70, paddingRight: 70 }}>
             <Mcd />
+            <br></br>
             <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
 
             {/* Category */}
