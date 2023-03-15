@@ -25,7 +25,7 @@ const Page = () => {
   },[runOnce])
 
   return(
-    window.location.href = './customer/home'
+    window.location.href = '/customer/home'
   )
 };
 
