@@ -78,3 +78,6 @@ Problem:
 
 3. ML rating
 - should be decided or done as soon as possible as population of data need to do for many pages
+
+4. Customer account settings (backend)
+- display first name, last name, email address
