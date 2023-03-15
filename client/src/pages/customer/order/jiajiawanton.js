@@ -19,6 +19,35 @@ import { Wanton } from "../../../components/customer_view/restaurant/wanton";
 import { SearchBar } from "../../../components/customer_view/searchbar";
 // import { McdCart } from "../../../components/customer_view/restaurant/addtocart/mcdcart";
 
+const wanton = [
+  {
+    id: 1,
+    name: "Charsiew Wanton Mee",
+    image: "/static/images/customer_view/cartlist/wanton/charsiew.jpg",
+    description: "Charsiew wanton mee without dumplings, still tasty with our homemade sauce!",
+    restaurant: "Jia Jia Wanton",
+    price: 4.5,
+  },
+  {
+    id: 2,
+    name: "Chicken Wanton Mee",
+    image: "/static/images/customer_view/cartlist/wanton/chicken.jpg",
+    description:
+      "Chicken wanton mee without charsiew and dumpling, good for a healthier choice option!",
+    restaurant: "Jia Jia Wanton",
+    price: 3.5,
+  },
+  {
+    id: 3,
+    name: "Dumpling Wanton Mee",
+    image: "/static/images/customer_view/cartlist/wanton/dumpling.jpg",
+    description:
+      "Dumpling wanton mee without charsiew, still a very fulling choice with our handmade wanton dumplings! ",
+    restaurant: "Jia Jia Wanton",
+    price: 5.5,
+  },
+];
+
 const WantonOrder = () => {
   const runOnce = useRef(true);
   const [buyer, setBuyer] = useState(false);
@@ -36,34 +65,7 @@ const WantonOrder = () => {
   //   handleAddToCart({id: 'MCDP3', name: 'Pancake'})
   //   setPancake(true)
   // }
-  const wanton = [
-    {
-      id: 1,
-      name: "Charsiew Wanton Mee",
-      image: "/static/images/customer_view/cartlist/wanton/charsiew.jpg",
-      description: "Charsiew wanton mee without dumplings, still tasty with our homemade sauce!",
-      restaurant: "Jia Jia Wanton",
-      price: 4.5,
-    },
-    {
-      id: 2,
-      name: "Chicken Wanton Mee",
-      image: "/static/images/customer_view/cartlist/wanton/chicken.jpg",
-      description:
-        "Chicken wanton mee without charsiew and dumpling, good for a healthier choice option!",
-      restaurant: "Jia Jia Wanton",
-      price: 3.5,
-    },
-    {
-      id: 3,
-      name: "Dumpling Wanton Mee",
-      image: "/static/images/customer_view/cartlist/wanton/dumpling.jpg",
-      description:
-        "Dumpling wanton mee without charsiew, still a very fulling choice with our handmade wanton dumplings! ",
-      restaurant: "Jia Jia Wanton",
-      price: 5.5,
-    },
-  ];
+  
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredWanton, setFilteredWanton] = useState(wanton);
 

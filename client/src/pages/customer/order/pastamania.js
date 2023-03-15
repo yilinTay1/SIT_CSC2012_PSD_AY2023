@@ -18,6 +18,32 @@ import CustomerNavBar from "../../../components/customer_view/navigation/navbar"
 import { Pasta } from "../../../components/customer_view/restaurant/pasta";
 import { SearchBar } from "../../../components/customer_view/searchbar";
 // import { McdCart } from "../../../components/customer_view/restaurant/addtocart/mcdcart";
+const pasta = [
+  {
+    id: 1,
+    name: "Chicken Alfredo",
+    image: "/static/images/customer_view/cartlist/pasta/alfredo.jpg",
+    description: "Simple chicken alfredo pasta without the chicken.",
+    restaurant: "Pastamania",
+    price: 5.9,
+  },
+  {
+    id: 2,
+    name: "Carbonara Pasta",
+    image: "/static/images/customer_view/cartlist/pasta/carbonara.jpg",
+    description: "Carbonara pasta without the bacon bits, bacon bits are replaced with mushrooms",
+    restaurant: "Pastamania",
+    price: 7.0,
+  },
+  {
+    id: 3,
+    name: "Tomato Pasta",
+    image: "/static/images/customer_view/cartlist/pasta/tomato.jpg",
+    description: "Tomato penne pasta replaced with spaghetti with the other toppings in tact",
+    restaurant: "Pastamania",
+    price: 6.7,
+  },
+];
 
 const PastaOrder = () => {
   const runOnce = useRef(true);
@@ -36,32 +62,7 @@ const PastaOrder = () => {
   //   handleAddToCart({id: 'MCDP3', name: 'Pancake'})
   //   setPancake(true)
   // }
-  const pasta = [
-    {
-      id: 1,
-      name: "Chicken Alfredo",
-      image: "/static/images/customer_view/cartlist/pasta/alfredo.jpg",
-      description: "Simple chicken alfredo pasta without the chicken.",
-      restaurant: "Pastamania",
-      price: 5.9,
-    },
-    {
-      id: 2,
-      name: "Carbonara Pasta",
-      image: "/static/images/customer_view/cartlist/pasta/carbonara.jpg",
-      description: "Carbonara pasta without the bacon bits, bacon bits are replaced with mushrooms",
-      restaurant: "Pastamania",
-      price: 7.0,
-    },
-    {
-      id: 3,
-      name: "Tomato Pasta",
-      image: "/static/images/customer_view/cartlist/pasta/tomato.jpg",
-      description: "Tomato penne pasta replaced with spaghetti with the other toppings in tact",
-      restaurant: "Pastamania",
-      price: 6.7,
-    },
-  ];
+  
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredPasta, setFilteredPasta] = useState(pasta);
 

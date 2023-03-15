@@ -18,6 +18,32 @@ import CustomerNavBar from "../../../components/customer_view/navigation/navbar"
 import { Croissant } from "../../../components/customer_view/restaurant/croissant";
 import { SearchBar } from "../../../components/customer_view/searchbar";
 // import { McdCart } from "../../../components/customer_view/restaurant/addtocart/mcdcart";
+const croissant = [
+  {
+    id: 1,
+    name: "Mushroom Croissant",
+    image: "/static/images/customer_view/cartlist/crazycross/mushroom.jpg",
+    description: "One of our first few creations but without the cheese, still taste as good!",
+    restaurant: "Crazy Croissant",
+    price: 6.5,
+  },
+  {
+    id: 2,
+    name: "Smoke Salmon Croissant",
+    image: "/static/images/customer_view/cartlist/crazycross/smokesal.jpg",
+    description: "Our latest creation which everyone loves! Comes without lettuce and olives.",
+    restaurant: "Crazy Croissant",
+    price: 7.6,
+  },
+  {
+    id: 3,
+    name: "Turkey Croissant",
+    image: "/static/images/customer_view/cartlist/crazycross/turkey.jpg",
+    description: "Crazy Croissant's signature sandwich but without cheese and sauce.",
+    restaurant: "Mcdonalds",
+    price: 7.1,
+  },
+];
 
 const CroissantOrder = () => {
   const runOnce = useRef(true);
@@ -36,32 +62,6 @@ const CroissantOrder = () => {
   //   handleAddToCart({id: 'MCDP3', name: 'Pancake'})
   //   setPancake(true)
   // }
-  const croissant = [
-    {
-      id: 1,
-      name: "Mushroom Croissant",
-      image: "/static/images/customer_view/cartlist/crazycross/mushroom.jpg",
-      description: "One of our first few creations but without the cheese, still taste as good!",
-      restaurant: "Crazy Croissant",
-      price: 6.5,
-    },
-    {
-      id: 2,
-      name: "Smoke Salmon Croissant",
-      image: "/static/images/customer_view/cartlist/crazycross/smokesal.jpg",
-      description: "Our latest creation which everyone loves! Comes without lettuce and olives.",
-      restaurant: "Crazy Croissant",
-      price: 7.6,
-    },
-    {
-      id: 3,
-      name: "Turkey Croissant",
-      image: "/static/images/customer_view/cartlist/crazycross/turkey.jpg",
-      description: "Crazy Croissant's signature sandwich but without cheese and sauce.",
-      restaurant: "Mcdonalds",
-      price: 7.1,
-    },
-  ];
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredCroissant, setFilteredCroissant] = useState(croissant);
 
