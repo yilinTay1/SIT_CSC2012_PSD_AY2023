@@ -74,10 +74,13 @@ Problem:
 - display in order summary
 - after checkout send to database (need work with backend)
 
-2. Search bar UI
+2. History (backend, UI is up)
+- after checkout, submits a new order id and display in order history
 
-3. ML rating
+3. Search bar UI
+
+4. ML rating
 - should be decided or done as soon as possible as population of data need to do for many pages
 
-4. Customer account settings (backend)
+5. Customer account settings (backend)
 - display first name, last name, email address
