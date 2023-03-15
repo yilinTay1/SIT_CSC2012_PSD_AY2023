@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import React, { useRef, useEffect, useState } from "react";
 import { SecuredBuy } from "../../../components/firebase/SecuredBuy";
-
+import { ShopContextProvider } from "../../../components/customer_view/order_summary/shop-context";
 // Import other components
 import CustomerNavBar from "../../../components/customer_view/navigation/navbar";
 import { Mcd } from "../../../components/customer_view/restaurant/mcd";

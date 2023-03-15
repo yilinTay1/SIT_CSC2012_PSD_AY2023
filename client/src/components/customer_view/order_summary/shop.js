@@ -1,6 +1,6 @@
 import React from 'react';
 import { PRODUCTS } from '../../products';
-import { Product } from "./product"
+import { Product } from "./Product"
 import { ShopContextProvider } from './shop-context';
 
 export const shop = () => {
