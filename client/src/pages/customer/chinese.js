@@ -51,6 +51,7 @@ const Chinese = () => {
     }
   }, [runOnce]);
 
+  // Search functionality
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredChinese, setFilteredChinese] = useState(chinese);
 

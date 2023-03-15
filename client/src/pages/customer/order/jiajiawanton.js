@@ -17,7 +17,6 @@ import { SecuredBuy } from "../../../components/firebase/SecuredBuy";
 import CustomerNavBar from "../../../components/customer_view/navigation/navbar";
 import { Wanton } from "../../../components/customer_view/restaurant/wanton";
 import { SearchBar } from "../../../components/customer_view/searchbar";
-// import { McdCart } from "../../../components/customer_view/restaurant/addtocart/mcdcart";
 
 const wanton = [
   {
@@ -51,7 +50,6 @@ const wanton = [
 const WantonOrder = () => {
   const runOnce = useRef(true);
   const [buyer, setBuyer] = useState(false);
-  // const [pancake, setPancake] = useState(false)
   useEffect(() => {
     if (runOnce.current) {
       runOnce.current = false;
@@ -60,12 +58,8 @@ const WantonOrder = () => {
       console.log("/");
     }
   }, [runOnce]);
-
-  // function addToCartPancake() {
-  //   handleAddToCart({id: 'MCDP3', name: 'Pancake'})
-  //   setPancake(true)
-  // }
   
+  // Search functionality
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredWanton, setFilteredWanton] = useState(wanton);
 
@@ -76,6 +70,7 @@ const WantonOrder = () => {
     setFilteredWanton(filteredData);
   }, [searchQuery, wanton]);
 
+  // Cart functionality
   const handleAddToCart = (item) => {
     // add item to cart logic here
   };

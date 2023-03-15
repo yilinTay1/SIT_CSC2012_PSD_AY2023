@@ -43,6 +43,7 @@ const Cafe = () => {
     }
   }, [runOnce]);
 
+  // Search functionality
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredCafe, setFilteredCafe] = useState(cafe);
 

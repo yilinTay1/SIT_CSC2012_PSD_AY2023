@@ -51,6 +51,7 @@ const Western = () => {
     }
   }, [runOnce]);
 
+  // Search functionality
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredWestern, setFilteredWestern] = useState(western);
 

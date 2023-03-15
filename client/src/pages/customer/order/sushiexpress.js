@@ -17,7 +17,7 @@ import { SecuredBuy } from "../../../components/firebase/SecuredBuy";
 import CustomerNavBar from "../../../components/customer_view/navigation/navbar";
 import { Sushi } from "../../../components/customer_view/restaurant/sushi";
 import { SearchBar } from "../../../components/customer_view/searchbar";
-// import { McdCart } from "../../../components/customer_view/restaurant/addtocart/mcdcart";
+
 const sushi = [
   {
     id: 1,
@@ -48,7 +48,6 @@ const sushi = [
 const SushiOrder = () => {
   const runOnce = useRef(true);
   const [buyer, setBuyer] = useState(false);
-  // const [pancake, setPancake] = useState(false)
   useEffect(() => {
     if (runOnce.current) {
       runOnce.current = false;
@@ -58,11 +57,7 @@ const SushiOrder = () => {
     }
   }, [runOnce]);
 
-  // function addToCartPancake() {
-  //   handleAddToCart({id: 'MCDP3', name: 'Pancake'})
-  //   setPancake(true)
-  // }
-  
+// Search functionality
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredSushi, setFilteredSushi] = useState(sushi);
 
@@ -73,6 +68,7 @@ const SushiOrder = () => {
     setFilteredSushi(filteredData);
   }, [searchQuery, sushi]);
 
+  // Cart functionality
   const handleAddToCart = (item) => {
     // add item to cart logic here
   };

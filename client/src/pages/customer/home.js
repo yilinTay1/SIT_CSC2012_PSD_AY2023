@@ -58,6 +58,7 @@ const Home = () => {
     }
   }, [runOnce]);
 
+  // Search functionality
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredFeatured, setFilteredFeatured] = useState(featured);
 

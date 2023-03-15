@@ -43,6 +43,7 @@ const Japanese = () => {
     }
   }, [runOnce]);
 
+  // Search functionality
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredJapanese, setFilteredJapanese] = useState(japanese);
 

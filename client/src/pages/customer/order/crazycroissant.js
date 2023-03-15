@@ -17,7 +17,7 @@ import { SecuredBuy } from "../../../components/firebase/SecuredBuy";
 import CustomerNavBar from "../../../components/customer_view/navigation/navbar";
 import { Croissant } from "../../../components/customer_view/restaurant/croissant";
 import { SearchBar } from "../../../components/customer_view/searchbar";
-// import { McdCart } from "../../../components/customer_view/restaurant/addtocart/mcdcart";
+
 const croissant = [
   {
     id: 1,
@@ -62,6 +62,8 @@ const CroissantOrder = () => {
   //   handleAddToCart({id: 'MCDP3', name: 'Pancake'})
   //   setPancake(true)
   // }
+
+  // Search functionality
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredCroissant, setFilteredCroissant] = useState(croissant);
 
@@ -72,6 +74,7 @@ const CroissantOrder = () => {
     setFilteredCroissant(filteredData);
   }, [searchQuery, croissant]);
 
+  // Cart functionality
   const handleAddToCart = (item) => {
     // add item to cart logic here
   };

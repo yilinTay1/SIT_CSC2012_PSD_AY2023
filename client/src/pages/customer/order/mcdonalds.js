@@ -50,7 +50,6 @@ const mcd = [
 const McdOrder = () => {
   const runOnce = useRef(true);
   const [buyer, setBuyer] = useState(false);
-  // const [pancake, setPancake] = useState(false)
   useEffect(() => {
     if (runOnce.current) {
       runOnce.current = false;
@@ -59,12 +58,8 @@ const McdOrder = () => {
       console.log("/");
     }
   }, [runOnce]);
-
-  // function addToCartPancake() {
-  //   handleAddToCart({id: 'MCDP3', name: 'Pancake'})
-  //   setPancake(true)
-  // }
   
+  // Search functionality
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredMcd, setFilteredMcd] = useState(mcd);
 
@@ -75,6 +70,7 @@ const McdOrder = () => {
     setFilteredMcd(filteredData);
   }, [searchQuery, mcd]);
 
+  // Cart functionality
   const handleAddToCart = (item) => {
     // add item to cart logic here
   };
