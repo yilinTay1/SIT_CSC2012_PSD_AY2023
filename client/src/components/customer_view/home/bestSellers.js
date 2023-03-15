@@ -28,21 +28,13 @@ export const BestSellers = () => {
             title="croissant"
           />
           <CardContent sx={{ width: 550 }}>
-            <Typography 
-                        gutterBottom 
-                        variant="h5" 
-                        component="div">
+            <Typography gutterBottom variant="h5" component="div">
               Crazy Croissant
             </Typography>
-            <Typography 
-                        variant="body2" 
-                        color="text.secondary">
+            <Typography variant="body2" color="text.secondary">
               10 min away
             </Typography>
-            <Typography 
-                        variant="h6" 
-                        color="text.secondary" 
-                        style={{ float: "right" }}>
+            <Typography variant="h6" color="text.secondary" style={{ float: "right" }}>
               <StarRateIcon fontSize="medium" /> 4.5
             </Typography>
           </CardContent>
@@ -58,7 +50,7 @@ export const BestSellers = () => {
               underline="hover"
               sx={{
                 cursor: "pointer",
-                color: "black"
+                color: "black",
               }}
             >
               <CardMedia
@@ -84,31 +76,35 @@ export const BestSellers = () => {
 
       <Grid item>
         <Card sx={{ maxWidth: 550 }}>
-          <CardMedia
-            sx={{ height: 180 }}
-            image="/static/images/customer_view/restaurant/sushiexpress.png"
-            title="sushi"
-          />
-          <CardContent sx={{ width: 550 }}>
-            <Typography 
-                        gutterBottom 
-                        variant="h5" 
-                        component="div">
-              Sushi Express
-            </Typography>
-            <Typography 
-                        variant="body2" 
-                        color="text.secondary">
-              20 min away
-            </Typography>
+          <NextLink href="/customer/order/sushi">
+            <Link
+              to="/customer/order/mcd"
+              // variant="subtitle2"
+              underline="hover"
+              sx={{
+                cursor: "pointer",
+                color: "black",
+              }}
+            >
+              <CardMedia
+                sx={{ height: 180 }}
+                image="/static/images/customer_view/restaurant/sushiexpress.png"
+                title="sushi"
+              />
+              <CardContent sx={{ width: 550 }}>
+                <Typography gutterBottom variant="h5" component="div">
+                  Sushi Express
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  20 min away
+                </Typography>
 
-            <Typography 
-                        variant="h6" 
-                        color="text.secondary" 
-                        style={{ float: "right" }}>
-              <StarRateIcon fontSize="medium" /> 4.0
-            </Typography>
-          </CardContent>
+                <Typography variant="h6" color="text.secondary" style={{ float: "right" }}>
+                  <StarRateIcon fontSize="medium" /> 4.0
+                </Typography>
+              </CardContent>
+            </Link>
+          </NextLink>
         </Card>
       </Grid>
     </>

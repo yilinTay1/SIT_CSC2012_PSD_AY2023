@@ -67,36 +67,6 @@ const Home = () => {
                   }}
                 >
                   <Container maxWidth={false} style={{paddingLeft: 70, paddingRight: 70}}>
-                    {/* <Typography color="textPrimary" variant="h2">
-                      Welcome to customer page!
-                    </Typography> */}
-                    {/* Searchbar Component */}
-                    {/* <div
-                      style={{
-                        display: "flex",
-                        alignSelf: "center",
-                        justifyContent: "center",
-                        //flexDirection: "column",
-                        padding: 20,
-                      }}
-                    >
-                      <SearchBar />
-                      <div style={{ padding: 3, width: 1000 }}>
-                        <div
-                          className="text"
-                          style={{
-                            padding: 5,
-                            justifyContent: "normal",
-                            fontSize: 20,
-                            color: "blue",
-                            margin: 1,
-                            width: "100%",
-                            BorderColor: "green",
-                            borderWidth: "100%",
-                          }}
-                        ></div>
-                      </div>
-                    </div> */}
                     <div
                       style={{
                         display: "flex",

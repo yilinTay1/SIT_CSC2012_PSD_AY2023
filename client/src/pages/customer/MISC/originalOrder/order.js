@@ -1,12 +1,12 @@
 import Head from "next/head";
 import { Box, Container, Grid, Typography } from "@mui/material";
 import React, { useRef, useEffect, useState } from "react";
-import { SecuredBuy } from '../../../components/firebase/SecuredBuy'
+import { SecuredBuy } from '../../../../components/firebase/SecuredBuy'
 
 // Import other components
-import CustomerNavBar from "../../../components/customer_view/navigation/navbar";
-import { SearchBar } from "../../../components/customer_view/searchbar";
-import { Mcd } from "../../../components/customer_view/restaurant/mcd";
+import CustomerNavBar from "../../../../components/customer_view/navigation/navbar";
+import { SearchBar } from "../../../../components/customer_view/searchbar";
+import { Mcd } from "../../../../components/customer_view/restaurant/mcd";
 // import { RestCategory } from "../../components/customer_view/home/restCategory";
 // import { BestSellers } from "../../components/customer_view/home/bestSellers";
 

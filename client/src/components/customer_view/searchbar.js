@@ -13,7 +13,7 @@ export const SearchBar = ({setSearchQuery}) => (
       onInput={(e) => {
         setSearchQuery(e.target.value);
       }}
-      label="Search for a restaurant"
+      label="Search"
       variant="outlined"
       placeholder="Search..."
       size="small"
