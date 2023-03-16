@@ -17,9 +17,10 @@ export const SearchBar = ({setSearchQuery}) => (
       variant="outlined"
       placeholder="Search..."
       size="small"
+      style={{ width: "300px" }}
     />
     <IconButton type="submit" aria-label="search">
-      <SearchIcon style={{ fill: "blue" }} />
+      <SearchIcon style={{ fill: "red" }} />
     </IconButton>
   </form>
 );
