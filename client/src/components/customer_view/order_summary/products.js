@@ -16,7 +16,7 @@ export const PRODUCTS =[
     productName:"CheeseBurger",
     description: "cheese burger without cheese",
     restaurant: "McDonald",
-    productImage: /static/images/customer_view/cartlist/mcd/burger1.jpg,
+    productImage: "/static/images/customer_view/cartlist/mcd/burger1.jpg",
     price:2.5,
 },
 {
@@ -24,7 +24,7 @@ export const PRODUCTS =[
     productName:"ChickenSalad",
     description: "Chicken Salad without chicken",
     restaurant: "McDonald",
-    productImage: /images/customer_view/cartlist/mcd/chickensalad1.jpg,
+    productImage: "/images/customer_view/cartlist/mcd/chickensalad1.jpg",
     price:7.0,
 },
 {
@@ -32,7 +32,7 @@ export const PRODUCTS =[
     productName:"Pancake",
     description: "Pancake without sausages",
     restaurant: "McDonald",
-    productImage: /static/images/customer_view/cartlist/mcd/pancake1.jpg,
+    productImage: "/static/images/customer_view/cartlist/mcd/pancake1.jpg",
     price:6.0,
 },
 {
