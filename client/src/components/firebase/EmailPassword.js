@@ -15,6 +15,9 @@ module.exports =
                                                 sessionStorage.setItem("uid"    , result.user.uid  )
                                                 sessionStorage.setItem("email"  , firebase_auth.currentUser.email  )
                                                 console.log(result)
+
+                                                console.log( firebase_auth.currentUser.displayName );
+                                                firebase_auth.f
                                                 console.log("Authentication successful")
                                                 return true
                                           })
@@ -29,6 +32,7 @@ module.exports =
 
             return await createUserWithEmailAndPassword( firebase_auth , email , password )
                         .then((result) => {
+                                                sessionStorage.setItem("uid"    , result.user.uid  )
                                                 return true
                                           })
                         .catch((error) => {

@@ -16,6 +16,8 @@ import {
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 import { EmailPassword, Google } from "../../components/firebase/EmailPassword";
+import { firebase_app , firebase_fs } from '../../components/firebase/firebase-config';
+import { collection , getDocs , doc , setDoc , addDoc, getDoc } from 'firebase/firestore';
 import React, { useRef, useState, useEffect } from "react";
 
 // import other components
@@ -25,49 +27,14 @@ import CustNavbar from "../../components/customer_view/navigation/navbar";
 
 // Register Functionalities
 const Register = () => {
-  // const formik = useFormik({
-  //   initialValues: {
-  //     email: '',
-  //     firstName: '',
-  //     lastName: '',
-  //     password: '',
-  //     policy: false
-  //   },
-  //   validationSchema: Yup.object({
-  //     email: Yup
-  //       .string()
-  //       .email('Must be a valid email')
-  //       .max(255)
-  //       .required(
-  //         'Email is required'),
-  //     firstName: Yup
-  //       .string()
-  //       .max(255)
-  //       .required('First name is required'),
-  //     lastName: Yup
-  //       .string()
-  //       .max(255)
-  //       .required('Last name is required'),
-  //     password: Yup
-  //       .string()
-  //       .max(255)
-  //       .required('Password is required'),
-  //     policy: Yup
-  //       .boolean()
-  //       .oneOf(
-  //         [true],
-  //         'This field must be checked'
-  //       )
-  //   }),
-  //   onSubmit: () => {
-  //     Router
-  //       .push('/')
-  //       .catch(console.error);
-  //   }
-  // });
+  
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email    , setEmail    ] = useState("");
+  const [password , setPassword ] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName , setLastName ] = useState("");
+
+
   const runOnce = useRef(true);
   useEffect(() => {
     if (runOnce.current) {
@@ -79,6 +46,22 @@ const Register = () => {
     e.preventDefault();
     const result = await EmailPassword.register(email, password);
     if (result) {
+      const uid = sessionStorage.getItem("uid")
+      if(uid)
+      {
+        console.log( uid , firstName , lastName )
+        const credentials = {
+          firstName : firstName,
+          lastName  : lastName,
+          email     : email
+        }
+        const customer =  doc( firebase_fs , 'customers', uid )
+        setDoc( customer , credentials )
+          .then( response => { console.log("Added to FireStore : " , firstName , lastName )})
+          .catch( err =>  {} )
+
+        sessionStorage.setItem("uid" , null )
+      }
       console.log("Valid registration!", result);
       Router
           .push("/customer/login")
@@ -139,8 +122,8 @@ const Register = () => {
               margin="normal"
               name="firstName"
               //onBlur={formik.handleBlur}
-              //onChange={formik.handleChange}
-              //value={formik.values.firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+              value={firstName}
               variant="outlined"
             />
 
@@ -153,8 +136,8 @@ const Register = () => {
               margin="normal"
               name="lastName"
               //onBlur={formik.handleBlur}
-              //onChange={formik.handleChange}
-              //value={formik.values.lastName}
+              onChange={(e) => setLastName(e.target.value)}
+              value={lastName}
               variant="outlined"
             />
 
@@ -192,22 +175,6 @@ const Register = () => {
               variant="outlined"
             />
 
-            {/* Retype Password Text Field */}
-            <TextField
-              //error={Boolean(formik.touched.password && formik.errors.password)}
-              fullWidth
-              //helperText={formik.touched.password && formik.errors.password}
-              label="Retype Password"
-              margin="normal"
-              name="retype_password"
-              //onBlur={formik.handleBlur}
-              //onChange={formik.handleChange}
-              onChange={(e) => setPassword(e.target.value)}
-              type="password"
-              value={password}
-              //value={formik.values.password}
-              variant="outlined"
-            />
 
             {/* Terms and Conditions Component */}
             <Box
