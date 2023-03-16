@@ -2,6 +2,7 @@ import { Box, Container, Grid, Typography } from "@mui/material";
 import CustomerNavBar from "../../components/customer_view/navigation/navbar";
 import React, { useRef, useEffect, useState } from "react";
 import { makeStyles } from "@mui/styles";
+import Rating from "@mui/material/Rating";
 
 const mockOrders = [
   {
@@ -40,14 +41,19 @@ const History = () => {
   const classes = useStyles();
   const runOnce = useRef(true);
   const [buyer, setBuyer] = useState(false);
+  const [ratings, setRatings] = useState({});
+
   useEffect(() => {
     if (runOnce.current) {
       runOnce.current = false;
       const isbuyer = sessionStorage.getItem("buyer");
       if (isbuyer) setBuyer(true);
-      console.log("/");
+      const storedRatings = localStorage.getItem("ratings");
+      if (storedRatings) setRatings(JSON.parse(storedRatings));
+    } else {
+      localStorage.setItem("ratings", JSON.stringify(ratings));
     }
-  }, [runOnce]);
+  }, [runOnce, ratings]);
 
   return (
     <>
@@ -69,11 +75,23 @@ const History = () => {
                       <Typography variant="subtitle2">
                         {order.date} - {order.restaurant}
                       </Typography>
-                      <br></br>
+                      <br />
                       <ul>
                         {order.items.map((item, index) => (
                           <ul key={index}>
                             {item.name} - ${item.price.toFixed(2)}
+                            <Grid item xs={4} justifyContent="flex-end">
+                            <Rating
+                              name={`item-${order.id}-${index}`}
+                              value={ratings[`item-${order.id}-${index}`] || 0}
+                              onChange={(event, newValue) => {
+                                setRatings({
+                                  ...ratings,
+                                  [`item-${order.id}-${index}`]: newValue
+                                });
+                              }}
+                            />
+                          </Grid>
                           </ul>
                         ))}
                       </ul>
