@@ -24,7 +24,7 @@ import Router from "next/router";
 
 // const pages = ['Products', 'Pricing', 'Blog'];
 // const settings = ["Profile", "Account", "Dashboard", "Logout"];
-function CustomerNavBar({ cartItems, setCartItems }) {
+function CustomerNavBar({ cartItems = 0, setCartItems }) {
   // Cart Things
   const [showCart, setShowCart] = useState(false);
 
@@ -171,7 +171,7 @@ function CustomerNavBar({ cartItems, setCartItems }) {
                 <Typography variant="h6" sx={{ borderBottom: "1px solid #ccc", pb: 1 }}>
                   Order Summary
                 </Typography>
-                {cartItems.length >= 1 ? (
+                {cartItems.length > 0 ? (
                   cartItems.map((item) => (
                     <div key={item.id}>
                       <p>
