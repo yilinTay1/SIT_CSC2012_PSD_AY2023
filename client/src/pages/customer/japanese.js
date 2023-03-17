@@ -101,7 +101,7 @@ const Japanese = () => {
             {/* Japanese Restaurants */}
             <Grid container spacing={2}>
               {filteredJapanese.map((item) => (
-                <Grid item>
+                <Grid item key={item.id}>
                   <Card sx={{ maxWidth: 550 }}>
                     <NextLink href={item.link}>
                       <Link

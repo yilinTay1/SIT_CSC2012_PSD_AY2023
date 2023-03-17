@@ -145,7 +145,7 @@ const Home = () => {
             {/* Best Sellers */}
             <Grid container spacing={2}>
               {filteredFeatured.map((item) => (
-                <Grid item>
+                <Grid item key={item.id}>
                   <Card sx={{ maxWidth: 550 }}>
                     <NextLink href={item.link}>
                       <Link

@@ -109,7 +109,7 @@ const Western = () => {
             {/* Western Restaurants */}
             <Grid container spacing={2}>
               {filteredWestern.map((item) => (
-                <Grid item>
+                <Grid item key={item.id}>
                   <Card sx={{ maxWidth: 550 }}>
                     <NextLink href={item.link}>
                       <Link
