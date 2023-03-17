@@ -56,6 +56,22 @@ const PastaOrder = () => {
       console.log("/");
     }
   }, [runOnce]);
+
+  // Cart functionality
+  const [cartItems, setCartItems] = useState([]);
+
+  const handleAddToCart  = (item) => {
+    const existingItem = cartItems.find((cartItem) => cartItem.id === item.id);
+
+    if (existingItem) {
+      const updatedItems = cartItems.map((cartItem) =>
+        cartItem.id === item.id ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem
+      );
+      setCartItems(updatedItems);
+    } else {
+      setCartItems([...cartItems, { ...item, quantity: 1 }]);
+    }
+  };
   
   // Search functionality
   const [searchQuery, setSearchQuery] = useState("");
@@ -69,10 +85,6 @@ const PastaOrder = () => {
   }, [searchQuery, pasta]);
 
   // Cart functionality
-  const handleAddToCart = (item) => {
-    // add item to cart logic here
-  };
-
   return (
     <>
       {buyer && (
@@ -82,9 +94,8 @@ const PastaOrder = () => {
       )}
 
       {/* Navbar */}
-      {buyer && <CustomerNavBar />}
-      {buyer && (
-        <Box
+      <CustomerNavBar  cartItems={cartItems} setCartItems={setCartItems}/>
+      <Box
           component="main"
           sx={{
             flexGrow: 1,
@@ -109,7 +120,7 @@ const PastaOrder = () => {
             {/* Best Sellers */}
             <Grid container spacing={2}>
               {filteredPasta.map((item) => (
-                <Grid item>
+                <Grid item key={item.id}>
                   <Card sx={{ maxWidth: 345 }}>
                     <CardMedia sx={{ height: 200 }} image={item.image} title={item.name} />
                     <CardContent>
@@ -125,10 +136,8 @@ const PastaOrder = () => {
                     </CardContent>
                     <CardActions>
                       <Button
-                        variant="contained"
                         onClick={() =>
-                          handleAddToCart({ id: item.id, name: item.name, price: item.price })
-                        }
+                          handleAddToCart(item)}
                       >
                         Add to cart
                       </Button>
@@ -140,7 +149,6 @@ const PastaOrder = () => {
             {/* End of Best Sellers Component */}
           </Container>
         </Box>
-      )}
     </>
   );
 };
