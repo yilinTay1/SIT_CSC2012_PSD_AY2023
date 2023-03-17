@@ -4,10 +4,10 @@ This project contains the source code for a business dashboard web application t
 ## Getting Started
 To access the dashboard, you will need to log in with your business credentials. To do this, go to http://localhost:3000/business/login and enter your email address and password. After logging in, you will be redirected to http://localhost:3000/business/dashboard, which is the main dashboard for your business.
 
-##Components
+## Components
 The project contains the following components:
 
-###src/components/business
+### src/components/business
 settings: A component that allows users to update their account settings, such as their email address and password.
 history: A component that displays the order history for the user's business, including the date, time, and items ordered.
 addListing: A component that allows users to add a new listing for their business, including the name, description, price, and images.
@@ -17,7 +17,7 @@ dashboard-layout.js: A component that defines the layout of the dashboard, inclu
 dashboard-navbar.js: A component that displays the navigation bar for the dashboard, including links to the various pages and actions.
 dashboard-sidebar.js: A component that displays the sidebar for the dashboard, including links to the user's listings and settings.
 
-###client/src/pages/business
+### client/src/pages/business
 login.js: A page that displays the login form for the business user, including fields for their email address and password.
 dashboard.js: A page that displays the main dashboard for the business user, including summary information about their listings and orders.
 history.js: A page that displays the order history for the user's business, including a table of all the orders and the ability to filter and sort them.
@@ -26,7 +26,7 @@ register.js: A page that displays the registration form for the business user, i
 order.js: A page that displays the details of an individual order, including the customer's name and contact information, the items ordered, and the total price.
 settings.js: A page that allows users to update their account settings, including their email address and password.
 
-##Usage
+## Usage
 After logging in at http://localhost:3000/business/login, you can access the following pages:
 
 http://localhost:3000/business/dashboard: The main dashboard for your business, displaying an overview of your listings and orders.
