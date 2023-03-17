@@ -63,7 +63,7 @@ The project contains the following components:
 | `settings` | A component that displays the user's account details and also allows users to change password and save notification preferences. |
 | `searchbar.js` | A component that displays the search bar used throughout the website. |
 
-### client/src/pages/customer
+### client/src/pages/customer/test
 | Page | Description |
 | --- | --- |
 | `order` | Consists of the individual restaurant pages which users can click to view the restaurant details and place order for their food choices |
