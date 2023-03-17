@@ -138,7 +138,7 @@ const handleAddToCart  = (item) => {
                     <CardActions>
                       <Button
                         onClick={() =>
-                          handleAddToCart({ id: item.id, name: item.name, price: item.price })
+                          handleAddToCart(item)
                         }
                       >
                         Add to cart
