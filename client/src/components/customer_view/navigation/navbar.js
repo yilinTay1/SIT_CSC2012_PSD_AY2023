@@ -171,7 +171,7 @@ function CustomerNavBar({ cartItems, setCartItems }) {
                 <Typography variant="h6" sx={{ borderBottom: "1px solid #ccc", pb: 1 }}>
                   Order Summary
                 </Typography>
-                {cartItems.length > 0 ? (
+                {cartItems.length >= 1 ? (
                   cartItems.map((item) => (
                     <div key={item.id}>
                       <p>
