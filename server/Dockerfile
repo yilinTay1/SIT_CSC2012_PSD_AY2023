@@ -1,6 +1,8 @@
-FROM node:19.5.0-bullseye-slim AS backend
+FROM node AS backend
 
 WORKDIR /server
+
+RUN npm install -g npm@9.6.2
 
 COPY package.json package-lock.json ./
 
