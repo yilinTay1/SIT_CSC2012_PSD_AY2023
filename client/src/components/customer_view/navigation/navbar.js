@@ -24,28 +24,25 @@ import Router from "next/router";
 
 // const pages = ['Products', 'Pricing', 'Blog'];
 // const settings = ["Profile", "Account", "Dashboard", "Logout"];
-export const handleAddToCart = (item) => {
-  setCartItems((cartItems) => [...cartItems, item]);
-}
-
-function CustomerNavBar() {
+function CustomerNavBar({ cartItems, setCartItems }) {
   // Cart Things
-  const [cartItems, setCartItems] = useState([]);
   const [showCart, setShowCart] = useState(false);
 
   const handleRemoveFromCart = (item) => {
-    setCartItems((prevCartItems) => prevCartItems.filter((cartItem) => cartItem.id !== item.id));
+    // remove item from the cart
+    const updatedItems = cartItems.filter((cartItem) => cartItem.id !== item.id);
+    setCartItems(updatedItems);
+  };
+
+  const handleCheckout = () => {
+    // handle the checkout logic here
+    console.log("Checkout clicked!");
   };
 
   const handleCartBlur = (event) => {
     if (!event.currentTarget.contains(event.relatedTarget)) {
       setShowCart(false);
     }
-  };
-
-  const handleCheckout = () => {
-    // Handle checkout logic here
-    console.log("Checkout confirmed");
   };
 
   // Cart Things
@@ -141,54 +138,62 @@ function CustomerNavBar() {
 
           {/* Start Dropdown Cart. */}
           <div style={{ position: "relative" }}>
-              <IconButton
-                color="inherit"
-                aria-label="Open cart"
-                onClick={() => setShowCart(!showCart)}
+            <IconButton
+              color="inherit"
+              aria-label="Open cart"
+              onClick={() => setShowCart(!showCart)}
+            >
+              <Badge
+                badgeContent={cartItems ? cartItems.reduce((acc, item) => acc + item.quantity, 0) : 0}
+                color="error"
               >
-                <Badge badgeContent={cartItems.length} color="error">
-                  <ShoppingCartIcon />
-                </Badge>
-              </IconButton>
-              {showCart && (
-                <Paper
-                  onBlur={() => setShowCart(false)}
-                  style={{
-                    position: "absolute",
-                    top: "40px",
-                    right: "10px",
-                    width: "200px",
-                    maxHeight: "400px",
-                    overflow: "auto",
-                    zIndex: 9999,
-                    backgroundColor: "#fff",
-                    padding: "10px",
-                  }}
-                >
-                  <Typography variant="h6" sx={{ borderBottom: "1px solid #ccc", pb: 1 }}>
-                    Order Summary
+                <ShoppingCartIcon />
+              </Badge>
+            </IconButton>
+
+            {showCart && (
+              <Paper
+                onBlur={() => setShowCart(false)}
+                style={{
+                  position: "absolute",
+                  top: "64px", // adjust as needed
+                  right: 0,
+                  width: "20vw", // adjust as needed
+                  maxHeight: "400px",
+                  overflow: "auto",
+                  zIndex: 9999,
+                  backgroundColor: "#fff",
+                  padding: "10px",
+                  boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", // add shadow for aesthetics
+                  borderRadius: "8px" // add rounded corners for aesthetics
+                }}
+              >
+                <Typography variant="h6" sx={{ borderBottom: "1px solid #ccc", pb: 1 }}>
+                  Order Summary
+                </Typography>
+                {cartItems.length > 0 ? (
+                  cartItems.map((item) => (
+                    <div key={item.id}>
+                      <p>
+                        {item.name} x {item.quantity}
+                      </p>
+                      <button onClick={() => handleRemoveFromCart(item)}>Remove</button>
+                    </div>
+                  ))
+                ) : (
+                  <Typography variant="body1" align="center" sx={{ my: 4, color: "#888" }}>
+                    Nothing in the Cart
                   </Typography>
-                  {cartItems.length > 0 ? (
-                    cartItems.map((item) => (
-                      <div key={item.id}>
-                        <p>{item.name}</p>
-                        <button onClick={() => handleRemoveFromCart(item)}>Remove</button>
-                      </div>
-                    ))
-                  ) : (
-                    <Typography variant="body1" align="center" sx={{ my: 4, color: "#888" }}>
-                      Nothing in the Cart
-                    </Typography>
-                  )}
-                  {cartItems.length > 0 && (
-                    <Button variant="contained" onClick={handleCheckout}>
-                      Confirm Checkout
-                    </Button>
-                  )}
-                </Paper>
-              )}
-            </div>
-            {/* End of Dropdown cart. */}
+                )}
+                {cartItems.length > 0 && (
+                  <Button variant="contained" onClick={handleCheckout}>
+                    Confirm Checkout
+                  </Button>
+                )}
+              </Paper>
+            )}
+          </div>
+          {/* End of Dropdown cart. */}
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">

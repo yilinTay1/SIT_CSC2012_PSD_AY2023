@@ -15,9 +15,10 @@ import { SecuredBuy } from "../../../components/firebase/SecuredBuy";
 
 // Import other components
 import CustomerNavBar from "../../../components/customer_view/navigation/navbar";
+import Navbar from "../../../components/customer_view/navigation/Navbar";
 import { Mcd } from "../../../components/customer_view/restaurant/mcd";
 import { SearchBar } from "../../../components/customer_view/searchbar";
-// import { McdCart } from "../../../components/customer_view/restaurant/addtocart/mcdcart";
+
 const mcd = [
   {
     id: 1,
@@ -58,7 +59,25 @@ const McdOrder = () => {
       console.log("/");
     }
   }, [runOnce]);
-  
+
+  // Cart functionality
+  const [cartItems, setCartItems] = useState([]);
+
+  const handleAddToCart  = (item) => {
+    const existingItem = cartItems.find((cartItem) => cartItem.id === item.id);
+
+    if (existingItem) {
+      const updatedItems = cartItems.map((cartItem) =>
+        cartItem.id === item.id ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem
+      );
+      setCartItems(updatedItems);
+    } else {
+      setCartItems([...cartItems, { ...item, quantity: 1 }]);
+    }
+  };
+
+
+
   // Search functionality
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredMcd, setFilteredMcd] = useState(mcd);
@@ -70,48 +89,40 @@ const McdOrder = () => {
     setFilteredMcd(filteredData);
   }, [searchQuery, mcd]);
 
-  // Cart functionality
-  const handleAddToCart = (item) => {
-    // add item to cart logic here
-  };
-
   return (
     <>
-      {buyer && (
-        <Head>
-          <title>Mcdonalds | WorthEats</title>
-        </Head>
-      )}
+      <Head>
+        <title>Mcdonalds | WorthEats</title>
+      </Head>
 
       {/* Navbar */}
-      {buyer && <CustomerNavBar />}
-      {buyer && (
-        <Box
-          component="main"
-          sx={{
-            flexGrow: 1,
-            py: 8,
-          }}
-        >
-          <Container maxWidth={false} style={{ paddingLeft: 70, paddingRight: 70 }}>
-            <Mcd />
-            <br></br>
-            <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+      <CustomerNavBar  cartItems={cartItems} setCartItems={setCartItems}/>
+      <Box
+        component="main"
+        sx={{
+          flexGrow: 1,
+          py: 8,
+        }}
+      >
+        <Container maxWidth={false} style={{ paddingLeft: 70, paddingRight: 70 }}>
+          <Mcd />
+          <br></br>
+          <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
 
-            {/* Category */}
-            <Grid container spacing={10}>
-              <Grid item lg={10} sm={6} xl={10} xs={12}>
-                <br></br>
-                {/* <RestCategory /> */}
-              </Grid>
+          {/* Category */}
+          <Grid container spacing={10}>
+            <Grid item lg={10} sm={6} xl={10} xs={12}>
+              <br></br>
+              {/* <RestCategory /> */}
             </Grid>
-            {/* End of Restaurants Category Component */}
-            <br></br>
-
+          </Grid>
+          {/* End of Restaurants Category Component */}
+          <br></br>
+          <div>
             {/* Best Sellers */}
             <Grid container spacing={2}>
               {filteredMcd.map((item) => (
-                <Grid item>
+                <Grid item key={item.id}>
                   <Card sx={{ maxWidth: 345 }}>
                     <CardMedia sx={{ height: 200 }} image={item.image} title={item.name} />
                     <CardContent>
@@ -126,23 +137,16 @@ const McdOrder = () => {
                       </Typography>
                     </CardContent>
                     <CardActions>
-                      <Button
-                        variant="contained"
-                        onClick={() =>
-                          handleAddToCart({ id: item.id, name: item.name, price: item.price })
-                        }
-                      >
-                        Add to cart
-                      </Button>
+                      <Button onClick={() => handleAddToCart(item)}>Add to cart</Button>
                     </CardActions>
                   </Card>
                 </Grid>
               ))}
             </Grid>
             {/* End of Best Sellers Component */}
-          </Container>
-        </Box>
-      )}
+          </div>
+        </Container>
+      </Box>
     </>
   );
 };
