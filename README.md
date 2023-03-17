@@ -20,26 +20,29 @@ The project contains the following components:
 | `dashboard-sidebar.js` | A component that displays the sidebar for the dashboard, including links to the user's listings and settings. |
 
 ### client/src/pages/business
-- `login.js`: A page that displays the login form for the business user, including fields for their email address and password.
-- `dashboard.js`: A page that displays the main dashboard for the business user, including summary information about their listings and orders.
-- `history.js`: A page that displays the order history for the user's business, including a table of all the orders and the ability to filter and sort them.
-- `addListing.js`: A page that allows users to add a new listing for their business, including a form for entering the details and uploading images.
-- `register.js`: A page that displays the registration form for the business user, including fields for their business name, email address, and password.
-- `order.js`: A page that displays the details of an individual order, including the customer's name and contact information, the items ordered, and the total price.
-- `settings.js`: A page that allows users to update their account settings, including their email address and password.
+| Page | Description |
+| --- | --- |
+| `login.js` | A page that displays the login form for the business user, including fields for their email address and password. |
+| `dashboard.js` | A page that displays the main dashboard for the business user, including summary information about their listings and orders. |
+| `history.js` | A page that displays the order history for the user's business, including a table of all the orders and the ability to filter and sort them. |
+| `addListing.js` | A page that allows users to add a new listing for their business, including a form for entering the details and uploading images. |
+| `register.js` | A page that displays the registration form for the business user, including fields for their business name, email address, and password. |
+| `order.js` | A page that displays the details of an individual order, including the customer's name and contact information, the items ordered, and the total price. |
+| `settings.js` | A page that allows users to update their account settings, including their email address and password. |
+
 
 
 ## Usage
 After logging in at http://localhost:3000/business/login, you can access the following pages:
 
-http://localhost:3000/business/dashboard: The main dashboard for your business, displaying an overview of your listings and orders.
-http://localhost:3000/business/addListing: Allows you to add a new listing for your business, including the name, description, price, and images.
-http://localhost:3000/business/order: Allows you to view your orders, including the customer's name and contact information, the items ordered, and After logging in at http://localhost:3000/business/login, you can access the following pages:
-http://localhost:3000/business/dashboard: The main dashboard for your business, displaying an overview of your listings and orders.
-http://localhost:3000/business/addListing: Allows you to add a new listing for your business, including the name, description, price, and images.
-http://localhost:3000/business/order: Allows you to view your orders, including the customer's name and contact information, the items ordered, and the total price.
-http://localhost:3000/business/history: Allows you to view your past 6 months of income, including the date, total sales, and total revenue.
-http://localhost:3000/business/settings: Allows you to update your account settings, including your email address and password.
+- http://localhost:3000/business/dashboard: The main dashboard for your business, displaying an overview of your listings and orders.
+- http://localhost:3000/business/addListing: Allows you to add a new listing for your business, including the name, description, price, and images.
+- http://localhost:3000/business/order: Allows you to view your orders, including the customer's name and contact information, the items ordered, and After logging in at http://localhost:3000/business/login, you can access the following pages:
+- http://localhost:3000/business/dashboard: The main dashboard for your business, displaying an overview of your listings and orders.
+- http://localhost:3000/business/addListing: Allows you to add a new listing for your business, including the name, description, price, and images.
+- http://localhost:3000/business/order: Allows you to view your orders, including the customer's name and contact information, the items ordered, and the total price.
+- http://localhost:3000/business/history: Allows you to view your past 6 months of income, including the date, total sales, and total revenue.
+- http://localhost:3000/business/settings: Allows you to update your account settings, including your email address and password.
 
 
 
