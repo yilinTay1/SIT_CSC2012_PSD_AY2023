@@ -57,6 +57,23 @@ const SushiOrder = () => {
     }
   }, [runOnce]);
 
+  
+// Cart functionality
+const [cartItems, setCartItems] = useState([]);
+
+const handleAddToCart  = (item) => {
+  const existingItem = cartItems.find((cartItem) => cartItem.id === item.id);
+
+  if (existingItem) {
+    const updatedItems = cartItems.map((cartItem) =>
+      cartItem.id === item.id ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem
+    );
+    setCartItems(updatedItems);
+  } else {
+    setCartItems([...cartItems, { ...item, quantity: 1 }]);
+  }
+};
+
 // Search functionality
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredSushi, setFilteredSushi] = useState(sushi);
@@ -68,11 +85,6 @@ const SushiOrder = () => {
     setFilteredSushi(filteredData);
   }, [searchQuery, sushi]);
 
-  // Cart functionality
-  const handleAddToCart = (item) => {
-    // add item to cart logic here
-  };
-
   return (
     <>
       {buyer && (
@@ -82,8 +94,7 @@ const SushiOrder = () => {
       )}
 
       {/* Navbar */}
-      {buyer && <CustomerNavBar />}
-      {buyer && (
+      <CustomerNavBar  cartItems={cartItems} setCartItems={setCartItems}/>
         <Box
           component="main"
           sx={{
@@ -125,9 +136,8 @@ const SushiOrder = () => {
                     </CardContent>
                     <CardActions>
                       <Button
-                        variant="contained"
                         onClick={() =>
-                          handleAddToCart({ id: item.id, name: item.name, price: item.price })
+                          handleAddToCart(item)
                         }
                       >
                         Add to cart
@@ -140,7 +150,6 @@ const SushiOrder = () => {
             {/* End of Best Sellers Component */}
           </Container>
         </Box>
-      )}
     </>
   );
 };
