@@ -163,3 +163,14 @@ Parts need help will be commented ( //NEED HELP: )
 client > src > pages > customer > reset_pwd.js
 - need help to authenticate email to reset password
 - update new password
+
+## Databases
+The project contains the following databases:
+### FireStore
+| Collection | Description |
+| --- | --- |
+| customers | Buyers |
+| Business | Sellers |
+| Listings | Items to be sold |
+| profitDaily | Daily profits |
+| orders | Order summary |
