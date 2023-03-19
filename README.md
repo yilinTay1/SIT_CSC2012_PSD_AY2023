@@ -168,14 +168,14 @@ client > src > pages > customer > reset_pwd.js
 
 ## Authentication
 The project contains the following authentication providers:
-### Google Firebase
+### Google Firebase Authentication
 | Provider | Description |
 | --- | --- |
 | Emails and password | User registered using emails and passwords |
 
 ## Databases
 The project contains the following databases:
-### Google FireStore
+### Google FireStore Database
 | Collection | Description |
 | --- | --- |
 | customers | Buyers |
