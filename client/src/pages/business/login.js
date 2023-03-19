@@ -13,29 +13,6 @@ import React, { useRef , useState , useEffect } from 'react'
 
 const Login = () => {
 
-  // const formik = useFormik({
-  //   initialValues: {
-  //     email: 'demo@devias.io',
-  //     password: 'Password123'
-  //   },
-  //   validationSchema: Yup.object({
-  //     email: Yup
-  //       .string()
-  //       .email('Must be a valid email')
-  //       .max(255)
-  //       .required('Email is required'),
-  //     password: Yup
-  //       .string()
-  //       .max(255)
-  //       .required('Password is required')
-  //   }),
-  //   onSubmit: () => {
-  //     Router
-  //       .push('/')
-  //       .catch(console.error);
-  //   }
-  // });
-
   const [email    , setEmail   ] = useState('test@test.com');
   const [password , setPassword] = useState('123456');
   const runOnce                  = useRef(true)

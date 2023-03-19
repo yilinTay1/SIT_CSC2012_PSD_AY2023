@@ -1,6 +1,7 @@
 import { initializeApp }               from "firebase/app";
 import { getAuth , EmailAuthProvider } from 'firebase/auth'
 import { getFirestore }                from 'firebase/firestore'
+import { getStorage }                  from 'firebase/storage'
 
 const firebaseConfig = {
   apiKey: "AIzaSyA5ZVpdDSlAEyapUY3dBI36TIsNWd7jGZA",
@@ -15,5 +16,6 @@ const firebaseConfig = {
 export const firebase_app                 = initializeApp( firebaseConfig );
 export const firebase_auth                = getAuth(       firebase_app   );
 export const firebase_fs                  = getFirestore(  firebase_app   );
+export const firebase_store               = getStorage(    firebase_app   );
 export const firebase_auth_email_provider = new EmailAuthProvider()
 
