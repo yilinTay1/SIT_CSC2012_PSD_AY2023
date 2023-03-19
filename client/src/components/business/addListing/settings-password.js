@@ -17,7 +17,7 @@ export const SettingsPassword = (props) => {
   };
 
   const [selectedFile, setSelectedFile] = useState()
-  const [preview, setPreview] = useState()
+  const [preview     , setPreview     ] = useState()
 
   // create a preview as a side effect, whenever selected file is changed
   useEffect(() => {
@@ -31,6 +31,7 @@ export const SettingsPassword = (props) => {
 
     // free memory when ever this component is unmounted
     return () => URL.revokeObjectURL(objectUrl)
+
   }, [selectedFile])
 
   const onSelectFile = e => {
