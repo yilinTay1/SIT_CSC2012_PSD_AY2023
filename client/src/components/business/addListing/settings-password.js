@@ -20,6 +20,7 @@ export const SettingsPassword = (props) => {
   const [preview     , setPreview     ] = useState()
 
   // create a preview as a side effect, whenever selected file is changed
+  /*
   useEffect(() => {
     if (!selectedFile) {
       setPreview(undefined)
@@ -43,9 +44,17 @@ export const SettingsPassword = (props) => {
     // I've kept this example simple by using the first image instead of multiple
     setSelectedFile(e.target.files[0])
   }
+  */
+
+  async function doSomething(e)
+  {
+    e.preventDefault()
+    console.log("Listing added")
+  }
 
   return (
-    <form {...props}>
+    // {...props} 
+    <form onSubmit={doSomething} >
       <Card>
         <CardHeader
           title="Add New Listing"
