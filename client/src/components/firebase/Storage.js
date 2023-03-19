@@ -8,8 +8,8 @@ module.exports =
     {        
         upload: async function( filebinary )
         {
-            const uid          = sessionStorage.getItem('uid');
-            const val filepath = uid + "/" + uuid()
+            const uid      = sessionStorage.getItem('uid');
+            const filepath = uid + "/" + uuid()
 
             console.log( filepath )
         }

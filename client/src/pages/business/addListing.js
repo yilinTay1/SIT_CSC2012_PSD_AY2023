@@ -17,7 +17,6 @@ const Page = () => {
           
           const uid = sessionStorage.getItem('uid');
           console.log( "uid : " , uid )
-          console.log("Settings")
       }
   },[runOnce])
 
