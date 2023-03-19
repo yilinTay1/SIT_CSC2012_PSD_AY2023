@@ -4,7 +4,9 @@ var fs = require('fs');
 function loadFoodListing(){
     var listing={};
 
-    var foodData = fs.readFileSync("foodData.csv").toString().split('\n')
+    const path = require('path');
+    const filePath = path.join(__dirname, 'foodData.csv');
+    var foodData = fs.readFileSync(filePath).toString().split('\n')
     foodData.shift();
     var p;
     for(var line in foodData){
@@ -22,7 +24,9 @@ function loadFoodListing(){
             }
         }
     }
-    var userData = fs.readFileSync("ratings.csv").toString().split("\n");
+
+    const filePath2 = path.join(__dirname, 'ratings.csv');
+    var userData = fs.readFileSync(filePath2).toString().split("\n");
 
     userData.shift();
 
