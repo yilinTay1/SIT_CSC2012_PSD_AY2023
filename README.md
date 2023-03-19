@@ -164,6 +164,15 @@ client > src > pages > customer > reset_pwd.js
 - need help to authenticate email to reset password
 - update new password
 
+# Backend
+
+## Authentication
+The project contains the following authentication providers:
+### Firebase
+| Provider | Description |
+| --- | --- |
+| Emails and password | User registered using emails and passwords |
+
 ## Databases
 The project contains the following databases:
 ### FireStore
