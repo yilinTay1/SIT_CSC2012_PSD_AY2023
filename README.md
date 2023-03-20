@@ -1,14 +1,51 @@
-## How to Run The Project
 
-- `git clone https://github.com/devias-io/material-kit-react.git`
+# WorthEat
+WorthEats is a web application that connects food retail businesses and restaurants to consumers. The platform allows merchants to list their surplus food items at a discounted price, which would have otherwise been discarded as food waste. The business interface is designed for retail businesses, restaurants, and supermarkets to list their items. On the other hand, the customer interface is for users who want to purchase food items listed by these merchants. 
 
-- Make sure your Node.js and npm versions are up to date for `React 18`
+Customers can search for available food near them, purchase the fresh surplus food at a discounted price, and pick it up at the designated location and time. 
 
-- `cd client` and install dependencies via `npm install`
+The platform also allows businesses to track their surplus food, plan better for future production, and reduce their operational costs.
 
-- `npm run dev` to run the project's web-application
+# How to Run The Project
 
-- View web-application on: `localhost:3000`
+1. Clone the repository: `git clone https://github.com/username/projectname.git`
+2. Install dependencies: `npm install`
+3. Install react-bootstrap: `npm install react-bootstrap bootstrap`
+4. Make sure your Node.js and npm versions are up to date for `React 18`
+5. `cd client` and install dependencies via `npm install`
+6. Run the project: `npm run dev`
+7. View the web application on: `http://localhost:3000`
+
+##If you encounter issues running the project or encounter dependency errors:
+
+- Check your Node.js version
+- Use yarn instead of npm
+
+# Backend
+
+## Authentication
+
+The project contains the following authentication providers:
+
+### Google Firebase Authentication
+
+| Provider           | Description                            |
+| ------------------| -------------------------------------- |
+| Emails and password| User registered using emails and passwords |
+
+## Databases
+
+The project contains the following databases:
+
+### Google FireStore Database
+
+| Collection | Description                         |
+| ---------- | ----------------------------------- |
+| customers  | Buyers                              |
+| Business   | Sellers                             |
+| Listings   | Sellers' listed items               |
+| profitDaily| Sellers' daily profits              |
+| orders     | Buyers' order summary               |
 
 # Business Dashboard Web Application
 This project contains the source code for a business dashboard web application that allows users to manage their business listings, view order history, and update account settings.
@@ -41,8 +78,6 @@ The project contains the following components:
 | `register.js` | A page that displays the registration form for the business user, including fields for their business name, email address, and password. |
 | `order.js` | A page that displays the details of an individual order, including the customer's name and contact information, the items ordered, and the total price. |
 | `settings.js` | A page that allows users to update their account settings, including their email address and password. |
-
-
 
 ## Usage
 After logging in at http://localhost:3000/business/login, you can access the following pages:
@@ -104,22 +139,4 @@ Once clicked into a restaurant
 
 To logout, users can click on the profile beside the shopping cart and logout from there.
 
-# Backend
 
-## Authentication
-The project contains the following authentication providers:
-### Google Firebase Authentication
-| Provider | Description |
-| --- | --- |
-| Emails and password | User registered using emails and passwords |
-
-## Databases
-The project contains the following databases:
-### Google FireStore Database
-| Collection | Description |
-| --- | --- |
-| customers | Buyers |
-| Business | Sellers |
-| Listings | Sellers' listed items |
-| profitDaily | Sellers' daily profits |
-| orders | Buyers' order summary |
