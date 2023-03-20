@@ -1,3 +1,15 @@
+## How to Run The Project
+
+- `git clone https://github.com/devias-io/material-kit-react.git`
+
+- Make sure your Node.js and npm versions are up to date for `React 18`
+
+- `cd client` and install dependencies via `npm install`
+
+- `npm run dev` to run the project's web-application
+
+- views are on: `localhost:3000`
+
 # Business Dashboard Web Application
 This project contains the source code for a business dashboard web application that allows users to manage their business listings, view order history, and update account settings.
 
@@ -91,48 +103,6 @@ Once clicked into a restaurant
 - Once confirm checkout, the order will be submitted to the database and displayed in order history.
 
 To logout, users can click on the profile beside the shopping cart and logout from there.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Quick start
-
-- [Download from Github](https://github.com/devias-io/material-kit-react/archive/master.zip)
-  or [Download from Devias](https://devias.io/products/material-kit-react) or clone the
-  repo: `git clone https://github.com/devias-io/material-kit-react.git`
-
-- Make sure your Node.js and npm versions are up to date for `React 18`
-
-## Updates (as of 23 Feb)
-
-- Install dependencies: `npm install` or `yarn`
-
-- Install react-bootstrap: `npm install react-bootstrap bootstrap`
-
-- Start the server: 
-`cd client `
-`npm run dev` or `yarn dev`
-
-- Views are on: `localhost:3000`
 
 # Backend
 
