@@ -16,7 +16,7 @@ The platform also allows businesses to track their surplus food, plan better for
 6. Run the project: `npm run dev`
 7. View the web application on: `http://localhost:3000`
 
-##If you encounter issues running the project or encounter dependency errors:
+## If you encounter issues running the project or encounter dependency errors:
 
 - Check your Node.js version
 - Use yarn instead of npm
