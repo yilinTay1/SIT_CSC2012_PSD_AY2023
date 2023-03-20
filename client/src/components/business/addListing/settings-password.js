@@ -1,5 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Box, Button, Card, CardContent, CardHeader, Divider, TextField } from '@mui/material';
+import { firebase_app , firebase_fs }                           from '../../firebase/firebase-config';
+import { FirebaseStorage }                                      from '../../firebase/FirebaseStorage';
+import { collection , getDocs , doc , setDoc , addDoc, getDoc } from 'firebase/firestore'
+
 
 export const SettingsPassword = (props) => {
   const [values, setValues] = useState({
@@ -20,7 +24,7 @@ export const SettingsPassword = (props) => {
   const [preview     , setPreview     ] = useState()
 
   // create a preview as a side effect, whenever selected file is changed
-  /*
+  
   useEffect(() => {
     if (!selectedFile) {
       setPreview(undefined)
@@ -44,12 +48,16 @@ export const SettingsPassword = (props) => {
     // I've kept this example simple by using the first image instead of multiple
     setSelectedFile(e.target.files[0])
   }
-  */
+  
 
   async function doSomething(e)
   {
     e.preventDefault()
-    console.log("Listing added")
+    if( selectedFile )
+    {
+      FirebaseStorage.upload( selectedFile  )
+      console.log( "Listing added" , values.productName , values.productTotalQty , values.productDescription , values.productPrice )
+    }
   }
 
   return (
@@ -116,6 +124,7 @@ export const SettingsPassword = (props) => {
           <Button
             color="primary"
             variant="contained"
+            type="submit"
           >
             Add Listing
           </Button>
