@@ -8,7 +8,7 @@
 
 - `npm run dev` to run the project's web-application
 
-- views are on: `localhost:3000`
+- View web-application on: `localhost:3000`
 
 # Business Dashboard Web Application
 This project contains the source code for a business dashboard web application that allows users to manage their business listings, view order history, and update account settings.
