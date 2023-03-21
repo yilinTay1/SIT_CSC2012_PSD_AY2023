@@ -137,7 +137,7 @@ function CustomerNavBar({ cartItems = 0, setCartItems }) {
           </Box>
 
           {/* Start Dropdown Cart. */}
-          <div style={{ position: "relative" }}>
+          <div style={{ position: "relative", marginRight: 15 }}>
             <IconButton
               color="inherit"
               aria-label="Open cart"
