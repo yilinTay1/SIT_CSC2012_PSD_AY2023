@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { Box, Container, Grid, Typography } from "@mui/material";
 import CustomerNavBar from "../../components/customer_view/navigation/navbar";
 import React, { useRef, useEffect, useState } from "react";
@@ -58,20 +59,20 @@ const History = () => {
   return (
     <>
       {buyer && (
+        <Head>
+          <title>Order History | WorthEats</title>
+        </Head>
+      )}
+      {buyer && (
         <>
           <CustomerNavBar />
           <Box component="main" sx={{ flexGrow: 1, py: 8 }}>
             <Container maxWidth="lg">
-              <Typography variant="h3" gutterBottom>
-                Order History
-              </Typography>
               {mockOrders.map((order) => (
                 <Box key={order.id} className={classes.orderBox}>
                   <Grid container spacing={2} justifyContent="space-between">
                     <Grid item>
-                      <Typography variant="h5">
-                        Order #{order.id}
-                      </Typography>
+                      <Typography variant="h5">Order #{order.id}</Typography>
                       <Typography variant="subtitle2">
                         {order.date} - {order.restaurant}
                       </Typography>
@@ -81,25 +82,23 @@ const History = () => {
                           <ul key={index}>
                             {item.name} - ${item.price.toFixed(2)}
                             <Grid item xs={4} justifyContent="flex-end">
-                            <Rating
-                              name={`item-${order.id}-${index}`}
-                              value={ratings[`item-${order.id}-${index}`] || 0}
-                              onChange={(event, newValue) => {
-                                setRatings({
-                                  ...ratings,
-                                  [`item-${order.id}-${index}`]: newValue
-                                });
-                              }}
-                            />
-                          </Grid>
+                              <Rating
+                                name={`item-${order.id}-${index}`}
+                                value={ratings[`item-${order.id}-${index}`] || 0}
+                                onChange={(event, newValue) => {
+                                  setRatings({
+                                    ...ratings,
+                                    [`item-${order.id}-${index}`]: newValue,
+                                  });
+                                }}
+                              />
+                            </Grid>
                           </ul>
                         ))}
                       </ul>
                     </Grid>
                     <Grid item>
-                      <Typography variant="h5">
-                        Total: ${order.total.toFixed(2)}
-                      </Typography>
+                      <Typography variant="h5">Total: ${order.total.toFixed(2)}</Typography>
                     </Grid>
                   </Grid>
                 </Box>
