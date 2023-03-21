@@ -173,7 +173,7 @@ function CustomerNavBar({ cartItems = 0, setCartItems }) {
                       style={{ display: "flex", padding: 15, textAlign: "center" }}
                     >
                       <p style={{ marginTop: 10 }}>
-                        {item.name} x {item.quantity}
+                        {item.name} x {item.quantity} (${(item.price * item.quantity).toFixed(2)})
                       </p>
                       <button
                         variant="contained"
@@ -195,7 +195,10 @@ function CustomerNavBar({ cartItems = 0, setCartItems }) {
                   </Typography>
                 )}
                 {cartItems.length > 0 && (
-                  <div style={{ textAlign: "center" }}>
+                  <div style={{ textAlign: "center", marginTop: 20 }}>
+                    <Typography variant="h6" sx={{ mt: 2 }}>
+                      Total: ${cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2)}
+                    </Typography>
                     <Button variant="contained" onClick={handleCheckout} style={{ marginTop: 20 }}>
                       Confirm Checkout
                     </Button>
