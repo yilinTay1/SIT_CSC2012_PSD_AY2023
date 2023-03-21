@@ -178,7 +178,7 @@ function CustomerNavBar({ cartItems = 0, setCartItems }) {
                 </Typography>
                 {cartItems.length > 0 ? (
                   cartItems.map((item) => (
-                    <div key={item.id} style={{ display: "flex", padding: 20, textAlign: "center" }}>
+                    <div key={item.id} style={{ display: "flex", padding: 15, textAlign: "center" }}>
                       <p style={{ marginTop: 10 }}>
                         {item.name} x {item.quantity}
                       </p>
