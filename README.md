@@ -11,11 +11,11 @@ The platform also allows businesses to track their surplus food, plan better for
 1. Clone the repository: `https://github.com/yilinTay1/SIT_CSC2012_PSD_AY2023.git`
 2. \SIT_CSC2012_PSD_AY2023-main\SIT_CSC2012_PSD_AY2023-main\client> `cd client` 
 3. Install Material UI: `npm install @mui/material @emotion/react @emotion/styled`
-3. Install the latest version of Node: `sudo apt-get install nodejs` 
-4. Install dependencies: `npm install`
-5. Install react-bootstrap: `npm install react-bootstrap bootstrap`
-6. Run the project: `npm run dev`
-7. View the web application on: `http://localhost:3000`
+4. Install react-bootstrap: `npm install react-bootstrap bootstrap`
+5. Install the latest version of Node: `sudo apt-get install nodejs` 
+6. Install dependencies: `npm install`
+7. Run the project: `npm run dev`
+8. View the web application on: `http://localhost:3000`
 
 ## If you encounter issues running the project or encounter dependency errors:
 
