@@ -23,6 +23,8 @@ import { EmailPassword } from "../../firebase/EmailPassword";
 function CustomerNavBar({ cartItems = 0, setCartItems }) {
   // Cart Things
   const [showCart, setShowCart] = useState(false);
+  const [showConfirmation, setShowConfirmation] = useState(false);
+  const [confirmationMessage, setConfirmationMessage] = useState("");
 
   const handleRemoveFromCart = (item) => {
     // remove item from the cart
@@ -32,13 +34,21 @@ function CustomerNavBar({ cartItems = 0, setCartItems }) {
 
   const handleCheckout = () => {
     // handle the checkout logic here
-    console.log("Checkout clicked!");
+    const total = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2);
+    setConfirmationMessage(`Your order total is $${total}. 
+    <br> Thank you for your purchase!`);
+    setShowConfirmation(true);
   };
 
   const handleCartBlur = (event) => {
     if (!event.currentTarget.contains(event.relatedTarget)) {
       setShowCart(false);
     }
+  };
+
+  const handleDoneCheckout = () => {
+    setCartItems([]);
+    setShowConfirmation(false);
   };
 
   // Cart Things
@@ -197,13 +207,53 @@ function CustomerNavBar({ cartItems = 0, setCartItems }) {
                 {cartItems.length > 0 && (
                   <div style={{ textAlign: "center", marginTop: 20 }}>
                     <Typography variant="h6" sx={{ mt: 2 }}>
-                      Total: ${cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2)}
+                      Total: $
+                      {cartItems
+                        .reduce((acc, item) => acc + item.price * item.quantity, 0)
+                        .toFixed(2)}
                     </Typography>
                     <Button variant="contained" onClick={handleCheckout} style={{ marginTop: 20 }}>
                       Confirm Checkout
                     </Button>
                   </div>
                 )}
+              </Paper>
+            )}
+            {showConfirmation && (
+              <Paper
+                style={{
+                  position: "absolute",
+                  top: "64px", // adjust as needed
+                  right: 0,
+                  width: "20vw", // adjust as needed
+                  maxHeight: "400px",
+                  overflow: "auto",
+                  zIndex: 9999,
+                  backgroundColor: "#fff",
+                  padding: "10px",
+                  boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", // add shadow for aesthetics
+                  borderRadius: "8px", // add rounded corners for aesthetics
+                }}
+              >
+                <div style={{ textAlign: "center", marginTop: 20 }}>
+                <Typography
+                  variant="h6"
+                  sx={{ borderBottom: "1px solid #ccc", pb: 1, textAlign: "center" }}
+                >
+                  Order Confirmation
+                </Typography>
+                <Typography
+                  variant="body1"
+                  align="center"
+                  sx={{ my: 4, color: "#888" }}
+                  dangerouslySetInnerHTML={{ __html: confirmationMessage }}
+                >
+                  {/* {confirmationMessage} */}
+                </Typography>
+                <Button variant="contained" onClick={handleDoneCheckout} style={{ marginTop: 20 }}>
+                  Done
+                </Button>
+                </div>
               </Paper>
             )}
           </div>
