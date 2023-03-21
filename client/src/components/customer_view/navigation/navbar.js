@@ -17,6 +17,7 @@ import { useState } from "react";
 import { UserCircle as UserCircleIcon } from "../../../icons/user-circle";
 import { Badge, Paper } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import DeleteIcon from "@mui/icons-material/Delete";
 import { EmailPassword } from "../../firebase/EmailPassword";
 import Router from "next/router";
 
@@ -62,22 +63,21 @@ function CustomerNavBar({ cartItems = 0, setCartItems }) {
     setAnchorElUser(event.currentTarget);
   };
 
-  const handleCloseUserMenu= (event) => {
+  const handleCloseUserMenu = (event) => {
     setAnchorElUser(null);
   };
 
   const handleChangePassword = () => {
-      let _redirectPage = "/customer/change_pwd";
-      Router.push(_redirectPage).catch(console.error);
-      setAnchorElUser(null);
+    let _redirectPage = "/customer/change_pwd";
+    Router.push(_redirectPage).catch(console.error);
+    setAnchorElUser(null);
   };
 
   const handleLogoutMenu = () => {
     const biz = sessionStorage.getItem("business");
-    let      _redirectPage = "/customer/login"; // default login page
+    let _redirectPage = "/customer/login"; // default login page
     if (biz) _redirectPage = "/business/login"; // unless previously logged in as business
-    if ( EmailPassword.logOut() )
-    {
+    if (EmailPassword.logOut()) {
       Router.push(_redirectPage).catch(console.error);
       setAnchorElUser(null);
     }
@@ -144,7 +144,9 @@ function CustomerNavBar({ cartItems = 0, setCartItems }) {
               onClick={() => setShowCart(!showCart)}
             >
               <Badge
-                badgeContent={cartItems ? cartItems.reduce((acc, item) => acc + item.quantity, 0) : 0}
+                badgeContent={
+                  cartItems ? cartItems.reduce((acc, item) => acc + item.quantity, 0) : 0
+                }
                 color="error"
               >
                 <ShoppingCartIcon />
@@ -165,19 +167,28 @@ function CustomerNavBar({ cartItems = 0, setCartItems }) {
                   backgroundColor: "#fff",
                   padding: "10px",
                   boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", // add shadow for aesthetics
-                  borderRadius: "8px" // add rounded corners for aesthetics
+                  borderRadius: "8px", // add rounded corners for aesthetics
                 }}
               >
-                <Typography variant="h6" sx={{ borderBottom: "1px solid #ccc", pb: 1 }}>
+                <Typography
+                  variant="h6"
+                  sx={{ borderBottom: "1px solid #ccc", pb: 1, textAlign: "center" }}
+                >
                   Order Summary
                 </Typography>
                 {cartItems.length > 0 ? (
                   cartItems.map((item) => (
-                    <div key={item.id}>
-                      <p>
+                    <div key={item.id} style={{ display: "flex", padding: 20, textAlign: "center" }}>
+                      <p style={{ marginTop: 10 }}>
                         {item.name} x {item.quantity}
                       </p>
-                      <button onClick={() => handleRemoveFromCart(item)}>Remove</button>
+                      <button
+                        variant="contained"
+                        style={{ marginLeft: 10, marginTop: 10, border: "None", backgroundColor: "transparent" }}
+                        onClick={() => handleRemoveFromCart(item)}
+                      >
+                        <DeleteIcon />
+                      </button>
                     </div>
                   ))
                 ) : (
@@ -186,9 +197,11 @@ function CustomerNavBar({ cartItems = 0, setCartItems }) {
                   </Typography>
                 )}
                 {cartItems.length > 0 && (
-                  <Button variant="contained" onClick={handleCheckout}>
-                    Confirm Checkout
-                  </Button>
+                  <div style={{ textAlign: "center" }}>
+                    <Button variant="contained" onClick={handleCheckout} style={{ marginTop: 20 }}>
+                      Confirm Checkout
+                    </Button>
+                  </div>
                 )}
               </Paper>
             )}
