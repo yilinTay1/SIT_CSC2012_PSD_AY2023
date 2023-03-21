@@ -106,6 +106,7 @@ The project contains the following components:
 | --- | --- |
 | `history` | A component that displays the customer's past order history which includes: order number, date, restaurant name, order items, total price and ratings |
 | `home` | A component that displays the restaurant cuisines categories. |
+| `ML` | A component for machine learning algorithm of ratings. |
 | `navigation` | A component that contains a navbar for the main page after user has logged in and another navbar (loginNav.js) for the login page before user logins with their credientials |
 | `restaurant` | A component that briefly describes the restaurant details when user clicks into restaurant. |
 | `settings` | A component that displays the user's account details and also allows users to change password and save notification preferences. |
