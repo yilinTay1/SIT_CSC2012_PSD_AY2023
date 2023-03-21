@@ -19,7 +19,7 @@ The platform also allows businesses to track their surplus food, plan better for
 
 ## If you encounter issues running the project or encounter dependency errors:
 
-- Check your Node.js version. Make sure your Node.js and npm versions are up to date for `React 18`
+- Check your Node.js version: `node -v`. Make sure your Node.js and npm versions are up to date for `React 18`
 - Use yarn instead of npm
 
 # Backend
