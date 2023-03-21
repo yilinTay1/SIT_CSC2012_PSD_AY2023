@@ -106,6 +106,7 @@ The project contains the following components:
 | --- | --- |
 | `history` | A component that displays the customer's past order history which includes: order number, date, restaurant name, order items, total price and ratings |
 | `home` | A component that displays the restaurant cuisines categories. |
+| `ML` | A component for machine learning algorithm of ratings. |
 | `navigation` | A component that contains a navbar for the main page after user has logged in and another navbar (loginNav.js) for the login page before user logins with their credientials |
 | `restaurant` | A component that briefly describes the restaurant details when user clicks into restaurant. |
 | `settings` | A component that displays the user's account details and also allows users to change password and save notification preferences. |
@@ -132,10 +133,10 @@ After logging in at http://localhost:3000/customer/login, you can access the fol
 
 - http://localhost:3000/customer/home: The main home page of the website where users can see the list of restaurant cuisines, featured restaurants.
 - http://localhost:3000/customer/history: Allows you to view past order history made previously by the user.
-- http://localhost:3000/customer/setting: Allows you to view the account details, change password and set notifications
+- http://localhost:3000/customer/settings: Allows you to view the account details, change password and set notifications
 
 Once clicked into a restaurant
-- User will be redirected to the restaurant's order page http://localhost:3000/customer/order/mcd which allows user to be redirected to the Mcdonalds order page in this case. User can view the restaurant details and food items which they can add to cart and order.
+- User will be redirected to the restaurant's order page http://localhost:3000/customer/order/mcdonalds which allows user to be redirected to the Mcdonalds order page in this case. User can view the restaurant details and food items which they can add to cart and order.
 - Once confirm checkout, the order will be submitted to the database and displayed in order history.
 
 To logout, users can click on the profile beside the shopping cart and logout from there.
