@@ -44,3 +44,10 @@ app.post('/api/test' , (req,res)=>{
     console.log(req.params.password)
     res.json( { msg: "/api/test" } )
 })
+
+var a = require("./ML/FoodRecommend.js");
+
+app.get('/api/getRecommend/:userID', (req,res)=>{
+    var test = a.gfr(req.params['userID']);
+    res.json( { recommendations: test } )
+})

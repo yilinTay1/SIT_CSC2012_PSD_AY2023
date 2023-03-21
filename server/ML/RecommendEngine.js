@@ -146,8 +146,6 @@ var recommendation_eng = function(dataset,person,distance){
                 if(!(item in dataset[person]) ||(dataset[person][item]==0)){
                     totals.setDefault(item,dataset[other][item]*similar);
                     simsum.setDefault(item,similar);
-                    
-                    
                 }
         }
     }

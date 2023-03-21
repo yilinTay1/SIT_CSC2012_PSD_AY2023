@@ -12,9 +12,10 @@ function loadFoodListing(){
     for(var line in foodData){
         p = foodData[line].trim().split(',');
         var id = p[0],
-            itemName = p[1];
-
-        listing[id] = itemName;
+            itemName = p[1]
+            restaurant = p[2];
+            price = p[5];
+        listing[id] = [itemName, restaurant, price];
     }
     
     var prefs = {
@@ -42,7 +43,7 @@ function loadFoodListing(){
     return prefs;
 }
 
-function generateFoodRecommendation(userID){
+generateFoodRecommendation = function(userID){
     var data = loadFoodListing();
 
     var itemsim = rec.calcSimilarItem(data,30,rec.pearson);
@@ -51,6 +52,10 @@ function generateFoodRecommendation(userID){
     for(var i =0;i<10;i++){
         console.log(i+1,": ", f[i]['item']);
     }
+
+    return f;
 }
 
-generateFoodRecommendation("100");
+module.exports={
+    gfr:generateFoodRecommendation
+}

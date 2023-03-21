@@ -13,12 +13,12 @@ import React, { useRef, useEffect, useState } from "react";
 import { SecuredBuy } from "../../components/firebase/SecuredBuy";
 import NextLink from "next/link";
 import StarRateIcon from "@mui/icons-material/StarRate";
-
 // Import other components
 import CustomerNavBar from "../../components/customer_view/navigation/navbar";
 import { SearchBar } from "../../components/customer_view/searchbar";
 import { RestCategory } from "../../components/customer_view/home/restCategory";
 
+// Search bar resource: https://dev.to/mar1anna/create-a-search-bar-with-react-and-material-ui-4he
 const featured = [
   {
     id: 1,
@@ -46,7 +46,20 @@ const featured = [
   },
 ];
 
-const Home = () => {
+export async function getServerSideProps() {
+  var id = "1";
+  var apiLink = `http://localhost:5000/api/getRecommend/` + id;
+  // Fetch data from external API
+  const res = await fetch(apiLink)
+  const data = await res.json()
+
+  // Pass data to the page via props
+  return { 
+    props: { data } 
+  }
+}
+
+const Home = (props) => {
   const runOnce = useRef(true);
   const [buyer, setBuyer] = useState(false);
   useEffect(() => {
@@ -87,12 +100,43 @@ const Home = () => {
           }}
         >
           <Container maxWidth={false} style={{ paddingLeft: 70, paddingRight: 70 }}>
+            {/* <div
+              style={{
+                display: "flex",
+                alignSelf: "center",
+                justifyContent: "center",
+                flexDirection: "column",
+                padding: 20,
+              }}
+            > */}
             <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+            {/* <div style={{ padding: 3 }}>
+                {dataFiltered.map((d) => (
+                  <div
+                    className="text"
+                    style={{
+                      padding: 5,
+                      justifyContent: "normal",
+                      fontSize: 20,
+                      color: "blue",
+                      margin: 1,
+                      width: "250px",
+                      BorderColor: "green",
+                      borderWidth: "10px",
+                    }}
+                    key={d.id}
+                  >
+                    {d}
+                  </div>
+                ))}
+              </div>
+            </div> */}
+            {/* End of Searchbar Component */}
             <br></br>
 
             {/* Restaurants Category Component */}
             <Typography color="textPrimary" variant="h2">
-              Restaurants
+              Restaurants 
             </Typography>
 
             {/* Category */}
@@ -116,12 +160,10 @@ const Home = () => {
               {filteredFeatured.map((item) => (
                 <Grid item key={item.id}>
                   <Card sx={{ maxWidth: 550 }}>
-                    <NextLink
-                      href={item.link}
-                      style={{ cursor: "pointer", color: "black", textDecoration: "None" }}
-                    >
+                    <NextLink href={item.link}>
                       <Link
                         to={item.link}
+                        // variant="subtitle2"
                         underline="hover"
                         sx={{
                           cursor: "pointer",
@@ -136,15 +178,13 @@ const Home = () => {
                           <Typography variant="body2" color="text.secondary">
                             {item.timeaway}
                           </Typography>
+
                           <Typography
                             variant="h6"
                             color="text.secondary"
                             style={{ float: "right" }}
                           >
-                            <div style={{ display: "flex", textAlign: "center" }}>
-                              <StarRateIcon style={{ marginRight: 5 }} fontSize="medium" />
-                              {item.rating.toFixed(1)}
-                            </div>
+                            <StarRateIcon fontSize="medium" /> {item.rating.toFixed(1)}
                           </Typography>
                         </CardContent>
                       </Link>
@@ -152,6 +192,55 @@ const Home = () => {
                   </Card>
                 </Grid>
               ))}
+              {/* <Grid item> */}
+              {/* <BestSellers /> */}
+              {/* </Grid> */}
+            </Grid>
+            <br></br>
+            {/* Featured Component */}
+            <Typography color="textPrimary" variant="h2">
+              Recommended For You
+            </Typography>
+            <br></br>
+
+            {/* Best Sellers */}
+            <Grid container spacing={2}>
+              {props.data['recommendations'].slice(0, 6).map((item) => (
+                <Grid item key={item.id}>
+                  <Card sx={{ maxWidth: 550 }}>
+                      <Link
+                        to={item.link}
+                        // variant="subtitle2"
+                        underline="hover"
+                        sx={{
+                          cursor: "pointer",
+                          color: "black",
+                        }}
+                      >
+                        <CardMedia sx={{ height: 180 }} image="https://media.cnn.com/api/v1/images/stellar/prod/211006114703-best-meal-delivery-service-freshly.jpg?q=w_1601,h_900,x_0,y_0,c_fill" title={item.name} />
+                        <CardContent sx={{ width: 550, height: 160 }}>
+                          <Typography gutterBottom variant="h5" component="div">
+                            {item.item.split(",")[0]}
+                          </Typography>
+                          <Typography variant="body2" color="text.secondary">
+                            {item.item.split(",")[1]}
+                          </Typography>
+
+                          <Typography
+                            variant="h6"
+                            color="text.secondary"
+                            style={{ float: "right" }}
+                          >
+                            ${item.item.split(",")[2]}0
+                          </Typography>
+                        </CardContent>
+                      </Link>
+                  </Card>
+                </Grid>
+              ))}
+              {/* <Grid item> */}
+              {/* <BestSellers /> */}
+              {/* </Grid> */}
             </Grid>
             {/* End of Featured Component */}
           </Container>
