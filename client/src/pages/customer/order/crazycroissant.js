@@ -112,7 +112,7 @@ const CroissantOrder = () => {
             <Grid container spacing={2}>
               {filteredCroissant.map((item) => (
                 <Grid item key={item.id}>
-                  <Card sx={{ maxWidth: 345, height: '100%' }}>
+                  <Card sx={{ maxWidth: 345, height: "100%" }}>
                     <CardMedia sx={{ height: 200 }} image={item.image} title={item.name} />
                     <CardContent>
                       <Typography gutterBottom variant="h5" id="productName" component="div">
