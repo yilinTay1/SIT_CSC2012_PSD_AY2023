@@ -135,7 +135,10 @@ const Western = () => {
                             color="text.secondary"
                             style={{ float: "right" }}
                           >
-                            <StarRateIcon fontSize="medium" /> {item.rating.toFixed(1)}
+                            <div style={{ display: "flex", textAlign: "center" }}>
+                              <StarRateIcon style={{ marginRight: 5 }} fontSize="medium" />
+                              {item.rating.toFixed(1)}
+                            </div>
                           </Typography>
                         </CardContent>
                       </Link>

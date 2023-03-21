@@ -79,7 +79,6 @@ const Chinese = () => {
           }}
         >
           <Container maxWidth={false} style={{ paddingLeft: 70, paddingRight: 70 }}>
-
             <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
             <br></br>
 
@@ -138,7 +137,10 @@ const Chinese = () => {
                             color="text.secondary"
                             style={{ float: "right" }}
                           >
-                            <StarRateIcon fontSize="medium" /> {item.rating.toFixed(1)}
+                            <div style={{ display: "flex", textAlign: "center" }}>
+                              <StarRateIcon style={{ marginRight: 5 }} fontSize="medium" />
+                              {item.rating.toFixed(1)}
+                            </div>
                           </Typography>
                         </CardContent>
                       </Link>
