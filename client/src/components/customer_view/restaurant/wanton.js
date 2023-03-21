@@ -1,22 +1,5 @@
-import {
-  Avatar,
-  Button,
-  ButtonGroup,
-  Box,
-  Card,
-  CardContent,
-  CardMedia,
-  Grid,
-  IconButton,
-  Typography,
-  Stack,
-  Link,
-} from "@mui/material";
-import NextLink from "next/link";
-import StarRateIcon from "@mui/icons-material/StarRate";
-import React, { useRef, useState, useEffect } from "react";
-// import { firebase_app, firebase_fs } from "../firebase/firebase-config";
-// import { collection, getDocs, doc, setDoc, addDoc, getDoc } from "firebase/firestore";
+import { Box, Card, CardContent, CardMedia, Typography } from "@mui/material";
+import React from "react";
 
 export const Wanton = () => {
   return (
@@ -28,7 +11,8 @@ export const Wanton = () => {
               Jia Jia Wanton Stall
             </Typography>
             <Typography variant="subtitle1" color="text.secondary" component="div">
-              Since 1976, Jia Jia Wanton remains one of the residents number 1 choice for wanton mee.
+              Since 1976, Jia Jia Wanton remains one of the residents number 1 choice for wanton
+              mee.
             </Typography>
           </CardContent>
         </Box>

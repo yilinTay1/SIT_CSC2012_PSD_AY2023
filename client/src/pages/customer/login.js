@@ -12,7 +12,6 @@ import {
   Divider,
   Chip,
 } from "@mui/material";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { Facebook as FacebookIcon } from "../../icons/facebook";
 import { Google as GoogleIcon } from "../../icons/google";
 
@@ -22,9 +21,6 @@ import React, { useRef, useState, useEffect } from "react";
 // Import other components
 import LoginNav from "../../components/customer_view/navigation/loginNav";
 
-// Customer Login Page
-
-// Login Functionalities
 const Login = () => {
   const [email, setEmail] = useState("test@test.com");
   const [password, setPassword] = useState("123456");
@@ -45,16 +41,13 @@ const Login = () => {
     e.preventDefault();
     const result = await EmailPassword.auth(email, password);
     if (result) {
-      sessionStorage.setItem( "buyer" , sessionStorage.getItem("uid")  )
+      sessionStorage.setItem("buyer", sessionStorage.getItem("uid"));
       console.log("Redirecting...");
-      Router
-          .push("/customer/home")
-          .catch(console.error)
+      Router.push("/customer/home").catch(console.error);
     }
     console.log("Unable to authenticate");
   }
 
-  // HTML Frontend
   return (
     <>
       {/* Header */}
@@ -83,7 +76,6 @@ const Login = () => {
           }}
         >
           {/* Login Form */}
-          {/* <form onSubmit={formik.handleSubmit}> */}
           <form onSubmit={signInwithEmail}>
             {/* Welcome Text Component (Form Title) */}
             <Box sx={{ my: 3 }}>
@@ -99,43 +91,30 @@ const Login = () => {
 
             {/* Email Text Field */}
             <TextField
-              //error={Boolean(formik.touched.email && formik.errors.email)}
               fullWidth
-              //helperText={formik.touched.email && formik.errors.email}
               label="Email Address"
               margin="normal"
               name="email"
-              //onBlur={formik.handleBlur}
-              //onChange={formik.handleChange}
               onChange={(e) => setEmail(e.target.value)}
               type="email"
               value={email}
-              //value={formik.values.email}
               variant="outlined"
             />
 
             {/* Password Text Field */}
             <TextField
-              //error={Boolean(formik.touched.password && formik.errors.password)}
               fullWidth
-              //helperText={formik.touched.password && formik.errors.password}
               label="Password"
               margin="normal"
               name="password"
-              //onBlur={formik.handleBlur}
-              //onChange={formik.handleChange}
               onChange={(e) => setPassword(e.target.value)}
               type="password"
               value={password}
-              //value={formik.values.password}
               variant="outlined"
             />
 
             {/* Forgot Password */}
-            <Typography
-              color="textSecondary"
-              variant="body2"
-            >
+            <Typography color="textSecondary" variant="body2">
               {/* Insert Forget Password Link */}
               <NextLink href="/customer/reset_pwd">
                 <Link
@@ -152,17 +131,9 @@ const Login = () => {
               {/* End of Sign Up Link */}
             </Typography>
 
-
             {/* Sign In Button Component */}
             <Box sx={{ py: 2 }}>
-              <Button
-                color="primary"
-                //disabled={formik.isSubmitting}
-                fullWidth
-                size="large"
-                type="submit"
-                variant="contained"
-              >
+              <Button color="primary" fullWidth size="large" type="submit" variant="contained">
                 Sign In
               </Button>
             </Box>
@@ -186,7 +157,6 @@ const Login = () => {
                   color="info"
                   fullWidth
                   startIcon={<FacebookIcon />}
-                  //onClick={() => formik.handleSubmit()}
                   size="large"
                   variant="contained"
                   style={{
@@ -200,7 +170,6 @@ const Login = () => {
                 <Button
                   color="error"
                   fullWidth
-                  //onClick={() => formik.handleSubmit()}
                   size="large"
                   startIcon={<GoogleIcon />}
                   variant="contained"

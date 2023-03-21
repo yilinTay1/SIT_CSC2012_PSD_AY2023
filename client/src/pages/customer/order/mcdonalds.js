@@ -15,7 +15,6 @@ import { SecuredBuy } from "../../../components/firebase/SecuredBuy";
 
 // Import other components
 import CustomerNavBar from "../../../components/customer_view/navigation/navbar";
-import Navbar from "../../../components/customer_view/navigation/Navbar";
 import { Mcd } from "../../../components/customer_view/restaurant/mcd";
 import { SearchBar } from "../../../components/customer_view/searchbar";
 
@@ -63,7 +62,7 @@ const McdOrder = () => {
   // Cart functionality
   const [cartItems, setCartItems] = useState([]);
 
-  const handleAddToCart  = (item) => {
+  const handleAddToCart = (item) => {
     const existingItem = cartItems.find((cartItem) => cartItem.id === item.id);
 
     if (existingItem) {
@@ -75,8 +74,6 @@ const McdOrder = () => {
       setCartItems([...cartItems, { ...item, quantity: 1 }]);
     }
   };
-
-
 
   // Search functionality
   const [searchQuery, setSearchQuery] = useState("");
@@ -96,7 +93,7 @@ const McdOrder = () => {
       </Head>
 
       {/* Navbar */}
-      <CustomerNavBar  cartItems={cartItems} setCartItems={setCartItems}/>
+      <CustomerNavBar cartItems={cartItems} setCartItems={setCartItems} />
       <Box
         component="main"
         sx={{
@@ -108,43 +105,33 @@ const McdOrder = () => {
           <Mcd />
           <br></br>
           <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-
-          {/* Category */}
-          <Grid container spacing={10}>
-            <Grid item lg={10} sm={6} xl={10} xs={12}>
-              <br></br>
-              {/* <RestCategory /> */}
-            </Grid>
-          </Grid>
-          {/* End of Restaurants Category Component */}
           <br></br>
-          <div>
-            {/* Best Sellers */}
-            <Grid container spacing={2}>
-              {filteredMcd.map((item) => (
-                <Grid item key={item.id}>
-                  <Card sx={{ maxWidth: 345 }}>
-                    <CardMedia sx={{ height: 200 }} image={item.image} title={item.name} />
-                    <CardContent>
-                      <Typography gutterBottom variant="h5" id="productName" component="div">
-                        {item.name}
-                      </Typography>
-                      <Typography variant="h5" id="productPrice">
-                        ${item.price.toFixed(2)}
-                      </Typography>
-                      <Typography variant="body2" color="text.secondary">
-                        {item.description}
-                      </Typography>
-                    </CardContent>
-                    <CardActions>
-                      <Button onClick={() => handleAddToCart(item)}>Add to cart</Button>
-                    </CardActions>
-                  </Card>
-                </Grid>
-              ))}
-            </Grid>
-            {/* End of Best Sellers Component */}
-          </div>
+
+          {/* Mcdonalds Item */}
+          <Grid container spacing={2}>
+            {filteredMcd.map((item) => (
+              <Grid item key={item.id}>
+                <Card sx={{ maxWidth: 345 }}>
+                  <CardMedia sx={{ height: 200 }} image={item.image} title={item.name} />
+                  <CardContent>
+                    <Typography gutterBottom variant="h5" id="productName" component="div">
+                      {item.name}
+                    </Typography>
+                    <Typography variant="h5" id="productPrice">
+                      ${item.price.toFixed(2)}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {item.description}
+                    </Typography>
+                  </CardContent>
+                  <CardActions>
+                    <Button onClick={() => handleAddToCart(item)}>Add to cart</Button>
+                  </CardActions>
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
+          {/* End of Mcdonalds Items Component */}
         </Container>
       </Box>
     </>

@@ -57,24 +57,23 @@ const SushiOrder = () => {
     }
   }, [runOnce]);
 
-  
-// Cart functionality
-const [cartItems, setCartItems] = useState([]);
+  // Cart functionality
+  const [cartItems, setCartItems] = useState([]);
 
-const handleAddToCart  = (item) => {
-  const existingItem = cartItems.find((cartItem) => cartItem.id === item.id);
+  const handleAddToCart = (item) => {
+    const existingItem = cartItems.find((cartItem) => cartItem.id === item.id);
 
-  if (existingItem) {
-    const updatedItems = cartItems.map((cartItem) =>
-      cartItem.id === item.id ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem
-    );
-    setCartItems(updatedItems);
-  } else {
-    setCartItems([...cartItems, { ...item, quantity: 1 }]);
-  }
-};
+    if (existingItem) {
+      const updatedItems = cartItems.map((cartItem) =>
+        cartItem.id === item.id ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem
+      );
+      setCartItems(updatedItems);
+    } else {
+      setCartItems([...cartItems, { ...item, quantity: 1 }]);
+    }
+  };
 
-// Search functionality
+  // Search functionality
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredSushi, setFilteredSushi] = useState(sushi);
 
@@ -94,62 +93,47 @@ const handleAddToCart  = (item) => {
       )}
 
       {/* Navbar */}
-      <CustomerNavBar  cartItems={cartItems} setCartItems={setCartItems}/>
-        <Box
-          component="main"
-          sx={{
-            flexGrow: 1,
-            py: 8,
-          }}
-        >
-          <Container maxWidth={false} style={{ paddingLeft: 70, paddingRight: 70 }}>
-            <Sushi />
-            <br></br>
-            <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+      <CustomerNavBar cartItems={cartItems} setCartItems={setCartItems} />
+      <Box
+        component="main"
+        sx={{
+          flexGrow: 1,
+          py: 8,
+        }}
+      >
+        <Container maxWidth={false} style={{ paddingLeft: 70, paddingRight: 70 }}>
+          <Sushi />
+          <br></br>
+          <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+          <br></br>
 
-            {/* Category */}
-            <Grid container spacing={10}>
-              <Grid item lg={10} sm={6} xl={10} xs={12}>
-                <br></br>
-                {/* <RestCategory /> */}
+          {/* Sushi Items */}
+          <Grid container spacing={2}>
+            {filteredSushi.map((item) => (
+              <Grid item key={item.id}>
+                <Card sx={{ maxWidth: 345 }}>
+                  <CardMedia sx={{ height: 200 }} image={item.image} title={item.name} />
+                  <CardContent>
+                    <Typography gutterBottom variant="h5" id="productName" component="div">
+                      {item.name}
+                    </Typography>
+                    <Typography variant="h5" id="productPrice">
+                      ${item.price.toFixed(2)}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {item.description}
+                    </Typography>
+                  </CardContent>
+                  <CardActions>
+                    <Button onClick={() => handleAddToCart(item)}>Add to cart</Button>
+                  </CardActions>
+                </Card>
               </Grid>
-            </Grid>
-            {/* End of Restaurants Category Component */}
-            <br></br>
-
-            {/* Best Sellers */}
-            <Grid container spacing={2}>
-              {filteredSushi.map((item) => (
-                <Grid item key={item.id}>
-                  <Card sx={{ maxWidth: 345 }}>
-                    <CardMedia sx={{ height: 200 }} image={item.image} title={item.name} />
-                    <CardContent>
-                      <Typography gutterBottom variant="h5" id="productName" component="div">
-                        {item.name}
-                      </Typography>
-                      <Typography variant="h5" id="productPrice">
-                        ${item.price.toFixed(2)}
-                      </Typography>
-                      <Typography variant="body2" color="text.secondary">
-                        {item.description}
-                      </Typography>
-                    </CardContent>
-                    <CardActions>
-                      <Button
-                        onClick={() =>
-                          handleAddToCart(item)
-                        }
-                      >
-                        Add to cart
-                      </Button>
-                    </CardActions>
-                  </Card>
-                </Grid>
-              ))}
-            </Grid>
-            {/* End of Best Sellers Component */}
-          </Container>
-        </Box>
+            ))}
+          </Grid>
+          {/* End of Sushi Items Component */}
+        </Container>
+      </Box>
     </>
   );
 };

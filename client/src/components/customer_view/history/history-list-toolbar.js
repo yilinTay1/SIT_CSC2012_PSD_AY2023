@@ -1,53 +1,35 @@
 import {
   Box,
-  Button,
   Card,
   CardContent,
   TextField,
   InputAdornment,
-  SvgIcon, Typography, Grid
-} from '@mui/material';
-import { Search as SearchIcon } from '../../../icons/search';
-import { Upload as UploadIcon } from '../../../icons/upload';
-import { Download as DownloadIcon } from '../../../icons/download';
-import { TotalOrder } from '../dashboard/totalOrder';
-import { OrderCompleted } from '../dashboard/orderCompleted';
-import { OrderPending } from '../dashboard/orderPending';
-import { TotalProfit } from '../dashboard/totalProfit';
+  SvgIcon,
+  Typography,
+  Grid,
+} from "@mui/material";
+import { Search as SearchIcon } from "../../../icons/search";
+import { TotalProfit } from "../dashboard/totalProfit";
 
 export const HistoryListToolbar = (props) => (
   <Box {...props}>
     <Box
       sx={{
-        alignItems: 'center',
-        display: 'flex',
-        justifyContent: 'space-between',
-        flexWrap: 'wrap',
-        m: -1
+        alignItems: "center",
+        display: "flex",
+        justifyContent: "space-between",
+        flexWrap: "wrap",
+        m: -1,
       }}
     >
-
-      <Typography
-        sx={{ m: 1 }}
-        variant="h4"
-      >
+      <Typography sx={{ m: 1 }} variant="h4">
         History
       </Typography>
-      <Grid
-        container
-        spacing={3}
-      >
-        <Grid
-          item
-          lg={3}
-          sm={6}
-          xl={3}
-          xs={12}
-        >
-          <TotalProfit/>
+      <Grid container spacing={3}>
+        <Grid item lg={3} sm={6} xl={3} xs={12}>
+          <TotalProfit />
         </Grid>
       </Grid>
-
     </Box>
     <Box sx={{ mt: 3 }}>
       <Card>
@@ -58,14 +40,11 @@ export const HistoryListToolbar = (props) => (
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
-                    <SvgIcon
-                      color="action"
-                      fontSize="small"
-                    >
-                      <SearchIcon/>
+                    <SvgIcon color="action" fontSize="small">
+                      <SearchIcon />
                     </SvgIcon>
                   </InputAdornment>
-                )
+                ),
               }}
               placeholder="Search MM-YYYY"
               variant="outlined"

@@ -13,12 +13,11 @@ import React, { useRef, useEffect, useState } from "react";
 import { SecuredBuy } from "../../components/firebase/SecuredBuy";
 import NextLink from "next/link";
 import StarRateIcon from "@mui/icons-material/StarRate";
+
 // Import other components
 import CustomerNavBar from "../../components/customer_view/navigation/navbar";
 import { SearchBar } from "../../components/customer_view/searchbar";
 import { RestCategory } from "../../components/customer_view/home/restCategory";
-
-// Search bar resource: https://dev.to/mar1anna/create-a-search-bar-with-react-and-material-ui-4he
 
 const japanese = [
   {
@@ -72,6 +71,7 @@ const Japanese = () => {
           }}
         >
           <Container maxWidth={false} style={{ paddingLeft: 70, paddingRight: 70 }}>
+            
             <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
             <br></br>
 
@@ -109,7 +109,6 @@ const Japanese = () => {
                     >
                       <Link
                         to={item.link}
-                        // variant="subtitle2"
                         underline="hover"
                         sx={{
                           cursor: "pointer",

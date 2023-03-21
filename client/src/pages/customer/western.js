@@ -18,8 +18,6 @@ import CustomerNavBar from "../../components/customer_view/navigation/navbar";
 import { SearchBar } from "../../components/customer_view/searchbar";
 import { RestCategory } from "../../components/customer_view/home/restCategory";
 
-// Search bar resource: https://dev.to/mar1anna/create-a-search-bar-with-react-and-material-ui-4he
-
 const western = [
   {
     id: 1,
@@ -117,7 +115,6 @@ const Western = () => {
                     >
                       <Link
                         to={item.link}
-                        // variant="subtitle2"
                         underline="hover"
                         sx={{
                           cursor: "pointer",

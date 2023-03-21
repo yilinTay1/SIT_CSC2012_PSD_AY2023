@@ -13,12 +13,12 @@ import React, { useRef, useEffect, useState } from "react";
 import { SecuredBuy } from "../../components/firebase/SecuredBuy";
 import NextLink from "next/link";
 import StarRateIcon from "@mui/icons-material/StarRate";
+
 // Import other components
 import CustomerNavBar from "../../components/customer_view/navigation/navbar";
 import { SearchBar } from "../../components/customer_view/searchbar";
 import { RestCategory } from "../../components/customer_view/home/restCategory";
 
-// Search bar resource: https://dev.to/mar1anna/create-a-search-bar-with-react-and-material-ui-4he
 const featured = [
   {
     id: 1,
@@ -87,38 +87,8 @@ const Home = () => {
           }}
         >
           <Container maxWidth={false} style={{ paddingLeft: 70, paddingRight: 70 }}>
-            {/* <div
-              style={{
-                display: "flex",
-                alignSelf: "center",
-                justifyContent: "center",
-                flexDirection: "column",
-                padding: 20,
-              }}
-            > */}
+
             <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-            {/* <div style={{ padding: 3 }}>
-                {dataFiltered.map((d) => (
-                  <div
-                    className="text"
-                    style={{
-                      padding: 5,
-                      justifyContent: "normal",
-                      fontSize: 20,
-                      color: "blue",
-                      margin: 1,
-                      width: "250px",
-                      BorderColor: "green",
-                      borderWidth: "10px",
-                    }}
-                    key={d.id}
-                  >
-                    {d}
-                  </div>
-                ))}
-              </div>
-            </div> */}
-            {/* End of Searchbar Component */}
             <br></br>
 
             {/* Restaurants Category Component */}
@@ -153,7 +123,6 @@ const Home = () => {
                     >
                       <Link
                         to={item.link}
-                        // variant="subtitle2"
                         underline="hover"
                         sx={{
                           cursor: "pointer",
@@ -182,9 +151,6 @@ const Home = () => {
                   </Card>
                 </Grid>
               ))}
-              {/* <Grid item> */}
-              {/* <BestSellers /> */}
-              {/* </Grid> */}
             </Grid>
             {/* End of Featured Component */}
           </Container>

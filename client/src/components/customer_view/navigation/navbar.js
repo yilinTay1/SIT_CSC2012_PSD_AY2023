@@ -5,26 +5,21 @@ import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
 import NextLink from "next/link";
 import { useState } from "react";
-import { UserCircle as UserCircleIcon } from "../../../icons/user-circle";
 import { Badge, Paper } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { EmailPassword } from "../../firebase/EmailPassword";
 import Router from "next/router";
 
-// Nav bar resource: https://mui.com/material-ui/react-app-bar/
+// Import from other components
+import { EmailPassword } from "../../firebase/EmailPassword";
 
-// const pages = ['Products', 'Pricing', 'Blog'];
-// const settings = ["Profile", "Account", "Dashboard", "Logout"];
 function CustomerNavBar({ cartItems = 0, setCartItems }) {
   // Cart Things
   const [showCart, setShowCart] = useState(false);
@@ -47,7 +42,6 @@ function CustomerNavBar({ cartItems = 0, setCartItems }) {
   };
 
   // Cart Things
-
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -97,41 +91,34 @@ function CustomerNavBar({ cartItems = 0, setCartItems }) {
           </NextLink>
 
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {/* {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page}
-              </Button>
-            ))} */}
             <Button style={{ marginLeft: 30 }}>
-              <NextLink href="/customer/home" passHref style={{cursor: "pointer",
-                color: "black", textDecoration: "None"}}>
+              <NextLink
+                href="/customer/home"
+                passHref
+                style={{ cursor: "pointer", color: "black", textDecoration: "None" }}
+              >
                 <Typography color="white" variant="h5">
                   Restaurant
                 </Typography>
               </NextLink>
             </Button>
-            {/* <Button style={{ marginLeft: 30 }}>
-              <NextLink href="#" passHref>
-                <Typography color="white" variant="h5">
-                  Orders
-                </Typography>
-              </NextLink>
-            </Button> */}
             <Button style={{ marginLeft: 30 }}>
-              <NextLink href="/customer/history" passHref style={{cursor: "pointer",
-                color: "black", textDecoration: "None"}}>
+              <NextLink
+                href="/customer/history"
+                passHref
+                style={{ cursor: "pointer", color: "black", textDecoration: "None" }}
+              >
                 <Typography color="white" variant="h5">
                   History
                 </Typography>
               </NextLink>
             </Button>
             <Button style={{ marginLeft: 30 }}>
-              <NextLink href="/customer/settings" passHref style={{cursor: "pointer",
-                color: "black", textDecoration: "None"}}>
+              <NextLink
+                href="/customer/settings"
+                passHref
+                style={{ cursor: "pointer", color: "black", textDecoration: "None" }}
+              >
                 <Typography color="white" variant="h5">
                   Settings
                 </Typography>
@@ -181,13 +168,21 @@ function CustomerNavBar({ cartItems = 0, setCartItems }) {
                 </Typography>
                 {cartItems.length > 0 ? (
                   cartItems.map((item) => (
-                    <div key={item.id} style={{ display: "flex", padding: 15, textAlign: "center" }}>
+                    <div
+                      key={item.id}
+                      style={{ display: "flex", padding: 15, textAlign: "center" }}
+                    >
                       <p style={{ marginTop: 10 }}>
                         {item.name} x {item.quantity}
                       </p>
                       <button
                         variant="contained"
-                        style={{ marginLeft: 10, marginTop: 10, border: "None", backgroundColor: "transparent" }}
+                        style={{
+                          marginLeft: 10,
+                          marginTop: 10,
+                          border: "None",
+                          backgroundColor: "transparent",
+                        }}
                         onClick={() => handleRemoveFromCart(item)}
                       >
                         <DeleteIcon />
@@ -233,14 +228,12 @@ function CustomerNavBar({ cartItems = 0, setCartItems }) {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {/* {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))} */}
               <MenuItem onClick={handleChangePassword}>
-                <NextLink href="/customer/change_pwd" passHref style={{cursor: "pointer",
-                color: "black", textDecoration: "None"}}>
+                <NextLink
+                  href="/customer/change_pwd"
+                  passHref
+                  style={{ cursor: "pointer", color: "black", textDecoration: "None" }}
+                >
                   <Typography textAlign="center">Change Password</Typography>
                 </NextLink>
               </MenuItem>

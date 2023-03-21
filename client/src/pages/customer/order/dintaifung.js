@@ -31,8 +31,7 @@ const dtf = [
     id: 2,
     name: "Spicy Lamian",
     image: "/static/images/customer_view/cartlist/dtf/lamian.jpg",
-    description:
-      "All time favourite spicy lamian but without the dumplings.",
+    description: "All time favourite spicy lamian but without the dumplings.",
     restaurant: "Din Tai Fung",
     price: 4.0,
   },
@@ -40,8 +39,7 @@ const dtf = [
     id: 3,
     name: "Xiao Long Bao",
     image: "/static/images/customer_view/cartlist/dtf/xlb.jpg",
-    description:
-      "Restuarant's most famous xiao long bao but replaced with chicken meat and stock",
+    description: "Restuarant's most famous xiao long bao but replaced with chicken meat and stock",
     restaurant: "Din Tai Fung",
     price: 6.5,
   },
@@ -59,22 +57,22 @@ const DtfOrder = () => {
       console.log("/");
     }
   }, [runOnce]);
-  
-// Cart functionality
-const [cartItems, setCartItems] = useState([]);
 
-const handleAddToCart  = (item) => {
-  const existingItem = cartItems.find((cartItem) => cartItem.id === item.id);
+  // Cart functionality
+  const [cartItems, setCartItems] = useState([]);
 
-  if (existingItem) {
-    const updatedItems = cartItems.map((cartItem) =>
-      cartItem.id === item.id ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem
-    );
-    setCartItems(updatedItems);
-  } else {
-    setCartItems([...cartItems, { ...item, quantity: 1 }]);
-  }
-};
+  const handleAddToCart = (item) => {
+    const existingItem = cartItems.find((cartItem) => cartItem.id === item.id);
+
+    if (existingItem) {
+      const updatedItems = cartItems.map((cartItem) =>
+        cartItem.id === item.id ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem
+      );
+      setCartItems(updatedItems);
+    } else {
+      setCartItems([...cartItems, { ...item, quantity: 1 }]);
+    }
+  };
   // Search functionality
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredDtf, setFilteredDtf] = useState(dtf);
@@ -95,62 +93,47 @@ const handleAddToCart  = (item) => {
       )}
 
       {/* Navbar */}
-      <CustomerNavBar  cartItems={cartItems} setCartItems={setCartItems}/>
-        <Box
-          component="main"
-          sx={{
-            flexGrow: 1,
-            py: 8,
-          }}
-        >
-          <Container maxWidth={false} style={{ paddingLeft: 70, paddingRight: 70 }}>
-            <Dtf />
-            <br></br>
-            <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+      <CustomerNavBar cartItems={cartItems} setCartItems={setCartItems} />
+      <Box
+        component="main"
+        sx={{
+          flexGrow: 1,
+          py: 8,
+        }}
+      >
+        <Container maxWidth={false} style={{ paddingLeft: 70, paddingRight: 70 }}>
+          <Dtf />
+          <br></br>
+          <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+          <br></br>
 
-            {/* Category */}
-            <Grid container spacing={10}>
-              <Grid item lg={10} sm={6} xl={10} xs={12}>
-                <br></br>
-                {/* <RestCategory /> */}
+          {/* Din Tai Fung Items */}
+          <Grid container spacing={2}>
+            {filteredDtf.map((item) => (
+              <Grid item key={item.id}>
+                <Card sx={{ maxWidth: 345 }}>
+                  <CardMedia sx={{ height: 200 }} image={item.image} title={item.name} />
+                  <CardContent>
+                    <Typography gutterBottom variant="h5" id="productName" component="div">
+                      {item.name}
+                    </Typography>
+                    <Typography variant="h5" id="productPrice">
+                      ${item.price.toFixed(2)}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {item.description}
+                    </Typography>
+                  </CardContent>
+                  <CardActions>
+                    <Button onClick={() => handleAddToCart(item)}>Add to cart</Button>
+                  </CardActions>
+                </Card>
               </Grid>
-            </Grid>
-            {/* End of Restaurants Category Component */}
-            <br></br>
-
-            {/* Best Sellers */}
-            <Grid container spacing={2}>
-              {filteredDtf.map((item) => (
-                <Grid item key={item.id}>
-                  <Card sx={{ maxWidth: 345 }}>
-                    <CardMedia sx={{ height: 200 }} image={item.image} title={item.name} />
-                    <CardContent>
-                      <Typography gutterBottom variant="h5" id="productName" component="div">
-                        {item.name}
-                      </Typography>
-                      <Typography variant="h5" id="productPrice">
-                        ${item.price.toFixed(2)}
-                      </Typography>
-                      <Typography variant="body2" color="text.secondary">
-                        {item.description}
-                      </Typography>
-                    </CardContent>
-                    <CardActions>
-                      <Button
-                        onClick={() =>
-                          handleAddToCart(item)
-                        }
-                      >
-                        Add to cart
-                      </Button>
-                    </CardActions>
-                  </Card>
-                </Grid>
-              ))}
-            </Grid>
-            {/* End of Best Sellers Component */}
-          </Container>
-        </Box>
+            ))}
+          </Grid>
+          {/* End of Din Tai Fung Items Component */}
+        </Container>
+      </Box>
     </>
   );
 };
