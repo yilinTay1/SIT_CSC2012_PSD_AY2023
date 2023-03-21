@@ -71,7 +71,7 @@ const Settings = () => {
                 {email}
               </Typography>
               <br></br>
-              <NextLink href="/customer/change_pwd" passHref>
+              <NextLink href="/customer/change_pwd" passHref style={{ cursor: "pointer", color: "black", textDecoration: "None" }}>
                 <Button color="primary" variant="contained">
                   Change Password
                 </Button>
