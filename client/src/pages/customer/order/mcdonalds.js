@@ -88,52 +88,56 @@ const McdOrder = () => {
 
   return (
     <>
-      <Head>
-        <title>Mcdonalds | WorthEats</title>
-      </Head>
+      {buyer && (
+        <Head>
+          <title>Mcdonalds | WorthEats</title>
+        </Head>
+      )}
 
       {/* Navbar */}
-      <CustomerNavBar cartItems={cartItems} setCartItems={setCartItems} />
-      <Box
-        component="main"
-        sx={{
-          flexGrow: 1,
-          py: 8,
-        }}
-      >
-        <Container maxWidth={false} style={{ paddingLeft: 70, paddingRight: 70 }}>
-          <Mcd />
-          <br></br>
-          <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-          <br></br>
+      {buyer && <CustomerNavBar cartItems={cartItems} setCartItems={setCartItems} />}
+      {buyer && (
+        <Box
+          component="main"
+          sx={{
+            flexGrow: 1,
+            py: 8,
+          }}
+        >
+          <Container maxWidth={false} style={{ paddingLeft: 70, paddingRight: 70 }}>
+            <Mcd />
+            <br></br>
+            <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+            <br></br>
 
-          {/* Mcdonalds Item */}
-          <Grid container spacing={2}>
-            {filteredMcd.map((item) => (
-              <Grid item key={item.id}>
-                <Card sx={{ maxWidth: 345 }}>
-                  <CardMedia sx={{ height: 200 }} image={item.image} title={item.name} />
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" id="productName" component="div">
-                      {item.name}
-                    </Typography>
-                    <Typography variant="h5" id="productPrice">
-                      ${item.price.toFixed(2)}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      {item.description}
-                    </Typography>
-                  </CardContent>
-                  <CardActions>
-                    <Button onClick={() => handleAddToCart(item)}>Add to cart</Button>
-                  </CardActions>
-                </Card>
-              </Grid>
-            ))}
-          </Grid>
-          {/* End of Mcdonalds Items Component */}
-        </Container>
-      </Box>
+            {/* Mcdonalds Item */}
+            <Grid container spacing={2}>
+              {filteredMcd.map((item) => (
+                <Grid item key={item.id}>
+                  <Card sx={{ maxWidth: 345 }}>
+                    <CardMedia sx={{ height: 200 }} image={item.image} title={item.name} />
+                    <CardContent>
+                      <Typography gutterBottom variant="h5" id="productName" component="div">
+                        {item.name}
+                      </Typography>
+                      <Typography variant="h5" id="productPrice">
+                        ${item.price.toFixed(2)}
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        {item.description}
+                      </Typography>
+                    </CardContent>
+                    <CardActions>
+                      <Button onClick={() => handleAddToCart(item)}>Add to cart</Button>
+                    </CardActions>
+                  </Card>
+                </Grid>
+              ))}
+            </Grid>
+            {/* End of Mcdonalds Items Component */}
+          </Container>
+        </Box>
+      )}
     </>
   );
 };
