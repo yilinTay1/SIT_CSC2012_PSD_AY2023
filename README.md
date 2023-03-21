@@ -49,6 +49,8 @@ The project contains the following databases:
 | orders     | Buyers' order summary               |
 
 # Business Dashboard Web Application
+![image](https://user-images.githubusercontent.com/112333943/226602007-003a92a0-6f62-4980-ab33-e2dd1c9b3a3e.png)
+
 This project contains the source code for a business dashboard web application that allows users to manage their business listings, view order history, and update account settings.
 
 ## Getting Started
@@ -93,6 +95,8 @@ After logging in at http://localhost:3000/business/login, you can access the fol
 - http://localhost:3000/business/settings: Allows you to update your account settings, including your email address and password.
 
 # Customer Online Food Order Web Application
+![image](https://user-images.githubusercontent.com/112333943/226601743-dd1649ce-85e4-4a20-8130-a1aaaf0bbbb9.png)
+
 This project contains the source code for a online food order website for restaurants to repurpose their excess ingredients into other dishes which are not on their actual main menus. This helps to provide more affordable food options for consumers as well as reduce food wastage for restaurants in the food and beverage industry.
 
 ## Getting Started
