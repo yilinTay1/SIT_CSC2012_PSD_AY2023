@@ -107,7 +107,8 @@ function CustomerNavBar({ cartItems = 0, setCartItems }) {
               </Button>
             ))} */}
             <Button style={{ marginLeft: 30 }}>
-              <NextLink href="/customer/home" passHref>
+              <NextLink href="/customer/home" passHref style={{cursor: "pointer",
+                color: "black", textDecoration: "None"}}>
                 <Typography color="white" variant="h5">
                   Restaurant
                 </Typography>
@@ -121,14 +122,16 @@ function CustomerNavBar({ cartItems = 0, setCartItems }) {
               </NextLink>
             </Button> */}
             <Button style={{ marginLeft: 30 }}>
-              <NextLink href="/customer/history" passHref>
+              <NextLink href="/customer/history" passHref style={{cursor: "pointer",
+                color: "black", textDecoration: "None"}}>
                 <Typography color="white" variant="h5">
                   History
                 </Typography>
               </NextLink>
             </Button>
             <Button style={{ marginLeft: 30 }}>
-              <NextLink href="/customer/settings" passHref>
+              <NextLink href="/customer/settings" passHref style={{cursor: "pointer",
+                color: "black", textDecoration: "None"}}>
                 <Typography color="white" variant="h5">
                   Settings
                 </Typography>
@@ -236,7 +239,8 @@ function CustomerNavBar({ cartItems = 0, setCartItems }) {
                 </MenuItem>
               ))} */}
               <MenuItem onClick={handleChangePassword}>
-                <NextLink href="/customer/change_pwd" passHref>
+                <NextLink href="/customer/change_pwd" passHref style={{cursor: "pointer",
+                color: "black", textDecoration: "None"}}>
                   <Typography textAlign="center">Change Password</Typography>
                 </NextLink>
               </MenuItem>

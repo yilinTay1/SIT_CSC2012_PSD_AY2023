@@ -103,7 +103,10 @@ const Japanese = () => {
               {filteredJapanese.map((item) => (
                 <Grid item key={item.id}>
                   <Card sx={{ maxWidth: 550 }}>
-                    <NextLink href={item.link}>
+                    <NextLink
+                      href={item.link}
+                      style={{ cursor: "pointer", color: "black", textDecoration: "None" }}
+                    >
                       <Link
                         to={item.link}
                         // variant="subtitle2"
