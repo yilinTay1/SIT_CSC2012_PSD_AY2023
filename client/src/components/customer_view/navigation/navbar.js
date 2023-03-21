@@ -38,6 +38,7 @@ function CustomerNavBar({ cartItems = 0, setCartItems }) {
     setConfirmationMessage(`Your order total is $${total}. 
     <br> Thank you for your purchase!`);
     setShowConfirmation(true);
+    setShowCart(false); // hide the cart summary panel
   };
 
   const handleCartBlur = (event) => {
