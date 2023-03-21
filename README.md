@@ -8,7 +8,7 @@ The platform also allows businesses to track their surplus food, plan better for
 
 # How to Run The Project
 
-1. Clone the repository: `git clone https://github.com/username/projectname.git`
+1. Clone the repository: `https://github.com/yilinTay1/SIT_CSC2012_PSD_AY2023.git`
 2. Install dependencies: `npm install`
 3. Install react-bootstrap: `npm install react-bootstrap bootstrap`
 4. Make sure your Node.js and npm versions are up to date for `React 18`
