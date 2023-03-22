@@ -8,11 +8,11 @@ The platform also allows businesses to track their surplus food, plan better for
 
 # How to Run The Project
 
-1. Clone the repository: `https://github.com/yilinTay1/SIT_CSC2012_PSD_AY2023.git`
-2. Open terminal and run the server side first :
+1.Clone the repository from GitHub by running the following command in your terminal: `https://github.com/yilinTay1/SIT_CSC2012_PSD_AY2023.git`
+2. Clone the repository from GitHub by running the following command in your terminal:
     * \SIT_CSC2012_PSD_AY2023-main\SIT_CSC2012_PSD_AY2023-main\server> `cd server` 
     * \SIT_CSC2012_PSD_AY2023-main\SIT_CSC2012_PSD_AY2023-main\server> `npm run dev` 
-3. Open another terminal and run the client side
+3. Open another terminal window, and navigate to the client directory by running the following command:
     * \SIT_CSC2012_PSD_AY2023-main\SIT_CSC2012_PSD_AY2023-main\client> `cd client`
     * \SIT_CSC2012_PSD_AY2023-main\SIT_CSC2012_PSD_AY2023-main\client> `npm run dev`
 4. Install Material UI: `npm install @mui/material @emotion/react @emotion/styled`
