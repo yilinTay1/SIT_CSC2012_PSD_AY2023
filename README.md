@@ -165,6 +165,10 @@ After logging in at http://localhost:3000/customer/login, you can access the fol
 
 Once clicked into a restaurant
 - User will be redirected to the restaurant's order page (example: http://localhost:3000/customer/order/mcdonalds) which allows user to be redirected to the Mcdonalds order page in this case. User can view the restaurant details and food items which they can add to cart and order.
+
+![image](https://user-images.githubusercontent.com/112333943/226990498-fa096b90-e9a5-48e8-9260-2f5b466702f2.png)
+![image](https://user-images.githubusercontent.com/112333943/226990838-e199c17e-2aa5-4da4-b075-bff0c3f5eb9f.png)
+
 - Once confirm checkout, the order will be submitted to the database and displayed in order history.
 
 To logout, users can click on the profile beside the shopping cart and logout from there.
