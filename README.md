@@ -164,7 +164,7 @@ After logging in at http://localhost:3000/customer/login, you can access the fol
 - http://localhost:3000/customer/settings: Allows you to view the account details, change password and set notifications
 
 Once clicked into a restaurant
-- User will be redirected to the restaurant's order page http://localhost:3000/customer/order/mcdonalds which allows user to be redirected to the Mcdonalds order page in this case. User can view the restaurant details and food items which they can add to cart and order.
+- User will be redirected to the restaurant's order page (example: http://localhost:3000/customer/order/mcdonalds) which allows user to be redirected to the Mcdonalds order page in this case. User can view the restaurant details and food items which they can add to cart and order.
 - Once confirm checkout, the order will be submitted to the database and displayed in order history.
 
 To logout, users can click on the profile beside the shopping cart and logout from there.
