@@ -49,10 +49,12 @@ generateFoodRecommendation = function(userID){
     var itemsim = rec.calcSimilarItem(data,30,rec.pearson);
     var f = rec.recommendItem(data,itemsim,userID);
 
+    console.log("Generating recommendations for user: ", userID);
+
     for(var i =0;i<10;i++){
         console.log(i+1,": ", f[i]['item']);
     }
-
+    console.log();
     return f;
 }
 

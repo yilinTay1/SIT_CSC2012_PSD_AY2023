@@ -22,7 +22,7 @@ app.use( session(
     }
 ))
 app.use( (req,res,next) => {
-    console.log(store)
+    //console.log(store)
     next()
 })
 /*-------------------------------------------------------*/
@@ -45,9 +45,17 @@ app.post('/api/test' , (req,res)=>{
     res.json( { msg: "/api/test" } )
 })
 
-var a = require("./ML/FoodRecommend.js");
+var foodRec = require("./ML/FoodRecommend.js");
 
 app.get('/api/getRecommend/:userID', (req,res)=>{
-    var test = a.gfr(req.params['userID']);
-    res.json( { recommendations: test } )
+    if (req.params['userID'] == "8Lk2vxgcOLguZwUFIsfJfeqj8XE3"){
+        var userID = '1';
+    }
+    else if (req.params['userID'] == "qO2n3jNj78NMcl0g6eZmr5haBU93"){
+        var userID = '2';
+    }
+    else{
+        var userID = '3';
+    }
+    res.json( { recommendations: foodRec.gfr(userID) } )
 })

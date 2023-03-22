@@ -17,6 +17,7 @@ import StarRateIcon from "@mui/icons-material/StarRate";
 import CustomerNavBar from "../../components/customer_view/navigation/navbar";
 import { SearchBar } from "../../components/customer_view/searchbar";
 import { RestCategory } from "../../components/customer_view/home/restCategory";
+import { FoodRecommend } from "../../components/customer/rec-api";
 
 // Search bar resource: https://dev.to/mar1anna/create-a-search-bar-with-react-and-material-ui-4he
 const featured = [
@@ -46,20 +47,7 @@ const featured = [
   },
 ];
 
-export async function getServerSideProps() {
-  var id = "1";
-  var apiLink = `http://localhost:5000/api/getRecommend/` + id;
-  // Fetch data from external API
-  const res = await fetch(apiLink);
-  const data = await res.json();
-
-  // Pass data to the page via props
-  return {
-    props: { data },
-  };
-}
-
-const Home = (props) => {
+const Home = () => {
   const runOnce = useRef(true);
   const [buyer, setBuyer] = useState(false);
   useEffect(() => {
@@ -169,49 +157,13 @@ const Home = (props) => {
               ))}
             </Grid>
             <br></br>
-            {/* Featured Component */}
+            {/* Recommend Component */}
             <Typography color="textPrimary" variant="h2">
               Recommended For You
             </Typography>
             <br></br>
-
-            {/* Best Sellers */}
-            <Grid container spacing={2}>
-              {props.data["recommendations"].slice(0, 6).map((item) => (
-                <Grid item key={item.id}>
-                  <Card sx={{ maxWidth: 550 }}>
-                    <Link
-                      to={item.link}
-                      // variant="subtitle2"
-                      underline="hover"
-                      sx={{
-                        cursor: "pointer",
-                        color: "black",
-                      }}
-                    >
-                      <CardMedia
-                        sx={{ height: 180 }}
-                        image="https://media.cnn.com/api/v1/images/stellar/prod/211006114703-best-meal-delivery-service-freshly.jpg?q=w_1601,h_900,x_0,y_0,c_fill"
-                        title={item.name}
-                      />
-                      <CardContent sx={{ width: 550, height: 160 }}>
-                        <Typography gutterBottom variant="h5" component="div">
-                          {item.item.split(",")[0]}
-                        </Typography>
-                        <Typography variant="body2" color="text.secondary">
-                          {item.item.split(",")[1]}
-                        </Typography>
-
-                        <Typography variant="h6" color="text.secondary" style={{ float: "right" }}>
-                          ${item.item.split(",")[2]}0
-                        </Typography>
-                      </CardContent>
-                    </Link>
-                  </Card>
-                </Grid>
-              ))}
-            </Grid>
-            {/* End of Featured Component */}
+            <FoodRecommend />
+            {/* End of Recommend Component */}
           </Container>
         </Box>
       )}
