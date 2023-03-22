@@ -17,9 +17,9 @@ export const LatestSales = (props) => {
         data: [18, 5, 19, 27, 29, 19, 20],
         label: 'Monthly Profit ($)',
         maxBarThickness: 10
-      },
+      }
     ],
-    labels: [ "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+    labels: ['Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
   };
 
   const options = {

@@ -8,44 +8,39 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Facebook as FacebookIcon } from '../../icons/facebook';
 import { Google as GoogleIcon } from '../../icons/google';
 
-import { EmailPassword , Google }               from '../../components/firebase/EmailPassword'
-import React, { useRef , useState , useEffect } from 'react'
+import { EmailPassword } from '../../components/firebase/EmailPassword';
+import React, { useEffect, useRef, useState } from 'react';
 
 const Login = () => {
 
-  const [email    , setEmail   ] = useState('test@test.com');
-  const [password , setPassword] = useState('123456');
-  const runOnce                  = useRef(true)
+  const [email, setEmail] = useState('test@test.com');
+  const [password, setPassword] = useState('123456');
+  const runOnce = useRef(true);
   useEffect(() => {
-                      if( runOnce.current )
-                      {
-                        runOnce.current = false
-                        const token = sessionStorage.getItem('account');
-                        if (token) {
-                            console.log("I am authenticated!")
-                        }
-                        else
-                        {
-                            console.log("I am not authenticated!")
-                        }
-                      }
-                  }, [runOnce])
-
+    if (runOnce.current) {
+      runOnce.current = false;
+      const token = sessionStorage.getItem('account');
+      if (token) {
+        console.log('I am authenticated!');
+      } else {
+        console.log('I am not authenticated!');
+      }
+    }
+  }, [runOnce]);
 
   async function signInwithEmail(e) {
-                                        e.preventDefault()
-                                        const result = await EmailPassword.auth(email,password)
-                                        if( result )
-                                        {
-                                          sessionStorage.setItem( "business" , sessionStorage.getItem("uid")  )
-                                          console.log("Redirecting...")
-                                          Router
-                                            .push('/business/dashboard')
-                                            .catch(console.error)
-                                          return
-                                        }
-                                        console.log("Unable to authenticate")
-                                    }
+    e.preventDefault();
+    const result = await EmailPassword.auth(email, password);
+    if (result) {
+      sessionStorage.setItem('business', sessionStorage.getItem('uid'));
+      console.log('Redirecting...');
+      Router
+        .push('/business/dashboard')
+        .catch(console.error);
+      return;
+    }
+    console.log('Unable to authenticate');
+  }
 
   return (
     <>
@@ -68,7 +63,7 @@ const Login = () => {
           >
             <Button
               component="a"
-              startIcon={<ArrowBackIcon fontSize="small" />}
+              startIcon={<ArrowBackIcon fontSize="small"/>}
             >
               Dashboard
             </Button>
@@ -102,7 +97,7 @@ const Login = () => {
                 <Button
                   color="info"
                   fullWidth
-                  startIcon={<FacebookIcon />}
+                  startIcon={<FacebookIcon/>}
                   //onClick={() => formik.handleSubmit()}
                   size="large"
                   variant="contained"
@@ -120,7 +115,7 @@ const Login = () => {
                   fullWidth
                   //onClick={() => formik.handleSubmit()}
                   size="large"
-                  startIcon={<GoogleIcon />}
+                  startIcon={<GoogleIcon/>}
                   variant="contained"
                 >
                   Login with Google
@@ -151,7 +146,7 @@ const Login = () => {
               name="email"
               //onBlur={formik.handleBlur}
               //onChange={formik.handleChange}
-              onChange={ (e) => setEmail(e.target.value) }
+              onChange={(e) => setEmail(e.target.value)}
               type="email"
               value={email}
               //value={formik.values.email}
@@ -166,7 +161,7 @@ const Login = () => {
               name="password"
               //onBlur={formik.handleBlur}
               //onChange={formik.handleChange}
-              onChange={ (e) => setPassword(e.target.value) }
+              onChange={(e) => setPassword(e.target.value)}
               type="password"
               value={password}
               //value={formik.values.password}

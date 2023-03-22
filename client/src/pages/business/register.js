@@ -1,22 +1,12 @@
 import Head from 'next/head';
 import NextLink from 'next/link';
-import Router from 'next/router';
 // import { useFormik } from 'formik';
 // import * as Yup from 'yup';
-import {
-  Box,
-  Button,
-  Checkbox,
-  Container,
-  FormHelperText,
-  Link,
-  TextField,
-  Typography
-} from '@mui/material';
+import { Box, Button, Checkbox, Container, Link, TextField, Typography } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
-import { EmailPassword , Google }  from '../../components/firebase/EmailPassword'
-import React, { useRef , useState , useEffect }   from 'react'
+import { EmailPassword } from '../../components/firebase/EmailPassword';
+import React, { useEffect, useRef, useState } from 'react';
 
 const Register = () => {
 
@@ -61,28 +51,24 @@ const Register = () => {
   //   }
   // });
 
-  const [email    , setEmail   ] = useState('');
-  const [password , setPassword] = useState('');
-  const runOnce                  = useRef(true)
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const runOnce = useRef(true);
   useEffect(() => {
-                      if( runOnce.current )
-                      {
-                        runOnce.current = false
-                      }
-                  }, [runOnce])
+    if (runOnce.current) {
+      runOnce.current = false;
+    }
+  }, [runOnce]);
 
   async function registerWithEmail(e) {
-                                    e.preventDefault()
-                                    const result = await EmailPassword.register(email,password)
-                                    if( result )
-                                    {
-                                      console.log("Valid registration!",result)
-                                    }
-                                    else
-                                    {
-                                      console.log("Invalid registration!",result)
-                                    }
-                                }
+    e.preventDefault();
+    const result = await EmailPassword.register(email, password);
+    if (result) {
+      console.log('Valid registration!', result);
+    } else {
+      console.log('Invalid registration!', result);
+    }
+  }
 
   return (
     <>
@@ -162,7 +148,7 @@ const Register = () => {
               name="email"
               //onBlur={formik.handleBlur}
               //onChange={formik.handleChange}
-              onChange={ (e) => setEmail(e.target.value) }
+              onChange={(e) => setEmail(e.target.value)}
               type="email"
               value={email}
               //value={formik.values.email}
@@ -177,7 +163,7 @@ const Register = () => {
               name="password"
               //onBlur={formik.handleBlur}
               //onChange={formik.handleChange}
-              onChange={ (e) => setPassword(e.target.value) }
+              onChange={(e) => setPassword(e.target.value)}
               type="password"
               value={password}
               //value={formik.values.password}

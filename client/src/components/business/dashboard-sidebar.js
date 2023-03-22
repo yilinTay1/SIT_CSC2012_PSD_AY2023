@@ -76,7 +76,7 @@ export const DashboardSidebar = (props) => {
               passHref
             >
               <img
-                src='/static/Logo.png'
+                src="/static/Logo.png"
                 alt="logo"
                 width="220"
                 height="220"

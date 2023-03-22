@@ -1,9 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Box, Button, Card, CardContent, CardHeader, Divider, TextField } from '@mui/material';
-import { firebase_app , firebase_fs }                           from '../../firebase/firebase-config';
-import { FirebaseStorage }                                      from '../../firebase/FirebaseStorage';
-import { collection , getDocs , doc , setDoc , addDoc, getDoc } from 'firebase/firestore'
-
+import { FirebaseStorage } from '../../firebase/FirebaseStorage';
 
 export const SettingsPassword = (props) => {
   const [values, setValues] = useState({
@@ -20,58 +17,59 @@ export const SettingsPassword = (props) => {
     });
   };
 
-  const [selectedFile, setSelectedFile] = useState()
-  const [preview     , setPreview     ] = useState()
+  const [selectedFile, setSelectedFile] = useState();
+  const [preview, setPreview] = useState();
 
   // create a preview as a side effect, whenever selected file is changed
-  
+
   useEffect(() => {
     if (!selectedFile) {
-      setPreview(undefined)
-      return
+      setPreview(undefined);
+      return;
     }
 
-    const objectUrl = URL.createObjectURL(selectedFile)
-    setPreview(objectUrl)
+    const objectUrl = URL.createObjectURL(selectedFile);
+    setPreview(objectUrl);
 
     // free memory when ever this component is unmounted
-    return () => URL.revokeObjectURL(objectUrl)
+    return () => URL.revokeObjectURL(objectUrl);
 
-  }, [selectedFile])
+  }, [selectedFile]);
 
   const onSelectFile = e => {
     if (!e.target.files || e.target.files.length === 0) {
-      setSelectedFile(undefined)
-      return
+      setSelectedFile(undefined);
+      return;
     }
 
     // I've kept this example simple by using the first image instead of multiple
-    setSelectedFile(e.target.files[0])
-  }
-  
+    setSelectedFile(e.target.files[0]);
+  };
 
-  async function doSomething(e)
-  {
-    e.preventDefault()
-    if( selectedFile )
-    {
-      FirebaseStorage.upload( selectedFile  )
-      console.log( "Listing added" , values.productName , values.productTotalQty , values.productDescription , values.productPrice )
+  async function doSomething(e) {
+    e.preventDefault();
+    if (selectedFile) {
+      FirebaseStorage.upload(selectedFile);
+      console.log('Listing added',
+        values.productName,
+        values.productTotalQty,
+        values.productDescription,
+        values.productPrice);
     }
   }
 
   return (
-    // {...props} 
-    <form onSubmit={doSomething} >
+    // {...props}
+    <form onSubmit={doSomething}>
       <Card>
         <CardHeader
           title="Add New Listing"
         />
-        <Divider />
+        <Divider/>
         <CardContent>
-          <input type='file' 
-          onChange={onSelectFile} />
-          {selectedFile &&  <img src={preview} /> }
+          <input type="file"
+                 onChange={onSelectFile}/>
+          {selectedFile && <img src={preview}/>}
           <TextField
             fullWidth
             label="Product Name"
@@ -79,7 +77,7 @@ export const SettingsPassword = (props) => {
             name="productName"
             onChange={handleChange}
             value={values.productName}
-            type={"text"}
+            type={'text'}
             variant="outlined"
           />
           <TextField
@@ -113,7 +111,7 @@ export const SettingsPassword = (props) => {
             variant="outlined"
           />
         </CardContent>
-        <Divider />
+        <Divider/>
         <Box
           sx={{
             display: 'flex',

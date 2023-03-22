@@ -1,18 +1,14 @@
 import {
   Box,
-  Button,
   Card,
   CardContent,
-  TextField,
+  Grid,
   InputAdornment,
-  SvgIcon, Typography, Grid
+  SvgIcon,
+  TextField,
+  Typography
 } from '@mui/material';
 import { Search as SearchIcon } from '../../../icons/search';
-import { Upload as UploadIcon } from '../../../icons/upload';
-import { Download as DownloadIcon } from '../../../icons/download';
-import { TotalOrder } from '../dashboard/totalOrder';
-import { OrderCompleted } from '../dashboard/orderCompleted';
-import { OrderPending } from '../dashboard/orderPending';
 import { TotalProfit } from '../dashboard/totalProfit';
 
 export const HistoryListToolbar = (props) => (

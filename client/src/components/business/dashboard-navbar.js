@@ -6,7 +6,6 @@ import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import { Bell as BellIcon } from '../../icons/bell';
 import { UserCircle as UserCircleIcon } from '../../icons/user-circle';
-import { Users as UsersIcon } from '../../icons/users';
 import { AccountPopover } from '../account-popover';
 
 const DashboardNavbarRoot = styled(AppBar)(({ theme }) => ({
@@ -48,14 +47,14 @@ export const DashboardNavbar = (props) => {
               }
             }}
           >
-            <MenuIcon fontSize="small" />
+            <MenuIcon fontSize="small"/>
           </IconButton>
           <Tooltip title="Search">
             <IconButton sx={{ ml: 1 }}>
-              <SearchIcon fontSize="small" />
+              <SearchIcon fontSize="small"/>
             </IconButton>
           </Tooltip>
-          <Box sx={{ flexGrow: 1 }} />
+          <Box sx={{ flexGrow: 1 }}/>
           <Tooltip title="Notifications">
             <IconButton sx={{ ml: 1 }}>
               <Badge
@@ -63,7 +62,7 @@ export const DashboardNavbar = (props) => {
                 color="primary"
                 variant="dot"
               >
-                <BellIcon fontSize="small" />
+                <BellIcon fontSize="small"/>
               </Badge>
             </IconButton>
           </Tooltip>
@@ -78,7 +77,7 @@ export const DashboardNavbar = (props) => {
             }}
             src="/static/images/avatars/avatar_1.png"
           >
-            <UserCircleIcon fontSize="small" />
+            <UserCircleIcon fontSize="small"/>
           </Avatar>
         </Toolbar>
       </DashboardNavbarRoot>

@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import { Box, Container, Grid } from '@mui/material';
 import { TotalOrder } from '../../components/business/dashboard/totalOrder';
-import { LatestOrders } from '../../components/business/dashboard/latestOrders';
 import { LatestListings } from '../../components/business/dashboard/latestListings';
 import { LatestSales } from '../../components/business/dashboard/latestSales';
 import { OrderPending } from '../../components/business/dashboard/orderPending';
@@ -9,23 +8,20 @@ import { OrderCompleted } from '../../components/business/dashboard/orderComplet
 import { TotalProfit } from '../../components/business/dashboard/totalProfit';
 import { OrderStatus } from '../../components/business/dashboard/orderStatus';
 import { DashboardLayout } from '../../components/business/dashboard-layout';
-import { Test } from '../../components/business/dashboard/test';
-import { SecuredBiz } from '../../components/firebase/SecuredBiz'
-import React, { useRef , useEffect } from 'react'
+import { SecuredBiz } from '../../components/firebase/SecuredBiz';
+import React, { useEffect, useRef } from 'react';
 
 const Page = () => {
 
-  const runOnce = useRef(true)
-  useEffect( () =>
-  {
-    if( runOnce.current )
-    {
-      runOnce.current = false
-      console.log("/dashboard")
+  const runOnce = useRef(true);
+  useEffect(() => {
+    if (runOnce.current) {
+      runOnce.current = false;
+      console.log('/dashboard');
     }
-  },[runOnce])
+  }, [runOnce]);
 
-  return(
+  return (
     <>
       <Head>
         <title>
@@ -51,7 +47,7 @@ const Page = () => {
               xl={3}
               xs={12}
             >
-              <TotalOrder />
+              <TotalOrder/>
             </Grid>
             <Grid
               item
@@ -60,7 +56,7 @@ const Page = () => {
               sm={6}
               xs={12}
             >
-              <OrderCompleted />
+              <OrderCompleted/>
             </Grid>
             <Grid
               item
@@ -69,7 +65,7 @@ const Page = () => {
               sm={6}
               xs={12}
             >
-              <OrderPending />
+              <OrderPending/>
             </Grid>
             <Grid
               item
@@ -78,7 +74,7 @@ const Page = () => {
               sm={6}
               xs={12}
             >
-              <TotalProfit sx={{ height: '100%' }} />
+              <TotalProfit sx={{ height: '100%' }}/>
             </Grid>
             <Grid
               item
@@ -87,7 +83,7 @@ const Page = () => {
               xl={9}
               xs={12}
             >
-              <LatestSales />
+              <LatestSales/>
             </Grid>
             <Grid
               item
@@ -96,7 +92,7 @@ const Page = () => {
               xl={3}
               xs={12}
             >
-              <OrderStatus sx={{ height: '100%' }} />
+              <OrderStatus sx={{ height: '100%' }}/>
             </Grid>
             <Grid
               item
@@ -105,18 +101,18 @@ const Page = () => {
               xl={18}
               xs={12}
             >
-              <LatestListings sx={{ height: '100%' }} />
+              <LatestListings sx={{ height: '100%' }}/>
             </Grid>
           </Grid>
         </Container>
       </Box>
     </>
-  )
+  );
 };
 
 Page.getLayout = (page) => (
   <DashboardLayout>
-    <SecuredBiz />
+    <SecuredBiz/>
     {page}
   </DashboardLayout>
 );
