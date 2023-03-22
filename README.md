@@ -47,11 +47,27 @@ The project contains the following databases:
 
 | Collection | Description                         |
 | ---------- | ----------------------------------- |
-| customers  | Buyers                              |
-| Business   | Sellers                             |
-| Listings   | Sellers' listed items               |
-| profitDaily| Sellers' daily profits              |
-| orders     | Buyers' order summary               |
+| `customers`  | Buyers                              |
+| `Business`   | Sellers                             |
+| `Listings`   | Sellers' listed items               |
+| `profitDaily` | Sellers' daily profits              |
+| `orders`   | Buyers' order summary               |
+
+## Machine Learning (ML)
+In this project, we have used a machine learning algorithm to recommend customers food items based on their previous ratings. This machhine algorithm will be integrated in the project under 'Recommended For You' at http://localhost:3000/customer/home whereby a list of recommended food items will be displayed for the user.
+
+### server/ML
+| Component | Description |
+| --- | --- |
+| `ML` | A component for machine learning algorithm of ratings. |
+
+### Inside server/ML/
+| Component | Description |
+| --- | --- |
+| `foodData.csv` | Sample dataset of food items |
+| `FoodRecommend.js` | Food item recommendation based on the machine learning algorithm in `RecommendEngine.js`. Food items will be generated based on the machine learning algorithm and displayed in http://localhost:3000/customer/home under 'Recommended For You'. |
+| `ratings.csv` | Sample dataset of ratings given by various users |
+| `RecommendEngine.js` | Machine learning algorithm to recommend food items based on past ratings. |
 
 # Business Dashboard Web Application
 ![image](https://user-images.githubusercontent.com/112333943/226602007-003a92a0-6f62-4980-ab33-e2dd1c9b3a3e.png)
@@ -117,7 +133,6 @@ The project contains the following components:
 | --- | --- |
 | `history` | A component that displays the customer's past order history which includes: order number, date, restaurant name, order items, total price and ratings |
 | `home` | A component that displays the restaurant cuisines categories. |
-| `ML` | A component for machine learning algorithm of ratings. |
 | `navigation` | A component that contains a navbar for the main page after user has logged in and another navbar (loginNav.js) for the login page before user logins with their credientials |
 | `restaurant` | A component that briefly describes the restaurant details when user clicks into restaurant. |
 | `settings` | A component that displays the user's account details and also allows users to change password and save notification preferences. |
