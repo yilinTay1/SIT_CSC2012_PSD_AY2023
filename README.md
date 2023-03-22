@@ -8,7 +8,7 @@ The platform also allows businesses to track their surplus food, plan better for
 
 # How to Run The Project
 
-1.Clone the repository from GitHub by running the following command in your terminal: `https://github.com/yilinTay1/SIT_CSC2012_PSD_AY2023.git`
+1. Clone the repository from GitHub by running the following command in your terminal: `https://github.com/yilinTay1/SIT_CSC2012_PSD_AY2023.git`
 2. Clone the repository from GitHub by running the following command in your terminal:
     * \SIT_CSC2012_PSD_AY2023-main\SIT_CSC2012_PSD_AY2023-main\server> `cd server` 
     * \SIT_CSC2012_PSD_AY2023-main\SIT_CSC2012_PSD_AY2023-main\server> `npm run dev` 
