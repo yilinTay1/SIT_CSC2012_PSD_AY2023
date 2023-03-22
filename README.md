@@ -101,6 +101,8 @@ After logging in at http://localhost:3000/business/login, you can access the fol
 
 # Customer Online Food Order Web Application
 ![image](https://user-images.githubusercontent.com/112333943/226601743-dd1649ce-85e4-4a20-8130-a1aaaf0bbbb9.png)
+![image](https://user-images.githubusercontent.com/112333943/226828539-39eb0a45-2cdd-4849-8106-d94818fbea37.png)
+
 
 This project contains the source code for a online food order website for restaurants to repurpose their excess ingredients into other dishes which are not on their actual main menus. This helps to provide more affordable food options for consumers as well as reduce food wastage for restaurants in the food and beverage industry.
 
