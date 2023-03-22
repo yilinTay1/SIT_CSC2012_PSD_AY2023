@@ -53,6 +53,9 @@ The project contains the following databases:
 | `profitDaily` | Sellers' daily profits              |
 | `orders`   | Buyers' order summary               |
 
+## Docker
+### server/Dockerfile
+
 ## Machine Learning (ML)
 In this project, we have used a machine learning algorithm to recommend customers food items based on their previous ratings. This machine algorithm will be integrated in the project under 'Recommended For You' at http://localhost:3000/customer/home whereby a list of recommended food items will be displayed for the user.
 
