@@ -126,7 +126,7 @@ After logging in at http://localhost:3000/business/login, you can access the fol
 This project contains the source code for a online food order website for restaurants to repurpose their excess ingredients into other dishes which are not on their actual main menus. This helps to provide more affordable food options for consumers as well as reduce food wastage for restaurants in the food and beverage industry.
 
 ## Getting Started
-To access the website, you will need to log in with your customer credentials. To do this, go to http://localhost:3000/customer/login and enter your email address and password. After logging in, you will be redirected to http://localhost:3000/customer/home, which is the main page for the website. It will show a list of restaurant categories and featured restaurants
+To access the website, you will need to log in with your customer credentials. To do this, go to http://localhost:3000/customer/login and enter your email address and password. After logging in, you will be redirected to http://localhost:3000/customer/home, which is the main page for the website. It will show a list of restaurant categories, featured restaurants and recommended for you food items.
 
 ## Components
 The project contains the following components:
