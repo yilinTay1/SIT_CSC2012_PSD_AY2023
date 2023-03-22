@@ -37,7 +37,11 @@ function LoginNavBar() {
 
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             <Button style={{ marginLeft: 30 }}>
-              <NextLink href="/customer/home" passHref>
+              <NextLink
+                href="/customer/home"
+                passHref
+                style={{ cursor: "pointer", color: "black", textDecoration: "None" }}
+              >
                 <Typography color="white" variant="h5">
                   Restaurant
                 </Typography>
