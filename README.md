@@ -9,12 +9,12 @@ The platform also allows businesses to track their surplus food, plan better for
 # How to Run The Project
 
 1. Clone the repository: `https://github.com/yilinTay1/SIT_CSC2012_PSD_AY2023.git`
-2. Open terminal and run the server side first 
-    2a. \SIT_CSC2012_PSD_AY2023-main\SIT_CSC2012_PSD_AY2023-main\server> `cd server` 
-    2b. \SIT_CSC2012_PSD_AY2023-main\SIT_CSC2012_PSD_AY2023-main\server> `npm run dev` 
+2. Open terminal and run the server side first :
+    * \SIT_CSC2012_PSD_AY2023-main\SIT_CSC2012_PSD_AY2023-main\server> `cd server` 
+    * \SIT_CSC2012_PSD_AY2023-main\SIT_CSC2012_PSD_AY2023-main\server> `npm run dev` 
 3. Open another terminal and run the client side
-  3a. \SIT_CSC2012_PSD_AY2023-main\SIT_CSC2012_PSD_AY2023-main\client> `cd client`
-  3b. \SIT_CSC2012_PSD_AY2023-main\SIT_CSC2012_PSD_AY2023-main\client> `npm run dev`
+    * \SIT_CSC2012_PSD_AY2023-main\SIT_CSC2012_PSD_AY2023-main\client> `cd client`
+    * \SIT_CSC2012_PSD_AY2023-main\SIT_CSC2012_PSD_AY2023-main\client> `npm run dev`
 4. Install Material UI: `npm install @mui/material @emotion/react @emotion/styled`
 5. Install react-bootstrap: `npm install react-bootstrap bootstrap`
 6. Install the latest version of Node: `npm install -g npm` 
