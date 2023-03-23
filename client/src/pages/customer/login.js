@@ -116,7 +116,10 @@ const Login = () => {
             {/* Forgot Password */}
             <Typography color="textSecondary" variant="body2">
               {/* Insert Forget Password Link */}
-              <NextLink href="/customer/reset_pwd">
+              <NextLink
+                href="/customer/reset_pwd"
+                style={{ cursor: "pointer", textDecoration: "None" }}
+              >
                 <Link
                   to="/customer/reset_pwd"
                   variant="subtitle2"
@@ -192,7 +195,10 @@ const Login = () => {
               }}
             >
               Don&apos;t have an account? {/* Sign Up Link */}
-              <NextLink href="/customer/register">
+              <NextLink
+                href="/customer/register"
+                style={{ cursor: "pointer", textDecoration: "None" }}
+              >
                 <Link
                   to="/customer/register"
                   variant="subtitle2"

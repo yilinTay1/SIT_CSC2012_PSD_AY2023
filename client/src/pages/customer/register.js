@@ -150,8 +150,8 @@ const Register = () => {
               <Checkbox name="policy" />
               <Typography color="textSecondary" variant="body2">
                 By proceeding, I agree to WorthEats{" "}
-                <NextLink href="#" passHref>
-                  <Link color="primary" underline="always" variant="subtitle2">
+                <NextLink href="#" passHref style={{ cursor: "pointer", textDecoration: "None" }}>
+                  <Link color="primary" underline="hover" variant="subtitle2">
                     Terms and Conditions
                   </Link>
                 </NextLink>
@@ -170,7 +170,11 @@ const Register = () => {
             {/* Redirect to Login Component */}
             <Typography color="textSecondary" variant="body2">
               Have an account? {/* Login Link */}
-              <NextLink href="/customer/login" passHref>
+              <NextLink
+                href="/customer/login"
+                passHref
+                style={{ cursor: "pointer", textDecoration: "None" }}
+              >
                 <Link variant="subtitle2" underline="hover">
                   Sign In
                 </Link>
