@@ -26,13 +26,24 @@ The platform also allows businesses to track their surplus food, plan better for
 - Check your Node.js version: `node -v`. Make sure your Node.js and npm versions are up to date for `React 18`
 - Use yarn instead of npm
 
+# Docker
+
+Our application is containerized using Docker, with Frontend and Backend each inside a container of their own, and both containers contained within a top container. Each container will expose their service under a unique PORT with their own API endpoints, and communication between containers are done solely through REST API calls. 
+
+## Service Container
+| Service | Port |
+| --- | --- |
+|Frontend |3000|
+|Backend |5000|
+
+
 # Backend
 
 ## Authentication
 
 The project contains the following authentication providers:
 
-### Google Firebase Authentication
+### Google Firebase Authentication (Cloud Service)
 
 | Provider           | Description                            |
 | ------------------| -------------------------------------- |
@@ -42,7 +53,7 @@ The project contains the following authentication providers:
 
 The project contains the following databases:
 
-### Google FireStore Database
+### Google FireStore Database (Cloud Service)
 
 | Collection | Description                         |
 | ---------- | ----------------------------------- |
@@ -51,9 +62,6 @@ The project contains the following databases:
 | `Listings`   | Sellers' listed items               |
 | `profitDaily` | Sellers' daily profits              |
 | `orders`   | Buyers' order summary               |
-
-## Docker
-### server/Dockerfile
 
 ## Machine Learning (ML)
 In this project, we have used a machine learning algorithm to recommend customers food items based on their previous ratings. This machine algorithm will be integrated in the project under 'Recommended For You' at http://localhost:3000/customer/home whereby a list of recommended food items will be displayed for the user.
