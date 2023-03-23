@@ -63,6 +63,19 @@ In this project, we have used a machine learning algorithm to recommend customer
 | --- | --- |
 | `ML` | A component for machine learning algorithm of ratings. |
 
+### Implementation of ML
+1. Food item recommendations for User 1
+* Login as test@test.com (email address) and 123456 (password)
+* At http://localhost:3000/customer/home , view recommendations for User 1 at 'Recommended For You'
+
+![image](https://user-images.githubusercontent.com/112333943/227071546-487950ec-7eff-4526-9785-71b5d7ec375b.png)
+
+2. Food item recommendations for User 2
+* Login as test2@test.com (email address) and 123456 (password)
+* At http://localhost:3000/customer/home , view recommendations for User 2 at 'Recommended For You'
+
+![image](https://user-images.githubusercontent.com/112333943/227071721-43cdae26-f865-40da-9422-9485c854ebb8.png)
+
 ### Inside server/ML/
 | Component | Description |
 | --- | --- |
