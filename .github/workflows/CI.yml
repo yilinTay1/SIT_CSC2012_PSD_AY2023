@@ -20,7 +20,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - run: yarn install
-    - run: yarn build --if-present
+    - run: yarn build
 
 
   build_Server:
