@@ -6,6 +6,7 @@ import React, { useRef, useEffect, useState } from "react";
 import NextLink from "next/link";
 import { firebase_app, firebase_fs } from "../../components/firebase/firebase-config";
 import { collection, getDocs, doc, setDoc, addDoc, getDoc } from "firebase/firestore";
+import { SecuredBuy } from "../../components/firebase/SecuredBuy";
 
 const Settings = () => {
   const runOnce = useRef(true);

@@ -4,6 +4,7 @@ import CustomerNavBar from "../../components/customer_view/navigation/navbar";
 import React, { useRef, useEffect, useState } from "react";
 import { makeStyles } from "@mui/styles";
 import Rating from "@mui/material/Rating";
+import { SecuredBuy } from "../../components/firebase/SecuredBuy";
 
 const mockOrders = [
   {
