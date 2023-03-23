@@ -43,15 +43,18 @@ Our application is containerized using Docker, with Frontend and Backend each in
 ## Getting Started
 How to start the application using Docker.
 Make sure your have Docker installed in your system. After you have cloned the repository, follow the steps to launch the application.
-| Provider           | Description                            |
-| ------------------| -------------------------------------- |
+
 | Frontend /client folder | Backend /server folder |
+| ------------------| -------------------------------------- |
 | Step 1 : cd client    | Step 1 : cd server   |
 | Step 2 : yarn install | Step 2 : npm install |
 | Step 2 : yarn install | Step 2 : npm install |
 | Step 3 : yarn build   |                      |
 | Step 4 : cd ..        | Step 3 : cd ..       |
 | Final step : docker compose up |
+
+![image](https://user-images.githubusercontent.com/97490747/227086037-62a1f1fc-8fd9-4cd0-9955-546c0b393359.png)
+
 
 # Backend
 
