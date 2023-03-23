@@ -36,6 +36,13 @@ Our application is containerized using Docker, with Frontend and Backend each in
 |Frontend |3000|
 |Backend |5000|
 
+## Docker configurations
+| Frontend Container | Backend Container | Top Container |
+|![image](https://user-images.githubusercontent.com/97490747/227081420-e765f554-db60-47a9-a78e-5212e43ef567.png)
+|![image](https://user-images.githubusercontent.com/97490747/227081523-55b2bf48-cad7-4410-98c9-0b89a19d23e3.png)
+|![image](https://user-images.githubusercontent.com/97490747/227081687-19cb7a80-b9f1-4f83-bb32-f8af40a86cd4.png)
+|
+
 ## Getting Started
 How to start the application using Docker.
 Make sure your have Docker installed in your system. After you have cloned the repository, follow the steps to launch the application.
