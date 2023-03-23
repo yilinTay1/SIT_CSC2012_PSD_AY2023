@@ -88,4 +88,12 @@ const Settings = () => {
   );
 };
 
+Settings.getLayout = (home) => (
+  <>
+    <SecuredBuy />
+    {home}
+  </>
+);
+
+
 export default Settings;

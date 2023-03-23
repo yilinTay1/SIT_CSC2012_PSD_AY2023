@@ -111,4 +111,11 @@ const History = () => {
   );
 };
 
+History.getLayout = (home) => (
+  <>
+    <SecuredBuy />
+    {home}
+  </>
+);
+
 export default History;
