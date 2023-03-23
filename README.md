@@ -48,6 +48,7 @@ The project contains the following authentication providers:
 | Provider           | Description                            |
 | ------------------| -------------------------------------- |
 | Emails and password| User registered using emails and passwords |
+![image](https://user-images.githubusercontent.com/97490747/227077444-e1ee0b7f-2922-4a75-8fef-fe7087ce4731.png)
 
 ## Databases
 
@@ -62,6 +63,7 @@ The project contains the following databases:
 | `Listings`   | Sellers' listed items               |
 | `profitDaily` | Sellers' daily profits              |
 | `orders`   | Buyers' order summary               |
+![image](https://user-images.githubusercontent.com/97490747/227077774-c6c98081-06f6-45b6-b512-950454b26c8c.png)
 
 ## Machine Learning (ML)
 In this project, we have used a machine learning algorithm to recommend customers food items based on their previous ratings. This machine algorithm will be integrated in the project under 'Recommended For You' at http://localhost:3000/customer/home whereby a list of recommended food items will be displayed for the user.
