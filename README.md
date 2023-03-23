@@ -48,6 +48,7 @@ The project contains the following authentication providers:
 | Provider           | Description                            |
 | ------------------| -------------------------------------- |
 | Emails and password| User registered using emails and passwords |
+
 ![image](https://user-images.githubusercontent.com/97490747/227077444-e1ee0b7f-2922-4a75-8fef-fe7087ce4731.png)
 
 ## Databases
@@ -63,6 +64,7 @@ The project contains the following databases:
 | `Listings`   | Sellers' listed items               |
 | `profitDaily` | Sellers' daily profits              |
 | `orders`   | Buyers' order summary               |
+
 ![image](https://user-images.githubusercontent.com/97490747/227077774-c6c98081-06f6-45b6-b512-950454b26c8c.png)
 
 ## Machine Learning (ML)
