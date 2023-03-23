@@ -50,6 +50,8 @@ Make sure your have Docker installed in your system. After you have cloned the r
 | Step 2 : yarn install | Step 2 : npm install |
 | Step 2 : yarn install | Step 2 : npm install |
 | Step 3 : yarn build   |                      |
+| Step 4 : cd ..        | Step 3 : cd ..       |
+| Final step : docker compose up |
 
 # Backend
 
